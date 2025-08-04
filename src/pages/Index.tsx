@@ -8,6 +8,15 @@ import TestimonialsSection from '@/components/TestimonialsSection';
 import ProcessSection from '@/components/ProcessSection';
 import ComparisonSection from '@/components/ComparisonSection';
 import Footer from '@/components/Footer';
+import CustomCursor from '@/components/CustomCursor';
+import { 
+  PageLoadWrapper, 
+  AnimatedNav, 
+  SlideInAnimation, 
+  SectionScaleAnimation,
+  FooterSlideUp,
+  AnimatedBackground
+} from '@/components/AnimatedComponents';
 
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -26,16 +35,32 @@ const Index = () => {
   }
 
   return (
-    <div className="min-h-screen bg-background">
-      <Navigation />
+    <PageLoadWrapper>
+      <CustomCursor />
+      <AnimatedBackground />
+      <AnimatedNav>
+        <Navigation />
+      </AnimatedNav>
       <HeroSection />
-      <AboutSection />
-      <ProductsSection />
-      <TestimonialsSection />
-      <ProcessSection />
-      <ComparisonSection />
-      <Footer />
-    </div>
+      <SlideInAnimation direction="up" delay={0.2}>
+        <AboutSection />
+      </SlideInAnimation>
+      <SectionScaleAnimation>
+        <ProductsSection />
+      </SectionScaleAnimation>
+      <SlideInAnimation direction="left" delay={0.1}>
+        <TestimonialsSection />
+      </SlideInAnimation>
+      <SlideInAnimation direction="right" delay={0.1}>
+        <ProcessSection />
+      </SlideInAnimation>
+      <SectionScaleAnimation>
+        <ComparisonSection />
+      </SectionScaleAnimation>
+      <FooterSlideUp>
+        <Footer />
+      </FooterSlideUp>
+    </PageLoadWrapper>
   );
 };
 

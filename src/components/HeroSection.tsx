@@ -9,6 +9,15 @@ import {
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import { useState } from 'react';
+import { motion } from 'framer-motion';
+import { 
+  SplitTextAnimation, 
+  SlideInAnimation, 
+  StaggeredCardsContainer,
+  AnimatedCard,
+  FloatingElement,
+  GlowButton
+} from '@/components/AnimatedComponents';
 
 // Import generated images
 import touchlessElevator from '@/assets/touchless-elevator.jpg';
@@ -114,54 +123,110 @@ const HeroSection = () => {
 
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
-      {/* Background Grid Animation */}
-      <div className="absolute inset-0 bg-grid-pattern animate-grid-move opacity-30"></div>
+      {/* Animated Background Grid */}
+      <motion.div 
+        className="absolute inset-0 bg-grid-pattern opacity-30"
+        animate={{
+          opacity: [0.2, 0.4, 0.2],
+          backgroundPosition: ["0 0", "40px 40px", "0 0"],
+        }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          ease: "linear",
+        }}
+      />
+      
+      {/* Floating Elements */}
+      <FloatingElement delay={0}>
+        <div className="absolute top-20 left-10 w-2 h-2 bg-neon-cyan rounded-full opacity-60"></div>
+      </FloatingElement>
+      <FloatingElement delay={2}>
+        <div className="absolute top-40 right-20 w-3 h-3 bg-neon-blue rounded-full opacity-40"></div>
+      </FloatingElement>
+      <FloatingElement delay={1}>
+        <div className="absolute bottom-40 left-20 w-1 h-1 bg-neon-green rounded-full opacity-80"></div>
+      </FloatingElement>
       
       {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-hero"></div>
+      <motion.div 
+        className="absolute inset-0 bg-gradient-hero"
+        animate={{
+          background: [
+            "linear-gradient(135deg, hsl(var(--background)), hsl(var(--surface-elevated)))",
+            "linear-gradient(225deg, hsl(var(--surface)), hsl(var(--background)))",
+            "linear-gradient(135deg, hsl(var(--background)), hsl(var(--surface-elevated)))",
+          ],
+        }}
+        transition={{
+          duration: 6,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      />
       
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <div className="space-y-8">
             <div className="space-y-6">
-              <h1 className="text-5xl lg:text-7xl font-bold leading-tight">
-                <span className="text-gradient">Future of Vertical</span>
-                <br />
-                <span className="text-gradient">Mobility</span>
-              </h1>
+              <SplitTextAnimation 
+                text="Future of Vertical"
+                className="text-5xl lg:text-7xl font-bold leading-tight"
+              />
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 1, delay: 1.2, ease: "easeOut" }}
+              >
+                <span className="text-gradient text-5xl lg:text-7xl font-bold">Mobility</span>
+              </motion.div>
               
-              <p className="text-xl text-muted-foreground max-w-xl leading-relaxed">
-                Advanced elevators and escalators for residential towers, workspaces, malls, and hospitals – powered by 24/7 service and future-ready tech.
-              </p>
+              <SlideInAnimation direction="right" delay={1.5}>
+                <p className="text-xl text-muted-foreground max-w-xl leading-relaxed">
+                  Advanced elevators and escalators for residential towers, workspaces, malls, and hospitals – powered by 24/7 service and future-ready tech.
+                </p>
+              </SlideInAnimation>
             </div>
 
             {/* CTAs */}
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button className="btn-primary group">
+            <motion.div 
+              className="flex flex-col sm:flex-row gap-4"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 2 }}
+            >
+              <GlowButton className="btn-primary group">
                 Get Quote
                 <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-              </Button>
-              <Button className="btn-outline group">
+              </GlowButton>
+              <GlowButton className="btn-outline group">
                 <Calendar className="w-5 h-5 mr-2" />
                 Book Service
-              </Button>
-              <Button className="btn-outline group">
+              </GlowButton>
+              <GlowButton className="btn-outline group">
                 <Eye className="w-5 h-5 mr-2" />
                 View Cabins
-              </Button>
-            </div>
+              </GlowButton>
+            </motion.div>
 
             {/* Discover Section */}
-            <div className="pt-8">
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                Discover what sets us apart in the world of vertical mobility solutions
-              </p>
-            </div>
+            <SlideInAnimation direction="up" delay={2.2}>
+              <div className="pt-8">
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  Discover what sets us apart in the world of vertical mobility solutions
+                </p>
+              </div>
+            </SlideInAnimation>
           </div>
 
           {/* Right Cards Carousel */}
-          <div className="relative">
+          <motion.div 
+            className="relative"
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, delay: 2.5, ease: "easeOut" }}
+          >
             <Carousel
               plugins={[
                 Autoplay({
@@ -173,37 +238,46 @@ const HeroSection = () => {
               <CarouselContent>
                 {elevatorCards.map((card, index) => (
                   <CarouselItem key={index}>
-                    <div 
-                      className="relative p-6 h-80 bg-surface-elevated/90 backdrop-blur-sm rounded-2xl border border-neon-cyan/20 transition-all duration-300 hover:border-neon-cyan/50 group cursor-pointer"
+                    <motion.div 
+                      className="relative p-6 h-80 bg-surface-elevated/90 backdrop-blur-sm rounded-2xl border border-neon-cyan/20 group cursor-pointer"
                       onMouseEnter={() => setHoveredCard(index)}
                       onMouseLeave={() => setHoveredCard(null)}
-                      style={{
-                        transform: hoveredCard === index ? 'translateY(-5px)' : 'translateY(0)',
-                        boxShadow: hoveredCard === index 
-                          ? '0 20px 40px -10px rgba(0, 230, 255, 0.3), 0 0 30px rgba(0, 230, 255, 0.2)' 
-                          : '0 10px 20px -5px rgba(0, 0, 0, 0.3)'
+                      whileHover={{ 
+                        y: -8,
+                        rotateY: 5,
+                        borderColor: "hsl(var(--neon-cyan) / 0.5)",
+                        boxShadow: "0 25px 50px -12px rgba(0, 230, 255, 0.4), 0 0 40px rgba(0, 230, 255, 0.3)",
                       }}
+                      transition={{ duration: 0.3 }}
                     >
                       {/* Card Content */}
                       <div className="flex flex-col h-full justify-between">
                         <div>
                           {/* Background Image */}
                           <div className="absolute inset-0 rounded-2xl overflow-hidden">
-                            <img 
+                            <motion.img 
                               src={card.image} 
                               alt={card.title}
-                              className="w-full h-full object-cover opacity-20 group-hover:opacity-30 transition-opacity duration-300"
+                              className="w-full h-full object-cover opacity-20"
+                              whileHover={{ scale: 1.1, opacity: 0.3 }}
+                              transition={{ duration: 0.3 }}
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-surface-elevated/95 to-surface-elevated/80"></div>
                           </div>
                           
                           <div className="relative z-10">
-                            <div className="flex justify-center mb-4 text-neon-cyan">
-                              {card.icon}
-                            </div>
-                            <h3 className="text-xl font-semibold text-foreground mb-3 text-center">
+                            <FloatingElement delay={index * 0.3}>
+                              <div className="flex justify-center mb-4 text-neon-cyan">
+                                {card.icon}
+                              </div>
+                            </FloatingElement>
+                            <motion.h3 
+                              className="text-xl font-semibold text-foreground mb-3 text-center"
+                              whileHover={{ color: "hsl(var(--neon-cyan))" }}
+                              transition={{ duration: 0.2 }}
+                            >
                               {card.title}
-                            </h3>
+                            </motion.h3>
                             <p className="text-muted-foreground text-center leading-relaxed">
                               {card.description}
                             </p>
@@ -211,47 +285,78 @@ const HeroSection = () => {
                         </div>
                         
                         {/* Additional Details on Hover */}
-                        <div className={`transition-all duration-300 ${
-                          hoveredCard === index ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-                        }`}>
+                        <motion.div 
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ 
+                            opacity: hoveredCard === index ? 1 : 0,
+                            y: hoveredCard === index ? 0 : 20,
+                          }}
+                          transition={{ duration: 0.3 }}
+                        >
                           <div className="border-t border-neon-cyan/20 pt-4 mt-4">
                             <ul className="space-y-2">
                               {card.details.map((detail, detailIndex) => (
-                                <li key={detailIndex} className="text-sm text-neon-cyan flex items-center">
+                                <motion.li 
+                                  key={detailIndex} 
+                                  className="text-sm text-neon-cyan flex items-center"
+                                  initial={{ x: -10, opacity: 0 }}
+                                  animate={{ 
+                                    x: hoveredCard === index ? 0 : -10,
+                                    opacity: hoveredCard === index ? 1 : 0,
+                                  }}
+                                  transition={{ delay: detailIndex * 0.1 }}
+                                >
                                   <div className="w-1 h-1 bg-neon-cyan rounded-full mr-2"></div>
                                   {detail}
-                                </li>
+                                </motion.li>
                               ))}
                             </ul>
-                            <Button 
+                            <GlowButton 
                               variant="outline" 
                               size="sm" 
                               className="w-full mt-3 border-neon-cyan/30 text-neon-cyan hover:bg-neon-cyan/10"
                             >
                               Know More
-                            </Button>
+                            </GlowButton>
                           </div>
-                        </div>
+                        </motion.div>
                       </div>
                       
                       {/* Hover Glow Effect */}
-                      <div className={`absolute inset-0 rounded-2xl transition-opacity duration-300 ${
-                        hoveredCard === index ? 'opacity-100' : 'opacity-0'
-                      } bg-gradient-to-r from-neon-cyan/5 to-neon-blue/5 pointer-events-none`}></div>
-                    </div>
+                      <motion.div 
+                        className="absolute inset-0 rounded-2xl bg-gradient-to-r from-neon-cyan/5 to-neon-blue/5 pointer-events-none"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: hoveredCard === index ? 1 : 0 }}
+                        transition={{ duration: 0.3 }}
+                      />
+                    </motion.div>
                   </CarouselItem>
                 ))}
               </CarouselContent>
               
               {/* Custom Navigation */}
-              <CarouselPrevious className="absolute left-2 top-1/2 -translate-y-1/2 bg-surface-elevated/80 border-neon-cyan/30 text-neon-cyan hover:bg-neon-cyan/10" />
-              <CarouselNext className="absolute right-2 top-1/2 -translate-y-1/2 bg-surface-elevated/80 border-neon-cyan/30 text-neon-cyan hover:bg-neon-cyan/10" />
+              <motion.div
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+              >
+                <CarouselPrevious className="absolute left-2 top-1/2 -translate-y-1/2 bg-surface-elevated/80 border-neon-cyan/30 text-neon-cyan hover:bg-neon-cyan/10" />
+              </motion.div>
+              <motion.div
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+              >
+                <CarouselNext className="absolute right-2 top-1/2 -translate-y-1/2 bg-surface-elevated/80 border-neon-cyan/30 text-neon-cyan hover:bg-neon-cyan/10" />
+              </motion.div>
             </Carousel>
             
             {/* Floating Accent Elements */}
-            <div className="absolute -top-4 -right-4 w-16 h-16 bg-gradient-accent rounded-full animate-pulse-glow opacity-60"></div>
-            <div className="absolute -bottom-6 -left-6 w-12 h-12 border-2 border-neon-cyan/50 rounded-full animate-float"></div>
-          </div>
+            <FloatingElement delay={0}>
+              <div className="absolute -top-4 -right-4 w-16 h-16 bg-gradient-accent rounded-full animate-pulse-glow opacity-60"></div>
+            </FloatingElement>
+            <FloatingElement delay={1.5}>
+              <div className="absolute -bottom-6 -left-6 w-12 h-12 border-2 border-neon-cyan/50 rounded-full"></div>
+            </FloatingElement>
+          </motion.div>
         </div>
       </div>
     </section>

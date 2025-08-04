@@ -76,6 +76,11 @@
   body {
     @apply bg-background text-foreground font-poppins;
     background-image: var(--grid-pattern);
+    cursor: none;
+  }
+  
+  * {
+    cursor: none !important;
   }
   
   /* Scrollbar Styling */
