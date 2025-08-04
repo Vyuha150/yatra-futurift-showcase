@@ -18,7 +18,8 @@ const Navigation = () => {
     <div className="container mx-auto px-6 py-4">
       <div className="flex items-center justify-between">
         {/* Logo */}
-        <motion.div 
+        <motion.a 
+          href="/"
           className="flex items-center space-x-3 group cursor-pointer"
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
@@ -45,7 +46,7 @@ const Navigation = () => {
               transition={{ duration: 0.3 }}
             />
           </motion.div>
-        </motion.div>
+        </motion.a>
 
         {/* Desktop Navigation */}
         <motion.div 
