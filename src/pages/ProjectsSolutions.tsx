@@ -1,5 +1,6 @@
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
+import CustomCursor from '@/components/CustomCursor';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { 
@@ -92,6 +93,7 @@ const ProjectsSolutions = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <CustomCursor />
       <Navigation />
       
       {/* Hero Section */}

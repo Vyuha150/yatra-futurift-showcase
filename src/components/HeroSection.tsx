@@ -172,7 +172,7 @@ const HeroSection = () => {
             <div className="space-y-6">
               <SplitTextAnimation 
                 text="Future of Vertical"
-                className="text-5xl lg:text-7xl font-bold leading-tight"
+                className="text-5xl lg:text-7xl font-bold leading-tight text-gradient"
               />
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
@@ -273,14 +273,24 @@ const HeroSection = () => {
                             </FloatingElement>
                             <motion.h3 
                               className="text-xl font-semibold text-foreground mb-3 text-center"
-                              whileHover={{ color: "hsl(var(--neon-cyan))" }}
+                              whileHover={{ 
+                                color: "hsl(var(--neon-cyan))",
+                                textShadow: "0 0 20px hsl(var(--neon-cyan) / 0.8)"
+                              }}
                               transition={{ duration: 0.2 }}
                             >
                               {card.title}
                             </motion.h3>
-                            <p className="text-muted-foreground text-center leading-relaxed">
+                            <motion.p 
+                              className="text-muted-foreground text-center leading-relaxed"
+                              whileHover={{ 
+                                color: "hsl(var(--foreground))",
+                                textShadow: "0 0 10px hsl(var(--neon-cyan) / 0.4)"
+                              }}
+                              transition={{ duration: 0.2 }}
+                            >
                               {card.description}
-                            </p>
+                            </motion.p>
                           </div>
                         </div>
                         

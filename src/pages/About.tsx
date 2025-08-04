@@ -1,10 +1,12 @@
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
+import CustomCursor from '@/components/CustomCursor';
 import { Building2, Users, Award, Target } from 'lucide-react';
 
 const About = () => {
   return (
     <div className="min-h-screen bg-background">
+      <CustomCursor />
       <Navigation />
       
       {/* Hero Section */}

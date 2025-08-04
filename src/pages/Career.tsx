@@ -1,5 +1,6 @@
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
+import CustomCursor from '@/components/CustomCursor';
 import { Button } from '@/components/ui/button';
 import { MapPin, Clock, Users, Briefcase } from 'lucide-react';
 
@@ -37,6 +38,7 @@ const Career = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <CustomCursor />
       <Navigation />
       
       {/* Hero Section */}

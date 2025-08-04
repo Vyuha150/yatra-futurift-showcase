@@ -1,5 +1,6 @@
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
+import CustomCursor from '@/components/CustomCursor';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -8,6 +9,7 @@ import { MapPin, Phone, Mail, Clock } from 'lucide-react';
 const Contact = () => {
   return (
     <div className="min-h-screen bg-background">
+      <CustomCursor />
       <Navigation />
       
       {/* Hero Section */}

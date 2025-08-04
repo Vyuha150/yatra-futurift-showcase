@@ -1,5 +1,6 @@
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
+import CustomCursor from '@/components/CustomCursor';
 import { Button } from '@/components/ui/button';
 import { 
   Brain, 
@@ -69,6 +70,7 @@ const InnovationsTech = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <CustomCursor />
       <Navigation />
       
       {/* Hero Section */}
