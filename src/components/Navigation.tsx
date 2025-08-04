@@ -6,9 +6,11 @@ const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navItems = [
-    { label: 'About', href: '#about' },
-    { label: 'Career', href: '#career' },
-    { label: 'Projects', href: '#projects' },
+    { label: 'About', href: '/about' },
+    { label: 'Career', href: '/career' },
+    { label: 'Projects and Solutions', href: '/projects' },
+    { label: 'Innovations and Tech', href: '/innovations' },
+    { label: 'Contact', href: '/contact' },
   ];
 
   return (
