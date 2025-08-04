@@ -2,95 +2,69 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Yatra Elevators Design System - Futuristic Dark Theme */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Yatra Brand Colors */
+    --brand-slate: 215 35% 35%; /* #223B57 - Primary Brand Color */
+    --brand-slate-light: 215 35% 45%;
+    --brand-slate-dark: 215 35% 25%;
+    
+    /* Futuristic Accent Colors */
+    --neon-cyan: 180 100% 50%;
+    --neon-cyan-glow: 180 100% 60%;
+    --neon-blue: 200 100% 60%;
+    --neon-green: 120 100% 50%;
+    
+    /* Dark Theme Base */
+    --background: 220 25% 8%; /* Deep dark blue-gray */
+    --foreground: 0 0% 95%;
+    
+    --surface: 220 25% 12%;
+    --surface-elevated: 220 25% 16%;
+    --surface-glass: 220 25% 12% / 0.8;
+    
+    --card: 220 25% 12%;
+    --card-foreground: 0 0% 95%;
+    --card-glow: 220 25% 12% / 0.5;
+    
+    --primary: var(--brand-slate);
+    --primary-foreground: 0 0% 98%;
+    --primary-glow: var(--brand-slate) / 0.3;
+    
+    --accent: var(--neon-cyan);
+    --accent-foreground: 220 25% 8%;
+    --accent-glow: var(--neon-cyan) / 0.4;
+    
+    --secondary: 220 25% 18%;
+    --secondary-foreground: 0 0% 90%;
+    
+    --muted: 220 25% 15%;
+    --muted-foreground: 0 0% 65%;
+    
+    --border: 220 25% 25%;
+    --border-glow: var(--neon-cyan) / 0.3;
+    
+    --input: 220 25% 18%;
+    --ring: var(--neon-cyan);
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--brand-slate)), hsl(var(--brand-slate-light)));
+    --gradient-accent: linear-gradient(135deg, hsl(var(--neon-cyan)), hsl(var(--neon-blue)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--background)), hsl(var(--surface-elevated)));
+    --gradient-card: linear-gradient(145deg, hsl(var(--surface)), hsl(var(--surface-elevated)));
+    --gradient-glow: radial-gradient(circle, hsl(var(--neon-cyan) / 0.1), transparent);
+    
+    /* Grid Pattern */
+    --grid-pattern: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h40v40H0z' fill='none'/%3E%3Cpath d='M0 0h1v40H0zM20 0h1v40h-1zM0 0v1h40V0zM0 20v1h40v-1z' fill='%23ffffff' fill-opacity='0.03'/%3E%3C/svg%3E");
+    
+    /* Shadows */
+    --shadow-glow: 0 0 40px hsl(var(--accent-glow));
+    --shadow-card: 0 8px 32px hsl(220 25% 8% / 0.4);
+    --shadow-elevated: 0 20px 60px hsl(220 25% 8% / 0.6);
+    
+    --radius: 0.75rem;
   }
 }
 
@@ -100,6 +74,86 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-poppins;
+    background-image: var(--grid-pattern);
   }
+  
+  /* Scrollbar Styling */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--accent));
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--neon-cyan-glow));
+  }
+}
+
+@layer components {
+  /* Button Variants */
+  .btn-primary {
+    @apply bg-gradient-to-r from-[hsl(var(--brand-slate))] to-[hsl(var(--brand-slate-light))] text-primary-foreground px-8 py-3 rounded-lg font-semibold transition-all duration-300 hover:shadow-[0_0_20px_hsl(var(--primary-glow))] hover:scale-105;
+  }
+  
+  .btn-accent {
+    @apply bg-gradient-to-r from-[hsl(var(--neon-cyan))] to-[hsl(var(--neon-blue))] text-accent-foreground px-8 py-3 rounded-lg font-semibold transition-all duration-300 hover:shadow-[0_0_20px_hsl(var(--accent-glow))] hover:scale-105;
+  }
+  
+  .btn-outline {
+    @apply border-2 border-[hsl(var(--neon-cyan))] text-[hsl(var(--neon-cyan))] px-8 py-3 rounded-lg font-semibold transition-all duration-300 hover:bg-[hsl(var(--neon-cyan))] hover:text-[hsl(var(--background))] hover:shadow-[0_0_20px_hsl(var(--accent-glow))];
+  }
+  
+  /* Card Styles */
+  .card-glass {
+    @apply bg-[hsl(var(--surface-glass))] backdrop-blur-lg border border-[hsl(var(--border))] rounded-xl;
+  }
+  
+  .card-glow {
+    @apply bg-gradient-to-br from-[hsl(var(--surface))] to-[hsl(var(--surface-elevated))] border border-[hsl(var(--border))] rounded-xl shadow-[0_8px_32px_hsl(var(--card-glow))] hover:shadow-[0_20px_60px_hsl(var(--accent-glow))] transition-all duration-500;
+  }
+  
+  /* Text Gradients */
+  .text-gradient {
+    @apply bg-gradient-to-r from-[hsl(var(--neon-cyan))] to-[hsl(var(--neon-blue))] bg-clip-text text-transparent;
+  }
+  
+  .text-brand {
+    @apply bg-gradient-to-r from-[hsl(var(--brand-slate-light))] to-[hsl(var(--neon-cyan))] bg-clip-text text-transparent;
+  }
+  
+  /* Animations */
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite alternate;
+  }
+  
+  .animate-grid-move {
+    animation: grid-move 20s linear infinite;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes pulse-glow {
+  0% { box-shadow: 0 0 20px hsl(var(--accent-glow)); }
+  100% { box-shadow: 0 0 40px hsl(var(--accent-glow)), 0 0 60px hsl(var(--accent-glow)); }
+}
+
+@keyframes grid-move {
+  0% { background-position: 0 0; }
+  100% { background-position: 40px 40px; }
 }
