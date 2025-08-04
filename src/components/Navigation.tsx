@@ -6,10 +6,9 @@ const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navItems = [
-    { label: 'About us', href: '#about' },
-    { label: 'Services', href: '#services' },
-    { label: 'Products', href: '#products' },
-    { label: 'Work with us', href: '#contact' },
+    { label: 'Innovation and Tech', href: '#tech' },
+    { label: 'Products and Services', href: '#products' },
+    { label: 'Contact', href: '#contact' },
   ];
 
   return (
@@ -17,22 +16,40 @@ const Navigation = () => {
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-gradient-accent rounded-md flex items-center justify-center">
-              <span className="text-accent-foreground font-bold text-sm">Y</span>
+          <div className="flex items-center space-x-3 group cursor-pointer">
+            <div className="relative w-10 h-10 bg-gradient-accent rounded-lg flex items-center justify-center overflow-hidden transition-all duration-300 group-hover:scale-105">
+              {/* Animated glow effect */}
+              <div className="absolute inset-0 bg-gradient-to-r from-neon-cyan/20 to-neon-blue/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              
+              {/* Y Letter with elevator arrows */}
+              <div className="relative z-10 text-white font-bold text-lg">
+                <svg width="24" height="24" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M8 8L16 16L24 8" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M16 16V24" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"/>
+                  <path d="M12 24L16 20L20 24" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </div>
             </div>
-            <span className="text-xl font-bold text-gradient">YATRA</span>
+            <div className="transition-all duration-300">
+              <span className="text-xl font-bold text-gradient group-hover:text-neon-cyan transition-colors duration-300">YATRA</span>
+              <p className="text-xs text-muted-foreground group-hover:text-neon-cyan/70 transition-colors duration-300">Elevators & Escalators</p>
+            </div>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => (
+            {navItems.map((item, index) => (
               <a
                 key={item.label}
                 href={item.href}
-                className="text-foreground hover:text-neon-cyan transition-colors duration-300 font-medium"
+                className="relative text-foreground hover:text-neon-cyan transition-all duration-300 font-medium group"
+                style={{ animationDelay: `${index * 100}ms` }}
               >
-                {item.label}
+                <span className="relative z-10">{item.label}</span>
+                {/* Hover underline animation */}
+                <div className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+                {/* Hover glow effect */}
+                <div className="absolute inset-0 bg-neon-cyan/10 rounded-md scale-95 opacity-0 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 -z-10"></div>
               </a>
             ))}
           </div>

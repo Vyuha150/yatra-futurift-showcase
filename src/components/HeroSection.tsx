@@ -17,37 +17,83 @@ const HeroSection = () => {
     {
       title: "Touchless Elevators",
       description: "Voice commands and gesture controls for a hygienic experience",
-      icon: "🤚",
+      icon: (
+        <svg className="w-8 h-8" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M16 4C16 4 12 8 8 12C8 16 12 20 16 20C20 20 24 16 24 12C20 8 16 4 16 4Z" stroke="currentColor" strokeWidth="2" fill="none"/>
+          <path d="M16 12L16 16" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+          <path d="M12 24L20 24" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+          <path d="M10 28L22 28" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+        </svg>
+      ),
       details: ["Voice Recognition", "Gesture Controls", "UV Sanitization"]
     },
     {
       title: "IoT Smart Monitoring",
       description: "Real-time diagnostics and predictive maintenance alerts",
-      icon: "📡",
+      icon: (
+        <svg className="w-8 h-8" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="16" cy="16" r="3" stroke="currentColor" strokeWidth="2"/>
+          <path d="M12 12L8 8M20 12L24 8M12 20L8 24M20 20L24 24" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+          <circle cx="8" cy="8" r="2" fill="currentColor"/>
+          <circle cx="24" cy="8" r="2" fill="currentColor"/>
+          <circle cx="8" cy="24" r="2" fill="currentColor"/>
+          <circle cx="24" cy="24" r="2" fill="currentColor"/>
+        </svg>
+      ),
       details: ["24/7 Monitoring", "Predictive Analytics", "Remote Diagnostics"]
     },
     {
       title: "Energy Efficient",
       description: "LED lighting and regenerative drives reduce power consumption",
-      icon: "⚡",
+      icon: (
+        <svg className="w-8 h-8" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M16 2L20 10H24L18 16L20 24L16 20L12 24L14 16L8 10H12L16 2Z" stroke="currentColor" strokeWidth="2" fill="none"/>
+          <circle cx="6" cy="6" r="1" fill="currentColor"/>
+          <circle cx="26" cy="6" r="1" fill="currentColor"/>
+          <circle cx="6" cy="26" r="1" fill="currentColor"/>
+          <circle cx="26" cy="26" r="1" fill="currentColor"/>
+        </svg>
+      ),
       details: ["LED Lighting", "Regenerative Drives", "Power Saving Mode"]
     },
     {
       title: "Emergency Response",
       description: "Instant connectivity to emergency services and support",
-      icon: "🚨",
+      icon: (
+        <svg className="w-8 h-8" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="16" cy="16" r="12" stroke="currentColor" strokeWidth="2"/>
+          <path d="M16 8V16L20 20" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+          <circle cx="16" cy="16" r="2" fill="currentColor"/>
+          <path d="M8 4L12 8M24 4L20 8M8 28L12 24M24 28L20 24" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+        </svg>
+      ),
       details: ["Auto Emergency Call", "Two-way Communication", "Battery Backup"]
     },
     {
       title: "Custom Interiors",
       description: "Premium finishes and personalized cabin designs",
-      icon: "✨",
+      icon: (
+        <svg className="w-8 h-8" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="6" y="6" width="20" height="20" rx="2" stroke="currentColor" strokeWidth="2"/>
+          <path d="M6 12L26 12" stroke="currentColor" strokeWidth="2"/>
+          <path d="M12 6V26" stroke="currentColor" strokeWidth="2"/>
+          <circle cx="9" cy="9" r="1" fill="currentColor"/>
+          <circle cx="15" cy="9" r="1" fill="currentColor"/>
+          <circle cx="21" cy="9" r="1" fill="currentColor"/>
+        </svg>
+      ),
       details: ["Premium Materials", "LED Ambient Lighting", "Custom Panels"]
     },
     {
       title: "Rapid Installation",
       description: "Professional setup completed within 2 weeks",
-      icon: "⚡",
+      icon: (
+        <svg className="w-8 h-8" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="16" cy="16" r="12" stroke="currentColor" strokeWidth="2"/>
+          <path d="M16 6V16H22" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+          <path d="M8 8L12 12M20 12L24 8M8 24L12 20M20 20L24 24" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+        </svg>
+      ),
       details: ["Quick Setup", "Minimal Disruption", "Expert Installation"]
     }
   ];
@@ -66,8 +112,6 @@ const HeroSection = () => {
           <div className="space-y-8">
             <div className="space-y-6">
               <h1 className="text-5xl lg:text-7xl font-bold leading-tight">
-                <span className="text-foreground">Experience the</span>
-                <br />
                 <span className="text-gradient">Future of Vertical</span>
                 <br />
                 <span className="text-gradient">Mobility</span>
@@ -141,7 +185,7 @@ const HeroSection = () => {
                       {/* Card Content */}
                       <div className="flex flex-col h-full justify-between">
                         <div>
-                          <div className="text-4xl mb-4 text-center opacity-80">
+                          <div className="flex justify-center mb-4 text-neon-cyan">
                             {card.icon}
                           </div>
                           <h3 className="text-xl font-semibold text-foreground mb-3 text-center">
