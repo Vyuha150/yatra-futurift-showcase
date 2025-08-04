@@ -309,14 +309,20 @@ const HeroSection = () => {
                                 <motion.li 
                                   key={detailIndex} 
                                   className="text-sm text-neon-cyan flex items-center"
-                                  initial={{ x: -10, opacity: 0 }}
+                                  initial={{ x: -10, opacity: 0.7 }}
                                   animate={{ 
                                     x: hoveredCard === index ? 0 : -10,
-                                    opacity: hoveredCard === index ? 1 : 0,
+                                    opacity: hoveredCard === index ? 1 : 0.7,
+                                    textShadow: hoveredCard === index ? "0 0 10px hsl(var(--neon-cyan)), 0 0 20px hsl(var(--neon-cyan) / 0.5)" : "none",
                                   }}
                                   transition={{ delay: detailIndex * 0.1 }}
                                 >
-                                  <div className="w-1 h-1 bg-neon-cyan rounded-full mr-2"></div>
+                                  <motion.div 
+                                    className="w-1 h-1 bg-neon-cyan rounded-full mr-2"
+                                    animate={{
+                                      boxShadow: hoveredCard === index ? "0 0 8px hsl(var(--neon-cyan))" : "none",
+                                    }}
+                                  />
                                   {detail}
                                 </motion.li>
                               ))}
