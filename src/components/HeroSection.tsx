@@ -10,6 +10,14 @@ import {
 import Autoplay from "embla-carousel-autoplay";
 import { useState } from 'react';
 
+// Import generated images
+import touchlessElevator from '@/assets/touchless-elevator.jpg';
+import iotMonitoring from '@/assets/iot-monitoring.jpg';
+import energyEfficient from '@/assets/energy-efficient.jpg';
+import emergencyResponse from '@/assets/emergency-response.jpg';
+import customInterior from '@/assets/custom-interior.jpg';
+import rapidInstallation from '@/assets/rapid-installation.jpg';
+
 const HeroSection = () => {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
   
@@ -17,6 +25,7 @@ const HeroSection = () => {
     {
       title: "Touchless Elevators",
       description: "Voice commands and gesture controls for a hygienic experience",
+      image: touchlessElevator,
       icon: (
         <svg className="w-8 h-8" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M16 4C16 4 12 8 8 12C8 16 12 20 16 20C20 20 24 16 24 12C20 8 16 4 16 4Z" stroke="currentColor" strokeWidth="2" fill="none"/>
@@ -30,6 +39,7 @@ const HeroSection = () => {
     {
       title: "IoT Smart Monitoring",
       description: "Real-time diagnostics and predictive maintenance alerts",
+      image: iotMonitoring,
       icon: (
         <svg className="w-8 h-8" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle cx="16" cy="16" r="3" stroke="currentColor" strokeWidth="2"/>
@@ -45,6 +55,7 @@ const HeroSection = () => {
     {
       title: "Energy Efficient",
       description: "LED lighting and regenerative drives reduce power consumption",
+      image: energyEfficient,
       icon: (
         <svg className="w-8 h-8" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M16 2L20 10H24L18 16L20 24L16 20L12 24L14 16L8 10H12L16 2Z" stroke="currentColor" strokeWidth="2" fill="none"/>
@@ -59,6 +70,7 @@ const HeroSection = () => {
     {
       title: "Emergency Response",
       description: "Instant connectivity to emergency services and support",
+      image: emergencyResponse,
       icon: (
         <svg className="w-8 h-8" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle cx="16" cy="16" r="12" stroke="currentColor" strokeWidth="2"/>
@@ -72,6 +84,7 @@ const HeroSection = () => {
     {
       title: "Custom Interiors",
       description: "Premium finishes and personalized cabin designs",
+      image: customInterior,
       icon: (
         <svg className="w-8 h-8" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect x="6" y="6" width="20" height="20" rx="2" stroke="currentColor" strokeWidth="2"/>
@@ -87,6 +100,7 @@ const HeroSection = () => {
     {
       title: "Rapid Installation",
       description: "Professional setup completed within 2 weeks",
+      image: rapidInstallation,
       icon: (
         <svg className="w-8 h-8" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle cx="16" cy="16" r="12" stroke="currentColor" strokeWidth="2"/>
@@ -138,23 +152,11 @@ const HeroSection = () => {
               </Button>
             </div>
 
-            {/* Partner Logos */}
+            {/* Discover Section */}
             <div className="pt-8">
-              <p className="text-sm text-muted-foreground mb-4">Trusted by India's leading builders</p>
-              <div className="flex items-center space-x-8 opacity-60">
-                <div className="h-8 w-20 bg-muted rounded flex items-center justify-center text-xs font-semibold">
-                  BUILDER 1
-                </div>
-                <div className="h-8 w-20 bg-muted rounded flex items-center justify-center text-xs font-semibold">
-                  BUILDER 2
-                </div>
-                <div className="h-8 w-20 bg-muted rounded flex items-center justify-center text-xs font-semibold">
-                  BUILDER 3
-                </div>
-                <div className="h-8 w-20 bg-muted rounded flex items-center justify-center text-xs font-semibold">
-                  BUILDER 4
-                </div>
-              </div>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Discover what sets us apart in the world of vertical mobility solutions
+              </p>
             </div>
           </div>
 
@@ -185,15 +187,27 @@ const HeroSection = () => {
                       {/* Card Content */}
                       <div className="flex flex-col h-full justify-between">
                         <div>
-                          <div className="flex justify-center mb-4 text-neon-cyan">
-                            {card.icon}
+                          {/* Background Image */}
+                          <div className="absolute inset-0 rounded-2xl overflow-hidden">
+                            <img 
+                              src={card.image} 
+                              alt={card.title}
+                              className="w-full h-full object-cover opacity-20 group-hover:opacity-30 transition-opacity duration-300"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-surface-elevated/95 to-surface-elevated/80"></div>
                           </div>
-                          <h3 className="text-xl font-semibold text-foreground mb-3 text-center">
-                            {card.title}
-                          </h3>
-                          <p className="text-muted-foreground text-center leading-relaxed">
-                            {card.description}
-                          </p>
+                          
+                          <div className="relative z-10">
+                            <div className="flex justify-center mb-4 text-neon-cyan">
+                              {card.icon}
+                            </div>
+                            <h3 className="text-xl font-semibold text-foreground mb-3 text-center">
+                              {card.title}
+                            </h3>
+                            <p className="text-muted-foreground text-center leading-relaxed">
+                              {card.description}
+                            </p>
+                          </div>
                         </div>
                         
                         {/* Additional Details on Hover */}

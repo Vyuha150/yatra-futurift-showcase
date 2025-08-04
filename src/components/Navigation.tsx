@@ -6,9 +6,9 @@ const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navItems = [
-    { label: 'Innovation and Tech', href: '#tech' },
-    { label: 'Products and Services', href: '#products' },
-    { label: 'Contact', href: '#contact' },
+    { label: 'About', href: '#about' },
+    { label: 'Career', href: '#career' },
+    { label: 'Projects', href: '#projects' },
   ];
 
   return (
@@ -17,22 +17,14 @@ const Navigation = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center space-x-3 group cursor-pointer">
-            <div className="relative w-10 h-10 bg-gradient-accent rounded-lg flex items-center justify-center overflow-hidden transition-all duration-300 group-hover:scale-105">
+            <div className="relative w-12 h-12 flex items-center justify-center overflow-hidden transition-all duration-300 group-hover:scale-105">
+              <img 
+                src="/lovable-uploads/de7ef598-547e-4ffb-afa5-85e87165cd2b.png" 
+                alt="Yatra Elevators Logo" 
+                className="w-full h-full object-contain filter brightness-110 group-hover:brightness-125 transition-all duration-300"
+              />
               {/* Animated glow effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-neon-cyan/20 to-neon-blue/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              
-              {/* Y Letter with elevator arrows */}
-              <div className="relative z-10 text-white font-bold text-lg">
-                <svg width="24" height="24" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M8 8L16 16L24 8" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M16 16V24" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"/>
-                  <path d="M12 24L16 20L20 24" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </div>
-            </div>
-            <div className="transition-all duration-300">
-              <span className="text-xl font-bold text-gradient group-hover:text-neon-cyan transition-colors duration-300">YATRA</span>
-              <p className="text-xs text-muted-foreground group-hover:text-neon-cyan/70 transition-colors duration-300">Elevators & Escalators</p>
+              <div className="absolute inset-0 bg-gradient-to-r from-neon-cyan/20 to-neon-blue/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg"></div>
             </div>
           </div>
 
