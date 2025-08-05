@@ -11,6 +11,7 @@ const Navigation = () => {
     { label: 'Career', href: '/career' },
     { label: 'Projects and Solutions', href: '/projects' },
     { label: 'Innovations and Tech', href: '/innovations' },
+    { label: 'Support & Services', href: '/support' },
     { label: 'Contact', href: '/contact' },
   ];
 
