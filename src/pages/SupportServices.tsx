@@ -64,6 +64,18 @@ const SupportServices = () => {
     {
       question: "Do you offer AMC services?",
       answer: "Yes, we offer workable AMC packages to ensure continuous maintenance, smooth functioning, and increased lifespan of your systems."
+    },
+    {
+      question: "How quick are you with service or repairs?",
+      answer: "We provide 24x7 customer support and focus to respond to service requests within a few hours, depending on your location and the nature of the problem."
+    },
+    {
+      question: "Can you redesign or modify old or outdated elevators/escalators?",
+      answer: "Yes, we are specialized in futuristic services that upgrade the performance, visually pleaseable, and safety standards of old systems."
+    },
+    {
+      question: "Is remote monitoring available for your systems?",
+      answer: "Yes, our smart Remote Monitoring Dashboard allows real-time tracking, Error detection, and performance analytics to improve operational efficiency."
     }
   ];
 
