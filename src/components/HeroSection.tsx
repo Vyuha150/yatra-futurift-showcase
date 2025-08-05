@@ -196,15 +196,15 @@ const HeroSection = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 2 }}
             >
-              <GlowButton className="btn-primary group">
+              <GlowButton className="btn-primary group" size="sm">
                 Get Quote
                 <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
               </GlowButton>
-              <GlowButton className="btn-outline group">
+              <GlowButton className="btn-outline group" size="sm">
                 <Calendar className="w-5 h-5 mr-2" />
                 Book Service
               </GlowButton>
-              <GlowButton className="btn-outline group">
+              <GlowButton className="btn-outline group" size="sm">
                 <Eye className="w-5 h-5 mr-2" />
                 View Cabins
               </GlowButton>
