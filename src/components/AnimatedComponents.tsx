@@ -1,9 +1,51 @@
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import { ReactNode } from 'react';
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { ReactNode, ButtonHTMLAttributes } from "react";
+
+// Type definitions for component props
+interface PageLoadWrapperProps {
+  children: ReactNode;
+}
+
+interface AnimatedNavProps {
+  children: ReactNode;
+}
+
+interface SplitTextAnimationProps {
+  text: string;
+  className?: string;
+}
+
+interface SlideInAnimationProps {
+  children: ReactNode;
+  direction?: "left" | "right" | "up" | "down";
+  delay?: number;
+}
+
+interface StaggeredCardsContainerProps {
+  children: ReactNode;
+}
+
+interface AnimatedCardProps {
+  children: ReactNode;
+  className?: string;
+}
+
+interface FloatingElementProps {
+  children: ReactNode;
+  delay?: number;
+}
+
+interface SectionScaleAnimationProps {
+  children: ReactNode;
+}
+
+interface FooterSlideUpProps {
+  children: ReactNode;
+}
 
 // Page Load Animation Wrapper
-export const PageLoadWrapper = ({ children }: { children: ReactNode }) => {
+export const PageLoadWrapper = ({ children }: PageLoadWrapperProps) => {
   return (
     <motion.div
       initial={{ opacity: 0, scale: 1.1 }}
@@ -17,7 +59,7 @@ export const PageLoadWrapper = ({ children }: { children: ReactNode }) => {
 };
 
 // Animated Navigation
-export const AnimatedNav = ({ children }: { children: ReactNode }) => {
+export const AnimatedNav = ({ children }: AnimatedNavProps) => {
   return (
     <motion.nav
       initial={{ y: -100, opacity: 0 }}
@@ -31,9 +73,12 @@ export const AnimatedNav = ({ children }: { children: ReactNode }) => {
 };
 
 // Split Text Animation
-export const SplitTextAnimation = ({ text, className = "" }: { text: string; className?: string }) => {
-  const words = text.split(' ');
-  
+export const SplitTextAnimation = ({
+  text,
+  className = "",
+}: SplitTextAnimationProps) => {
+  const words = text.split(" ");
+
   return (
     <div className={className}>
       {words.map((word, i) => (
@@ -41,10 +86,10 @@ export const SplitTextAnimation = ({ text, className = "" }: { text: string; cla
           key={i}
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ 
-            duration: 0.8, 
+          transition={{
+            duration: 0.8,
             delay: i * 0.1 + 0.5,
-            ease: "easeOut"
+            ease: "easeOut",
           }}
           className="inline-block mr-2"
         >
@@ -56,15 +101,11 @@ export const SplitTextAnimation = ({ text, className = "" }: { text: string; cla
 };
 
 // Slide In Animation
-export const SlideInAnimation = ({ 
-  children, 
-  direction = 'right',
-  delay = 0 
-}: { 
-  children: ReactNode; 
-  direction?: 'left' | 'right' | 'up' | 'down';
-  delay?: number;
-}) => {
+export const SlideInAnimation = ({
+  children,
+  direction = "right",
+  delay = 0,
+}: SlideInAnimationProps) => {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -73,8 +114,8 @@ export const SlideInAnimation = ({
   const variants = {
     hidden: {
       opacity: 0,
-      x: direction === 'left' ? -50 : direction === 'right' ? 50 : 0,
-      y: direction === 'up' ? -50 : direction === 'down' ? 50 : 0,
+      x: direction === "left" ? -50 : direction === "right" ? 50 : 0,
+      y: direction === "up" ? -50 : direction === "down" ? 50 : 0,
     },
     visible: {
       opacity: 1,
@@ -97,7 +138,9 @@ export const SlideInAnimation = ({
 };
 
 // Staggered Card Animation
-export const StaggeredCardsContainer = ({ children }: { children: ReactNode }) => {
+export const StaggeredCardsContainer = ({
+  children,
+}: StaggeredCardsContainerProps) => {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -123,7 +166,10 @@ export const StaggeredCardsContainer = ({ children }: { children: ReactNode }) =
 };
 
 // Individual Card Animation
-export const AnimatedCard = ({ children, className = "" }: { children: ReactNode; className?: string }) => {
+export const AnimatedCard = ({
+  children,
+  className = "",
+}: AnimatedCardProps) => {
   return (
     <motion.div
       variants={{
@@ -131,10 +177,10 @@ export const AnimatedCard = ({ children, className = "" }: { children: ReactNode
         visible: { y: 0, opacity: 1, scale: 1 },
       }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      whileHover={{ 
-        scale: 1.05, 
+      whileHover={{
+        scale: 1.05,
         boxShadow: "0 25px 50px -12px rgba(0, 255, 255, 0.3)",
-        transition: { duration: 0.2 }
+        transition: { duration: 0.2 },
       }}
       className={`${className} transition-all duration-300`}
     >
@@ -144,7 +190,10 @@ export const AnimatedCard = ({ children, className = "" }: { children: ReactNode
 };
 
 // Floating Animation
-export const FloatingElement = ({ children, delay = 0 }: { children: ReactNode; delay?: number }) => {
+export const FloatingElement = ({
+  children,
+  delay = 0,
+}: FloatingElementProps) => {
   return (
     <motion.div
       animate={{
@@ -163,7 +212,9 @@ export const FloatingElement = ({ children, delay = 0 }: { children: ReactNode; 
 };
 
 // Section Scale Animation
-export const SectionScaleAnimation = ({ children }: { children: ReactNode }) => {
+export const SectionScaleAnimation = ({
+  children,
+}: SectionScaleAnimationProps) => {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -182,14 +233,28 @@ export const SectionScaleAnimation = ({ children }: { children: ReactNode }) => 
 };
 
 // Glow Button Animation
-export const GlowButton = ({ children, className = "", ...props }: any) => {
+interface GlowButtonProps {
+  children: ReactNode;
+  className?: string;
+  onClick?: () => void;
+  disabled?: boolean;
+  type?: "button" | "submit" | "reset";
+  size?: string;
+  variant?: string;
+}
+
+export const GlowButton = ({
+  children,
+  className = "",
+  ...props
+}: GlowButtonProps) => {
   return (
     <motion.button
-      whileHover={{ 
+      whileHover={{
         scale: 1.05,
         boxShadow: "0 0 30px rgba(0, 255, 255, 0.6)",
       }}
-      whileTap={{ 
+      whileTap={{
         scale: 0.95,
         boxShadow: "0 0 50px rgba(0, 255, 255, 0.8)",
       }}
@@ -229,7 +294,7 @@ export const AnimatedBackground = () => {
 };
 
 // Footer Slide Up Animation
-export const FooterSlideUp = ({ children }: { children: ReactNode }) => {
+export const FooterSlideUp = ({ children }: FooterSlideUpProps) => {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
