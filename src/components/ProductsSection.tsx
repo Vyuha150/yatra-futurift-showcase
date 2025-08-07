@@ -16,23 +16,14 @@ interface ProductCardProps {
 }
 
 const ProductCard = ({ product, index, currentProduct }: ProductCardProps) => {
-  const isActive = index === currentProduct;
-  const isVisible = index >= currentProduct && index < currentProduct + 3;
-
   return (
-    <div
-      className={`card-glow p-8 transition-all duration-500 h-[480px] flex flex-col ${
-        isActive ? "shadow-glow" : ""
-      } ${isVisible ? "opacity-100" : "opacity-50"}`}
-    >
+    <div className="card-glow p-8 transition-all duration-500 h-[480px] flex flex-col">
       {/* Progress Indicator */}
       <div className="flex space-x-1 mb-6">
         {[...Array(10)].map((_, i) => (
           <div
             key={i}
-            className={`h-1 rounded-full transition-all duration-300 ${
-              i < (index + 1) * 1.5 ? "bg-neon-cyan" : "bg-border"
-            }`}
+            className="h-1 rounded-full transition-all duration-300 bg-border"
             style={{ width: i === 0 ? "24px" : "8px" }}
           />
         ))}

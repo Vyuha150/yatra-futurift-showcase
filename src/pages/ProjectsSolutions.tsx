@@ -52,88 +52,118 @@ const ElevatorCard = ({
   return (
     <motion.div
       ref={cardRef}
-      className="grid md:grid-cols-2 gap-8 items-center p-8 rounded-2xl bg-card border border-border hover:shadow-glow transition-all duration-500"
-      initial={{
-        opacity: 0,
-        x: index % 2 === 0 ? -50 : 50,
-        scale: 0.9,
-      }}
-      animate={cardInView ? { opacity: 1, x: 0, scale: 1 } : {}}
+      className="group relative overflow-hidden rounded-3xl bg-gradient-to-br from-surface-elevated/80 to-surface/60 backdrop-blur-sm border border-border/50 hover:border-neon-cyan/30 transition-all duration-500"
+      initial={{ opacity: 0, y: 50 }}
+      animate={cardInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.8, delay: index * 0.1 }}
-      whileHover={{
-        scale: 1.02,
-        transition: { duration: 0.2 },
-      }}
+      whileHover={{ y: -8, scale: 1.02 }}
     >
-      <motion.div
-        className="space-y-6"
-        initial={{ opacity: 0, y: 20 }}
-        animate={cardInView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.6, delay: index * 0.1 + 0.2 }}
-      >
-        <motion.div
-          className="flex items-center gap-4"
-          initial={{ opacity: 0, x: -20 }}
-          animate={cardInView ? { opacity: 1, x: 0 } : {}}
-          transition={{
-            duration: 0.5,
-            delay: index * 0.1 + 0.3,
-          }}
-        >
-          <motion.div
-            whileHover={{ scale: 1.2, rotate: 5 }}
-            transition={{ duration: 0.2 }}
-          >
-            <elevator.icon className="w-12 h-12 text-neon-cyan" />
-          </motion.div>
-          <h3 className="text-2xl font-bold text-foreground">
-            {elevator.title}
-          </h3>
-        </motion.div>
-        <p className="text-muted-foreground leading-relaxed">
-          {elevator.description}
-        </p>
-        <div className="space-y-2">
-          <h4 className="text-lg font-semibold text-foreground">
-            Key Features:
-          </h4>
-          <ul className="grid grid-cols-1 gap-2">
-            {elevator.features.map((feature: string, idx: number) => (
-              <motion.li
-                key={idx}
-                className="flex items-center gap-2 text-muted-foreground"
-                initial={{ opacity: 0, x: -10 }}
-                animate={cardInView ? { opacity: 1, x: 0 } : {}}
-                transition={{
-                  duration: 0.4,
-                  delay: index * 0.1 + 0.4 + idx * 0.1,
-                }}
+      {/* Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-br from-neon-cyan/5 to-neon-blue/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+      {/* Content Container */}
+      <div className="relative z-10 p-8 lg:p-10">
+        <div className="grid lg:grid-cols-3 gap-8 items-start">
+          {/* Left: Icon and Title */}
+          <div className="lg:col-span-1 space-y-6">
+            <motion.div
+              className="flex flex-col items-center lg:items-start space-y-4"
+              initial={{ opacity: 0, x: -30 }}
+              animate={cardInView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.6, delay: index * 0.1 + 0.2 }}
+            >
+              <motion.div
+                className="w-20 h-20 bg-gradient-to-br from-neon-cyan/20 to-neon-blue/20 rounded-2xl flex items-center justify-center group-hover:shadow-glow transition-all duration-300"
+                whileHover={{ scale: 1.1, rotate: 5 }}
               >
-                <motion.div
-                  className="w-2 h-2 bg-neon-cyan rounded-full"
-                  whileHover={{ scale: 1.5 }}
-                  transition={{ duration: 0.2 }}
-                ></motion.div>
-                {feature}
-              </motion.li>
-            ))}
-          </ul>
+                <elevator.icon className="w-10 h-10 text-neon-cyan" />
+              </motion.div>
+              <div className="text-center lg:text-left">
+                <h3 className="text-2xl lg:text-3xl font-bold text-foreground group-hover:text-neon-cyan transition-colors duration-300">
+                  {elevator.title}
+                </h3>
+                <div className="mt-2 h-1 w-16 bg-gradient-to-r from-neon-cyan to-neon-blue rounded-full mx-auto lg:mx-0" />
+              </div>
+            </motion.div>
+
+            {/* CTA Button */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={cardInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: index * 0.1 + 0.6 }}
+              className="hidden lg:block"
+            >
+              <Button className="btn-primary group w-full">
+                <span>Explore Details</span>
+                <Eye className="w-4 h-4 ml-2 group-hover:scale-110 transition-transform" />
+              </Button>
+            </motion.div>
+          </div>
+
+          {/* Right: Description and Features */}
+          <div className="lg:col-span-2 space-y-6">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={cardInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: index * 0.1 + 0.3 }}
+            >
+              <p className="text-muted-foreground leading-relaxed text-base lg:text-lg line-clamp-4 group-hover:line-clamp-none transition-all duration-300">
+                {elevator.description}
+              </p>
+            </motion.div>
+
+            {/* Features Grid */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={cardInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: index * 0.1 + 0.4 }}
+              className="space-y-4"
+            >
+              <h4 className="text-lg font-semibold text-foreground flex items-center gap-2">
+                <div className="w-2 h-2 bg-neon-green rounded-full" />
+                Key Features
+              </h4>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {elevator.features.map((feature: string, idx: number) => (
+                  <motion.div
+                    key={idx}
+                    className="flex items-center gap-3 p-3 rounded-xl bg-surface/50 hover:bg-surface/80 transition-colors duration-200"
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={cardInView ? { opacity: 1, x: 0 } : {}}
+                    transition={{
+                      duration: 0.4,
+                      delay: index * 0.1 + 0.5 + idx * 0.1,
+                    }}
+                    whileHover={{ scale: 1.02, x: 4 }}
+                  >
+                    <div className="w-2 h-2 bg-neon-cyan rounded-full flex-shrink-0" />
+                    <span className="text-sm text-muted-foreground font-medium">
+                      {feature}
+                    </span>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Mobile CTA */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={cardInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: index * 0.1 + 0.7 }}
+              className="lg:hidden pt-4"
+            >
+              <Button className="btn-outline group w-full">
+                <span>Learn More</span>
+                <Eye className="w-4 h-4 ml-2 group-hover:scale-110 transition-transform" />
+              </Button>
+            </motion.div>
+          </div>
         </div>
-        <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-          <Button variant="outline" className="btn-outline">
-            Learn More
-          </Button>
-        </motion.div>
-      </motion.div>
-      <motion.div
-        className="relative"
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={cardInView ? { opacity: 1, scale: 1 } : {}}
-        transition={{ duration: 0.6, delay: index * 0.1 + 0.4 }}
-        whileHover={{ scale: 1.05, rotate: 1 }}
-      >
-        <div className="aspect-square bg-gradient-to-br from-primary/20 to-secondary/20 rounded-2xl backdrop-blur-sm border border-border"></div>
-      </motion.div>
+      </div>
+
+      {/* Decorative Elements */}
+      <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-neon-cyan/10 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+      <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-neon-blue/10 to-transparent rounded-tr-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
     </motion.div>
   );
 };
@@ -154,15 +184,20 @@ const SolutionCard = ({
   return (
     <motion.div
       ref={solutionRef}
-      className="p-8 rounded-2xl bg-card border border-border hover:shadow-glow transition-all duration-500"
-      initial={{ opacity: 0, y: 30, scale: 0.9 }}
+      className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-surface-elevated to-surface border border-border/50 hover:border-neon-cyan/30 transition-all duration-500"
+      initial={{ opacity: 0, y: 30, scale: 0.95 }}
       animate={solutionInView ? { opacity: 1, y: 0, scale: 1 } : {}}
       transition={{ duration: 0.6, delay: index * 0.15 }}
-      whileHover={{ scale: 1.03, y: -5 }}
+      whileHover={{ y: -8, scale: 1.02 }}
     >
-      <div className="space-y-6">
+      {/* Background Gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-neon-cyan/5 to-neon-blue/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+      {/* Content */}
+      <div className="relative z-10 p-8 h-full flex flex-col">
+        {/* Header */}
         <motion.div
-          className="flex items-center gap-4"
+          className="flex items-center gap-4 mb-6"
           initial={{ opacity: 0, x: -20 }}
           animate={solutionInView ? { opacity: 1, x: 0 } : {}}
           transition={{
@@ -171,17 +206,23 @@ const SolutionCard = ({
           }}
         >
           <motion.div
-            whileHover={{ scale: 1.2, rotate: 10 }}
+            className="w-16 h-16 bg-gradient-to-br from-neon-cyan/20 to-neon-blue/20 rounded-xl flex items-center justify-center group-hover:shadow-glow transition-all duration-300"
+            whileHover={{ scale: 1.1, rotate: 10 }}
             transition={{ duration: 0.2 }}
           >
-            <solution.icon className="w-12 h-12 text-neon-cyan" />
+            <solution.icon className="w-8 h-8 text-neon-cyan" />
           </motion.div>
-          <h3 className="text-2xl font-bold text-foreground">
-            {solution.title}
-          </h3>
+          <div>
+            <h3 className="text-xl lg:text-2xl font-bold text-foreground group-hover:text-neon-cyan transition-colors duration-300">
+              {solution.title}
+            </h3>
+            <div className="mt-1 h-0.5 w-12 bg-gradient-to-r from-neon-cyan to-neon-blue rounded-full" />
+          </div>
         </motion.div>
-        <motion.p
-          className="text-muted-foreground leading-relaxed"
+
+        {/* Description */}
+        <motion.div
+          className="flex-1 mb-6"
           initial={{ opacity: 0 }}
           animate={solutionInView ? { opacity: 1 } : {}}
           transition={{
@@ -189,23 +230,31 @@ const SolutionCard = ({
             delay: index * 0.15 + 0.4,
           }}
         >
-          {solution.description}
-        </motion.p>
+          <p className="text-muted-foreground leading-relaxed text-sm lg:text-base line-clamp-6 group-hover:line-clamp-none transition-all duration-300">
+            {solution.description}
+          </p>
+        </motion.div>
+
+        {/* CTA Button */}
         <motion.div
-          initial={{ opacity: 0, y: 10 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={solutionInView ? { opacity: 1, y: 0 } : {}}
           transition={{
             duration: 0.5,
             delay: index * 0.15 + 0.6,
           }}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
         >
-          <Button variant="outline" className="btn-outline">
-            Get Started
+          <Button className="btn-outline group w-full">
+            <span>Get Started</span>
+            <motion.div whileHover={{ x: 4 }} transition={{ duration: 0.2 }}>
+              →
+            </motion.div>
           </Button>
         </motion.div>
       </div>
+
+      {/* Decorative Corner */}
+      <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-neon-cyan/10 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
     </motion.div>
   );
 };
@@ -388,8 +437,8 @@ const ProjectsSolutions = () => {
               </TabsList>
             </motion.div>
 
-            <TabsContent value="elevators" className="space-y-12">
-              <div className="grid gap-8">
+            <TabsContent value="elevators" className="space-y-8">
+              <div className="space-y-8">
                 {elevatorTypes.map((elevator, index) => (
                   <ElevatorCard
                     key={elevator.id}
@@ -400,7 +449,7 @@ const ProjectsSolutions = () => {
               </div>
             </TabsContent>
 
-            <TabsContent value="solutions" className="space-y-12">
+            <TabsContent value="solutions" className="space-y-8">
               <div className="grid md:grid-cols-2 gap-8">
                 {solutions.map((solution, index) => (
                   <SolutionCard

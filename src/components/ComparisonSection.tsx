@@ -62,8 +62,7 @@ const ComparisonSection = () => {
         {/* Comparison Table */}
         <div className="max-w-5xl mx-auto">
           {/* Table Header */}
-          <div className="grid grid-cols-3 gap-4 mb-8">
-            <div></div>
+          <div className="grid grid-cols-2 gap-8 mb-8 max-w-3xl mx-auto">
             <div className="text-center">
               <div className="card-glow p-6 bg-gradient-primary">
                 <div className="text-xl font-bold text-primary-foreground mb-2">
@@ -93,9 +92,9 @@ const ComparisonSection = () => {
                 key={index}
                 className="card-glow p-6 hover:scale-[1.02] transition-all duration-300"
               >
-                <div className="grid grid-cols-3 gap-4 items-center">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-center">
                   {/* Feature */}
-                  <div className="flex items-center space-x-3">
+                  <div className="flex items-center justify-center lg:justify-start space-x-3">
                     <div className="w-10 h-10 bg-gradient-accent rounded-lg flex items-center justify-center">
                       <comparison.icon className="w-5 h-5 text-accent-foreground" />
                     </div>
@@ -106,26 +105,31 @@ const ComparisonSection = () => {
                     </div>
                   </div>
 
-                  {/* Yatra */}
-                  <div className="text-center">
-                    <div className="flex items-center justify-center space-x-2 mb-2">
-                      <Check className="w-5 h-5 text-neon-green" />
-                      <span className="font-bold text-neon-cyan">
-                        {comparison.yatra}
-                      </span>
-                    </div>
-                    <div className="text-xs text-muted-foreground">
-                      {comparison.yatraDetail}
-                    </div>
-                  </div>
+                  {/* Comparison Grid */}
+                  <div className="col-span-1 lg:col-span-2">
+                    <div className="grid grid-cols-2 gap-4">
+                      {/* Yatra */}
+                      <div className="text-center">
+                        <div className="flex items-center justify-center space-x-2 mb-2">
+                          <Check className="w-5 h-5 text-neon-green" />
+                          <span className="font-bold text-neon-cyan">
+                            {comparison.yatra}
+                          </span>
+                        </div>
+                        <div className="text-xs text-muted-foreground">
+                          {comparison.yatraDetail}
+                        </div>
+                      </div>
 
-                  {/* Others */}
-                  <div className="text-center">
-                    <div className="flex items-center justify-center space-x-2 mb-2">
-                      <X className="w-5 h-5 text-red-400" />
-                      <span className="font-semibold text-muted-foreground">
-                        {comparison.others}
-                      </span>
+                      {/* Others */}
+                      <div className="text-center">
+                        <div className="flex items-center justify-center space-x-2 mb-2">
+                          <X className="w-5 h-5 text-red-400" />
+                          <span className="font-semibold text-muted-foreground">
+                            {comparison.others}
+                          </span>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
