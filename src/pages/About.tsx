@@ -3,6 +3,8 @@ import Footer from "@/components/Footer";
 import CustomCursor from "@/components/CustomCursor";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import {
   Building2,
   Users,
@@ -19,7 +21,15 @@ import {
   Factory,
   Microscope,
   Recycle,
+  Building,
+  Clock,
+  TrendingUp,
 } from "lucide-react";
+import { 
+  PageLoadWrapper, 
+  AnimatedNav, 
+  AnimatedBackground 
+} from '@/components/AnimatedComponents';
 
 const About = () => {
   const [heroRef, heroInView] = useInView({
@@ -27,11 +37,44 @@ const About = () => {
     threshold: 0.1,
   });
 
-  return (
-    <div className="min-h-screen bg-background">
-      <CustomCursor />
-      <Navigation />
+  const values = [
+    {
+      icon: Shield,
+      title: "Safety First",
+      description: "Uncompromising commitment to safety in every project",
+    },
+    {
+      icon: Zap,
+      title: "Innovation",
+      description: "Cutting-edge technology and forward-thinking solutions",
+    },
+    {
+      icon: Heart,
+      title: "Customer Focus",
+      description: "Dedicated to exceeding customer expectations",
+    },
+    {
+      icon: Globe,
+      title: "Sustainability",
+      description: "Environmentally responsible practices and solutions",
+    },
+  ];
 
+  const stats = [
+    { icon: Building, value: "500+", label: "Projects Completed" },
+    { icon: Users, value: "50+", label: "Expert Team Members" },
+    { icon: Clock, value: "24/7", label: "Support Available" },
+    { icon: Award, value: "15+", label: "Years Experience" },
+  ];
+
+  return (
+    <PageLoadWrapper>
+      <CustomCursor />
+      <AnimatedBackground />
+      <AnimatedNav>
+        <Navigation />
+      </AnimatedNav>
+      
       {/* Hero Section */}
       <section className="pt-24 pb-16 px-6" ref={heroRef}>
         <div className="container mx-auto">
@@ -42,86 +85,205 @@ const About = () => {
             transition={{ duration: 0.8 }}
           >
             <motion.h1
-              className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-neon-cyan via-neon-blue to-neon-purple bg-clip-text text-transparent mb-6"
+              className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-neon-cyan via-neon-blue to-neon-green bg-clip-text text-transparent mb-6"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={heroInView ? { opacity: 1, scale: 1 } : {}}
               transition={{ duration: 1, delay: 0.2 }}
             >
-              About ICONIC Group
+              About Yatra
             </motion.h1>
             <motion.p
-              className="text-xl text-muted-foreground leading-relaxed"
+              className="text-xl text-muted-foreground leading-relaxed mb-8"
               initial={{ opacity: 0, y: 20 }}
               animate={heroInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              For more than fifteen years, ICONIC Group has built a reputation
-              grounded in brilliance, trust, and innovation.
+              Pioneering the future of vertical transportation with innovative
+              elevator and escalator solutions across India.
             </motion.p>
           </motion.div>
         </div>
       </section>
 
-      {/* Our Legacy Section */}
+      {/* Company Story Section */}
+      <section className="py-16 px-6 bg-surface-glass">
+        <div className="container mx-auto">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <motion.div
+              className="space-y-6"
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-4xl font-bold text-foreground mb-6">
+                Our Story
+              </h2>
+              <p className="text-muted-foreground leading-relaxed">
+                Founded with a vision to revolutionize vertical transportation
+                in India, Yatra Elevators & Escalators has been at the forefront
+                of innovation for over a decade. We combine cutting-edge
+                technology with traditional craftsmanship to deliver solutions
+                that move people safely and efficiently.
+              </p>
+              <p className="text-muted-foreground leading-relaxed">
+                Our journey began with a simple belief: that every building
+                deserves the best in vertical mobility. Today, we're proud to
+                serve clients across the nation with our comprehensive range of
+                elevator and escalator solutions.
+              </p>
+            </motion.div>
+
+            <motion.div
+              className="relative"
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+            >
+              <div className="aspect-square bg-gradient-to-br from-primary/20 to-secondary/20 rounded-2xl backdrop-blur-sm border border-border flex items-center justify-center">
+                <Building className="w-32 h-32 text-neon-cyan/50" />
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Section */}
       <section className="py-16 px-6">
         <div className="container mx-auto">
           <motion.div
-            className="text-center mb-16"
+            className="text-center mb-12"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl font-bold text-foreground mb-6">
-              Our Legacy: The ICONIC Group
+            <h2 className="text-4xl font-bold text-foreground mb-4">
+              Our Achievements
             </h2>
-            <p className="text-xl text-muted-foreground leading-relaxed max-w-4xl mx-auto">
-              For more than fifteen years, ICONIC Group has addressed a
-              reputation ingrained in brilliance, trust, and innovation. What
-              initiated as a visionary vertical in shaping homes and office
-              spaces from two to three-bedroom residences to expansive duplex
-              and triplex villas, and also extensive materialistic interiors has
-              grown into a hybrid legacy that touched numerous lives.
+            <p className="text-muted-foreground">
+              Numbers that reflect our commitment to excellence
             </p>
           </motion.div>
 
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {stats.map((stat, index) => (
+              <motion.div
+                key={stat.label}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <Card className="p-6 text-center bg-gradient-to-br from-surface/50 to-surface-elevated/50 border-border hover:border-neon-cyan/50 transition-all duration-300 hover:shadow-glow">
+                  <CardContent className="space-y-4">
+                    <stat.icon className="w-12 h-12 text-neon-cyan mx-auto" />
+                    <div className="text-3xl font-bold text-foreground">
+                      {stat.value}
+                    </div>
+                    <div className="text-muted-foreground">{stat.label}</div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Values Section */}
+      <section className="py-16 px-6 bg-surface-glass">
+        <div className="container mx-auto">
           <motion.div
-            className="grid md:grid-cols-2 gap-12 items-center"
+            className="text-center mb-12"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <div className="space-y-6">
-              <p className="text-muted-foreground leading-relaxed">
-                At ICONIC, each and every project is the journey of dreams
-                shaping into reality. Our dedication to quality workmanship and
-                client satisfaction has remained the milestone of our journey.
-                As a matter of fact, our legacy speaks for itself. We were able
-                to see this success because of thousands of satisfied Customers.
-              </p>
-              <p className="text-muted-foreground leading-relaxed">
-                Throughout the years, our pioneering spirit has guided us to
-                expand over innumerable industries. Today, the ICONIC Group
-                pridefully operates in multiple verticals, each reflecting our
-                commitment in molding a better future one that is Eco-Friendly,
-                inclusive, and ingenious.
-              </p>
-              <p className="text-foreground font-semibold italic">
-                This is our legacy. This is the ICONIC way.
-              </p>
-            </div>
+            <h2 className="text-4xl font-bold text-foreground mb-4">
+              Our Values
+            </h2>
+            <p className="text-muted-foreground max-w-3xl mx-auto">
+              The principles that guide everything we do and shape our company
+              culture
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {values.map((value, index) => (
+              <motion.div
+                key={value.title}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <Card className="p-6 h-full bg-gradient-to-br from-surface/50 to-surface-elevated/50 border-border hover:border-neon-cyan/50 transition-all duration-300 hover:shadow-glow">
+                  <CardContent className="space-y-4">
+                    <value.icon className="w-12 h-12 text-neon-cyan" />
+                    <h3 className="text-xl font-semibold text-foreground">
+                      {value.title}
+                    </h3>
+                    <p className="text-muted-foreground">{value.description}</p>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Mission & Vision Section */}
+      <section className="py-16 px-6">
+        <div className="container mx-auto">
+          <div className="grid md:grid-cols-2 gap-12">
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+            >
+              <Card className="p-8 h-full bg-gradient-to-br from-primary/10 to-secondary/10 border-border">
+                <CardContent className="space-y-4">
+                  <Target className="w-16 h-16 text-neon-cyan" />
+                  <h3 className="text-2xl font-bold text-foreground">
+                    Our Mission
+                  </h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    To provide innovative, safe, and reliable vertical
+                    transportation solutions that enhance the quality of life
+                    for people across India. We are committed to excellence in
+                    engineering, customer service, and sustainable practices.
+                  </p>
+                </CardContent>
+              </Card>
+            </motion.div>
 
             <motion.div
-              className="relative"
-              whileHover={{ scale: 1.02 }}
-              transition={{ duration: 0.3 }}
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
             >
-              <div className="aspect-square bg-gradient-to-br from-primary/20 to-secondary/20 rounded-2xl p-8 backdrop-blur-sm border border-border">
-                <div className="h-full w-full bg-gradient-accent rounded-xl opacity-20"></div>
-              </div>
+              <Card className="p-8 h-full bg-gradient-to-br from-secondary/10 to-primary/10 border-border">
+                <CardContent className="space-y-4">
+                  <TrendingUp className="w-16 h-16 text-neon-blue" />
+                  <h3 className="text-2xl font-bold text-foreground">
+                    Our Vision
+                  </h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    To be the leading provider of vertical transportation
+                    solutions in India, recognized for our innovation, safety,
+                    and commitment to sustainability. We envision a future where
+                    every building is equipped with smart, eco-friendly, and
+                    accessible vertical mobility solutions that improve the
+                    lives of everyone.
+                  </p>
+                </CardContent>
+              </Card>
             </motion.div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -210,14 +372,6 @@ const About = () => {
                   energy-efficient, and brilliantly designed mobility solutions.
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
-                  Our journey into Elevators & Escalators is not just a
-                  supplement of our engineering potentiality, but a tactical
-                  move positioned with our mission to form forward-thinking
-                  surroundings. With urbanization and sustainable cities rising
-                  rapidly, we recognize an accelerating gap in authentic,
-                  energy-efficient, and brilliantly designed mobility solutions.
-                </p>
-                <p className="text-muted-foreground leading-relaxed">
                   This new vertical,{" "}
                   <span className="text-neon-cyan font-semibold">Yatra</span>,
                   represents an influential joining of innovation, safety, and
@@ -241,158 +395,6 @@ const About = () => {
               </motion.div>
             </div>
           </motion.div>
-        </div>
-      </section>
-
-      {/* Mission & Vision */}
-      <section className="py-16 px-6 bg-surface-glass">
-        <div className="container mx-auto">
-          <div className="grid md:grid-cols-2 gap-12">
-            <motion.div
-              className="space-y-8"
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-            >
-              <div className="space-y-4">
-                <motion.div
-                  className="flex items-center gap-3"
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <Target className="w-8 h-8 text-neon-cyan" />
-                  <h2 className="text-3xl font-bold text-foreground">
-                    Our Mission
-                  </h2>
-                </motion.div>
-                <p className="text-muted-foreground leading-relaxed">
-                  At ICONIC Group, our mission is to promote day to day living
-                  by designing innovative, forward thinking spaces and solutions
-                  that encourage trust, innovation, and sustainability. With
-                  each and every project, from magnificent homes to contemporary
-                  infrastructure, we always aim to deliver incomparable quality
-                  and dedicated design that inspires communities and enhances
-                  lives. Through our multiple verticals, including our latest
-                  approach to Elevators & Escalators under the Yatra brand, we
-                  are accomplishing engineering progress that is approachable,
-                  structured, and impressive. Driven by a legacy of customer
-                  fulfillment and functioning excellence, we are on a journey to
-                  reevaluate mobility, construction, and lifestyle experiences.
-                  By paying attention to the evolving demands of people and the
-                  planet, we make efforts to stay ahead by contributing
-                  intelligent solutions that amalgamate safety, aesthetics, and
-                  eco- friendly mindfulness. At the heart of our mission lies a
-                  single assurance: to build a greater, more comprehensive
-                  tomorrow through innovation anchored in honesty.
-                </p>
-              </div>
-            </motion.div>
-
-            <motion.div
-              className="space-y-8"
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
-            >
-              <div className="space-y-4">
-                <motion.div
-                  className="flex items-center gap-3"
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <Award className="w-8 h-8 text-neon-blue" />
-                  <h2 className="text-3xl font-bold text-foreground">
-                    Our Vision
-                  </h2>
-                </motion.div>
-                <p className="text-muted-foreground leading-relaxed">
-                  Our vision is to become a life changing force in each and
-                  every vertical we enter, preparing a well planned future where
-                  architecture, motive, and liability synchronize consensually.
-                  We see a planet where every structure, every business, and
-                  every transformation by ICONIC Group helps to human well-being
-                  and sustainable progress. Through Yatra and our comprehensive
-                  initiatives, we imagine becoming a universal benchmark for
-                  vertical brilliance and holistic living. Our values are
-                  brilliance, righteousness, and customer-first thinking.
-                  Brilliance navigates us to excel expectations with each and
-                  every delivery. Righteousness designs how we function with
-                  honesty, impartiality, and respect for all stakeholders. And
-                  our in depth focus on the customer guarantees that we remain
-                  attentive to real needs, never compromising on quality or
-                  care. These values are not just ideals but they are the
-                  foundation of everything we do, powering our legacy and
-                  moulding our future.
-                </p>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Values */}
-      <section className="py-16 px-6">
-        <div className="container mx-auto">
-          <motion.div
-            className="text-center mb-12"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-4xl font-bold text-foreground mb-4">
-              Our Values
-            </h2>
-            <p className="text-muted-foreground">
-              The principles that guide everything we do
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                icon: Lightbulb,
-                title: "Brilliance",
-                description:
-                  "Brilliance navigates us to excel expectations with each and every delivery.",
-              },
-              {
-                icon: Shield,
-                title: "Righteousness",
-                description:
-                  "Righteousness designs how we function with honesty, impartiality, and respect for all stakeholders.",
-              },
-              {
-                icon: Heart,
-                title: "Customer-First",
-                description:
-                  "Our in depth focus on the customer guarantees that we remain attentive to real needs, never compromising on quality or care.",
-              },
-            ].map((value, index) => (
-              <motion.div
-                key={value.title}
-                className="text-center p-6 rounded-2xl bg-card border border-border hover:shadow-glow transition-all duration-300"
-                initial={{ opacity: 0, y: 20, scale: 0.9 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                transition={{ duration: 0.5, delay: index * 0.2 }}
-                viewport={{ once: true }}
-                whileHover={{ scale: 1.05, y: -5 }}
-              >
-                <motion.div
-                  whileHover={{ scale: 1.2, rotate: 5 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <value.icon className="w-12 h-12 text-neon-cyan mx-auto mb-4" />
-                </motion.div>
-                <h3 className="text-xl font-semibold text-foreground mb-3">
-                  {value.title}
-                </h3>
-                <p className="text-muted-foreground">{value.description}</p>
-              </motion.div>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -617,7 +619,7 @@ const About = () => {
       </section>
 
       <Footer />
-    </div>
+    </PageLoadWrapper>
   );
 };
 

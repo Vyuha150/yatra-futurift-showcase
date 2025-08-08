@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { ReactNode, ButtonHTMLAttributes } from "react";
+import Particles from "./Particles";
 
 // Type definitions for component props
 interface PageLoadWrapperProps {
@@ -44,6 +45,16 @@ interface FooterSlideUpProps {
   children: ReactNode;
 }
 
+interface GlowButtonProps {
+  children: ReactNode;
+  className?: string;
+  onClick?: () => void;
+  disabled?: boolean;
+  type?: "button" | "submit" | "reset";
+  size?: string;
+  variant?: string;
+}
+
 // Page Load Animation Wrapper
 export const PageLoadWrapper = ({ children }: PageLoadWrapperProps) => {
   return (
@@ -51,24 +62,27 @@ export const PageLoadWrapper = ({ children }: PageLoadWrapperProps) => {
       initial={{ opacity: 0, scale: 1.1 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 1.2, ease: "easeOut" }}
-      className="min-h-screen bg-background"
+      className="min-h-screen bg-background relative"
     >
-      {children}
+      <AnimatedBackground />
+      <div className="relative z-10">
+        {children}
+      </div>
     </motion.div>
   );
 };
 
 // Animated Navigation
-export const AnimatedNav = ({ children }: AnimatedNavProps) => {
+export const AnimatedNav = ({ children }: { children: ReactNode }) => {
   return (
-    <motion.nav
+    <motion.div
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-      className="fixed top-0 left-0 right-0 z-50 bg-surface-glass backdrop-blur-lg border-b border-border"
+      transition={{ duration: 0.8, delay: 0.2 }}
+      className="relative z-50"
     >
       {children}
-    </motion.nav>
+    </motion.div>
   );
 };
 
@@ -103,34 +117,31 @@ export const SplitTextAnimation = ({
 // Slide In Animation
 export const SlideInAnimation = ({
   children,
-  direction = "right",
+  direction = "up",
   delay = 0,
 }: SlideInAnimationProps) => {
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
-
-  const variants = {
-    hidden: {
-      opacity: 0,
-      x: direction === "left" ? -50 : direction === "right" ? 50 : 0,
-      y: direction === "up" ? -50 : direction === "down" ? 50 : 0,
-    },
-    visible: {
-      opacity: 1,
-      x: 0,
-      y: 0,
-    },
+  const getInitialPosition = () => {
+    switch (direction) {
+      case "up":
+        return { y: 100, opacity: 0 };
+      case "down":
+        return { y: -100, opacity: 0 };
+      case "left":
+        return { x: -100, opacity: 0 };
+      case "right":
+        return { x: 100, opacity: 0 };
+      default:
+        return { y: 100, opacity: 0 };
+    }
   };
 
   return (
     <motion.div
-      ref={ref}
-      initial="hidden"
-      animate={inView ? "visible" : "hidden"}
-      variants={variants}
-      transition={{ duration: 0.8, delay, ease: "easeOut" }}
+      initial={getInitialPosition()}
+      whileInView={{ x: 0, y: 0, opacity: 1 }}
+      transition={{ duration: 0.8, delay }}
+      viewport={{ once: true }}
+      className="relative z-10"
     >
       {children}
     </motion.div>
@@ -159,6 +170,7 @@ export const StaggeredCardsContainer = ({
           },
         },
       }}
+      className="relative z-10"
     >
       {children}
     </motion.div>
@@ -215,17 +227,13 @@ export const FloatingElement = ({
 export const SectionScaleAnimation = ({
   children,
 }: SectionScaleAnimationProps) => {
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
-
   return (
     <motion.div
-      ref={ref}
-      initial={{ scale: 0.8, opacity: 0 }}
-      animate={inView ? { scale: 1, opacity: 1 } : { scale: 0.8, opacity: 0 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
+      initial={{ scale: 0.9, opacity: 0 }}
+      whileInView={{ scale: 1, opacity: 1 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true }}
+      className="relative z-10"
     >
       {children}
     </motion.div>
@@ -233,16 +241,6 @@ export const SectionScaleAnimation = ({
 };
 
 // Glow Button Animation
-interface GlowButtonProps {
-  children: ReactNode;
-  className?: string;
-  onClick?: () => void;
-  disabled?: boolean;
-  type?: "button" | "submit" | "reset";
-  size?: string;
-  variant?: string;
-}
-
 export const GlowButton = ({
   children,
   className = "",
@@ -275,39 +273,38 @@ export const GlowButton = ({
 // Background Gradient Animation
 export const AnimatedBackground = () => {
   return (
-    <motion.div
-      className="absolute inset-0 -z-10"
-      animate={{
-        background: [
-          "linear-gradient(45deg, rgba(0, 255, 255, 0.1) 0%, rgba(0, 0, 255, 0.1) 100%)",
-          "linear-gradient(225deg, rgba(255, 0, 255, 0.1) 0%, rgba(0, 255, 255, 0.1) 100%)",
-          "linear-gradient(45deg, rgba(0, 255, 255, 0.1) 0%, rgba(0, 0, 255, 0.1) 100%)",
-        ],
-      }}
-      transition={{
-        duration: 8,
-        repeat: Infinity,
-        ease: "linear",
-      }}
-    />
+    <>
+      <Particles />
+      <motion.div
+        className="absolute inset-0 -z-10"
+        animate={{
+          background: [
+            "linear-gradient(45deg, rgba(0, 255, 255, 0.1) 0%, rgba(0, 0, 255, 0.1) 100%)",
+            "linear-gradient(225deg, rgba(255, 0, 255, 0.1) 0%, rgba(0, 255, 255, 0.1) 100%)",
+            "linear-gradient(45deg, rgba(0, 255, 255, 0.1) 0%, rgba(0, 0, 255, 0.1) 100%)",
+          ],
+        }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          ease: "linear",
+        }}
+      />
+    </>
   );
 };
 
 // Footer Slide Up Animation
 export const FooterSlideUp = ({ children }: FooterSlideUpProps) => {
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
-
   return (
-    <motion.footer
-      ref={ref}
+    <motion.div
       initial={{ y: 100, opacity: 0 }}
-      animate={inView ? { y: 0, opacity: 1 } : { y: 100, opacity: 0 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
+      whileInView={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true }}
+      className="relative z-10"
     >
       {children}
-    </motion.footer>
+    </motion.div>
   );
 };

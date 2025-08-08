@@ -21,6 +21,7 @@ import {
   CheckCircle,
 } from "lucide-react";
 import { useState, useRef } from "react";
+import { PageLoadWrapper } from "@/components/AnimatedComponents";
 
 // Type definitions
 interface Benefit {
@@ -51,17 +52,21 @@ const BenefitCard = ({
   return (
     <motion.div
       ref={cardRef}
-      className="text-center p-6 rounded-2xl bg-card border border-border hover:shadow-glow transition-all duration-300"
-      initial={{ opacity: 0, y: 30 }}
-      animate={cardInView ? { opacity: 1, y: 0 } : {}}
+      className="relative z-10"
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: index * 0.1 }}
-      whileHover={{ scale: 1.05 }}
+      viewport={{ once: true }}
     >
-      <benefit.icon className="w-12 h-12 text-neon-cyan mx-auto mb-4" />
-      <h3 className="text-lg font-semibold text-foreground mb-2">
-        {benefit.title}
-      </h3>
-      <p className="text-sm text-muted-foreground">{benefit.description}</p>
+      <Card className="p-6 h-full bg-gradient-to-br from-surface/50 to-surface-elevated/50 border-border hover:border-neon-cyan/50 transition-all duration-300 hover:shadow-glow">
+        <CardContent className="space-y-4">
+          <benefit.icon className="w-12 h-12 text-neon-cyan" />
+          <h3 className="text-xl font-semibold text-foreground">
+            {benefit.title}
+          </h3>
+          <p className="text-muted-foreground">{benefit.description}</p>
+        </CardContent>
+      </Card>
     </motion.div>
   );
 };
@@ -176,12 +181,12 @@ const Career = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <PageLoadWrapper>
       <CustomCursor />
       <Navigation />
 
       {/* Hero Section */}
-      <section className="pt-24 pb-16 px-6" ref={heroRef}>
+      <section className="pt-24 pb-16 px-6 relative z-10" ref={heroRef}>
         <div className="container mx-auto">
           <motion.div
             className="text-center max-w-4xl mx-auto"
@@ -220,7 +225,7 @@ const Career = () => {
       </section>
 
       {/* Life at Yatra Section */}
-      <section className="py-16 px-6 bg-surface-glass">
+      <section className="py-16 px-6 bg-surface-glass relative z-10">
         <div className="container mx-auto">
           <motion.div
             className="text-center mb-12"
@@ -501,7 +506,7 @@ const Career = () => {
       </section>
 
       <Footer />
-    </div>
+    </PageLoadWrapper>
   );
 };
 

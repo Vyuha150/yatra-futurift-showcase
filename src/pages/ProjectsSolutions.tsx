@@ -19,6 +19,11 @@ import {
   FileText,
   Shield,
 } from "lucide-react";
+import { 
+  PageLoadWrapper, 
+  AnimatedNav, 
+  AnimatedBackground 
+} from '@/components/AnimatedComponents';
 
 // Type definitions
 interface ElevatorType {

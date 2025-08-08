@@ -183,7 +183,7 @@ const ProductsSection = () => {
         </div>
 
         {/* Virtual Demo Section */}
-        <div className="card-glow p-8 lg:p-12 bg-gradient-to-r from-brand-slate to-brand-slate-light relative overflow-hidden">
+        <div className="card-glow p-8 lg:p-12 bg-gradient-to-r from-brand-slate to-brand-slate-light relative overflow-hidden mb-16">
           <div className="relative z-10 grid lg:grid-cols-2 gap-8 items-center">
             <div className="space-y-6">
               <div>
@@ -226,6 +226,17 @@ const ProductsSection = () => {
 
           {/* Background Pattern */}
           <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
+        </div>
+
+        {/* Explore More Button */}
+        <div className="text-center">
+          <Button 
+            className="btn-primary group px-8 py-4 text-lg"
+            onClick={() => window.location.href = '/projects'}
+          >
+            <span>Explore More Products & Solutions</span>
+            <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+          </Button>
         </div>
       </div>
     </section>
