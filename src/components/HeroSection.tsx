@@ -59,18 +59,9 @@ const HeroSection = () => {
           <div className="space-y-6 lg:space-y-8">
             <div className="space-y-4 lg:space-y-6">
               <SplitTextAnimation
-                text="Future of Vertical"
+                text="Yatra Elevators"
                 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight text-gradient"
               />
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 1, delay: 1.2, ease: "easeOut" }}
-              >
-                <span className="text-gradient text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold">
-                  Mobility
-                </span>
-              </motion.div>
 
               <SlideInAnimation direction="right" delay={1.5}>
                 <p className="text-lg sm:text-xl text-muted-foreground max-w-xl leading-relaxed">
