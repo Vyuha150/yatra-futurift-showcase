@@ -7,6 +7,7 @@ interface Product {
   title: string;
   description: string;
   features: string[];
+  image: string;
 }
 
 interface ProductCardProps {
@@ -16,18 +17,32 @@ interface ProductCardProps {
 }
 
 const ProductCard = ({ product, index, currentProduct }: ProductCardProps) => {
+  const totalProducts = 6; // Total number of products
+
   return (
-    <div className="card-glow p-8 transition-all duration-500 h-[480px] flex flex-col">
+    <div className="card-glow p-8 transition-all duration-500 h-auto flex flex-col">
       {/* Progress Indicator */}
       <div className="flex space-x-1 mb-6">
-        {[...Array(10)].map((_, i) => (
+        {[...Array(totalProducts)].map((_, i) => (
           <div
             key={i}
-            className="h-1 rounded-full transition-all duration-300 bg-border"
-            style={{ width: i === 0 ? "24px" : "8px" }}
+            className={`h-1 rounded-full transition-all duration-300 ${
+              i === index ? "bg-neon-cyan" : "bg-border"
+            }`}
+            style={{ width: i === index ? "24px" : "8px" }}
           />
         ))}
         <span className="text-xs text-muted-foreground ml-2">{product.id}</span>
+      </div>
+
+      {/* Product Image */}
+      <div className="mb-6 relative overflow-hidden rounded-lg">
+        <img
+          src={product.image}
+          alt={product.title}
+          className="w-full h-auto object-cover transition-transform duration-300 hover:scale-105"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
       </div>
 
       <div className="space-y-6 flex-1 flex flex-col">
@@ -75,6 +90,8 @@ const ProductsSection = () => {
         "Silent Operation",
         "Custom Interiors",
       ],
+      image:
+        "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?auto=format&fit=crop&w=400&q=80",
     },
     {
       id: "02",
@@ -87,6 +104,8 @@ const ProductsSection = () => {
         "LED Lighting",
         "Premium Finish",
       ],
+      image:
+        "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=400&q=80",
     },
     {
       id: "03",
@@ -99,6 +118,8 @@ const ProductsSection = () => {
         "Emergency Backup",
         "Silent Operation",
       ],
+      image:
+        "https://images.unsplash.com/photo-1538108149393-fbbd81895907?auto=format&fit=crop&w=400&q=80",
     },
     {
       id: "04",
@@ -111,6 +132,8 @@ const ProductsSection = () => {
         "Safety Systems",
         "Multiple Entry Points",
       ],
+      image:
+        "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=400&q=80",
     },
     {
       id: "05",
@@ -123,6 +146,8 @@ const ProductsSection = () => {
         "Safety Sensors",
         "Weather Protection",
       ],
+      image:
+        "https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=400&q=80",
     },
     {
       id: "06",
@@ -135,6 +160,8 @@ const ProductsSection = () => {
         "Food Grade Materials",
         "Easy Maintenance",
       ],
+      image:
+        "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=400&q=80",
     },
   ];
 
@@ -182,6 +209,17 @@ const ProductsSection = () => {
           ))}
         </div>
 
+        {/* Explore More Button */}
+        <div className="text-center pb-10">
+          <Button
+            className="btn-primary group px-8 py-4 text-lg"
+            onClick={() => (window.location.href = "/projects")}
+          >
+            <span>Explore More Products & Solutions</span>
+            <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+          </Button>
+        </div>
+
         {/* Virtual Demo Section */}
         <div className="card-glow p-8 lg:p-12 bg-gradient-to-r from-brand-slate to-brand-slate-light relative overflow-hidden mb-16">
           <div className="relative z-10 grid lg:grid-cols-2 gap-8 items-center">
@@ -226,17 +264,6 @@ const ProductsSection = () => {
 
           {/* Background Pattern */}
           <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
-        </div>
-
-        {/* Explore More Button */}
-        <div className="text-center">
-          <Button 
-            className="btn-primary group px-8 py-4 text-lg"
-            onClick={() => window.location.href = '/projects'}
-          >
-            <span>Explore More Products & Solutions</span>
-            <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-          </Button>
         </div>
       </div>
     </section>

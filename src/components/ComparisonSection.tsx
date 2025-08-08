@@ -45,7 +45,7 @@ const ComparisonSection = () => {
           <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">
             Why Choose <span className="text-brand">Yatra</span>?
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-5xl mx-auto">
             Choosing Yatra Elevators & Escalators means choosing responsibility,
             innovation, and a customer based approach. We have designed to offer
             advanced vertical mobility solutions that conglomerate advanced

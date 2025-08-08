@@ -389,141 +389,146 @@ const ProjectsSolutions = () => {
   });
 
   return (
-    <div className="min-h-screen bg-background">
-      <CustomCursor />
-      <Navigation />
+    <PageLoadWrapper>
+      <div className="min-h-screen bg-background">
+        <CustomCursor />
+        <AnimatedBackground />
+        <AnimatedNav>
+          <Navigation />
+        </AnimatedNav>
 
-      {/* Hero Section */}
-      <section className="pt-24 pb-16 px-6" ref={heroRef}>
-        <div className="container mx-auto">
-          <motion.div
-            className="text-center max-w-4xl mx-auto"
-            initial={{ opacity: 0, y: 30 }}
-            animate={heroInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8 }}
-          >
-            <motion.h1
-              className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-neon-cyan via-neon-blue to-neon-green bg-clip-text text-transparent mb-6"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={heroInView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ duration: 1, delay: 0.2 }}
-            >
-              Projects & Solutions
-            </motion.h1>
-            <motion.p
-              className="text-xl text-muted-foreground leading-relaxed"
-              initial={{ opacity: 0, y: 20 }}
-              animate={heroInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.4 }}
-            >
-              Comprehensive elevator solutions designed to meet every vertical
-              mobility need across diverse industries and applications.
-            </motion.p>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Main Content */}
-      <section className="py-16 px-6">
-        <div className="container mx-auto">
-          <Tabs defaultValue="elevators" className="w-full">
+        {/* Hero Section */}
+        <section className="pt-24 pb-16 px-6" ref={heroRef}>
+          <div className="container mx-auto">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-center max-w-4xl mx-auto"
+              initial={{ opacity: 0, y: 30 }}
+              animate={heroInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.8 }}
             >
-              <TabsList className="grid w-full grid-cols-2 mb-12">
-                <TabsTrigger value="elevators" className="text-lg">
-                  Elevators
-                </TabsTrigger>
-                <TabsTrigger value="solutions" className="text-lg">
-                  Solutions
-                </TabsTrigger>
-              </TabsList>
+              <motion.h1
+                className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-neon-cyan via-neon-blue to-neon-green bg-clip-text text-transparent mb-6"
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={heroInView ? { opacity: 1, scale: 1 } : {}}
+                transition={{ duration: 1, delay: 0.2 }}
+              >
+                Projects & Solutions
+              </motion.h1>
+              <motion.p
+                className="text-xl text-muted-foreground leading-relaxed"
+                initial={{ opacity: 0, y: 20 }}
+                animate={heroInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.8, delay: 0.4 }}
+              >
+                Comprehensive elevator solutions designed to meet every vertical
+                mobility need across diverse industries and applications.
+              </motion.p>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Main Content */}
+        <section className="py-16 px-6">
+          <div className="container mx-auto">
+            <Tabs defaultValue="elevators" className="w-full">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+              >
+                <TabsList className="grid w-full grid-cols-2 mb-12">
+                  <TabsTrigger value="elevators" className="text-lg">
+                    Elevators
+                  </TabsTrigger>
+                  <TabsTrigger value="solutions" className="text-lg">
+                    Solutions
+                  </TabsTrigger>
+                </TabsList>
+              </motion.div>
+
+              <TabsContent value="elevators" className="space-y-8">
+                <div className="space-y-8">
+                  {elevatorTypes.map((elevator, index) => (
+                    <ElevatorCard
+                      key={elevator.id}
+                      elevator={elevator}
+                      index={index}
+                    />
+                  ))}
+                </div>
+              </TabsContent>
+
+              <TabsContent value="solutions" className="space-y-8">
+                <div className="grid md:grid-cols-2 gap-8">
+                  {solutions.map((solution, index) => (
+                    <SolutionCard
+                      key={solution.id}
+                      solution={solution}
+                      index={index}
+                    />
+                  ))}
+                </div>
+              </TabsContent>
+            </Tabs>
+          </div>
+        </section>
+
+        {/* Industries Section */}
+        <section className="py-16 px-6 bg-surface-glass">
+          <div className="container mx-auto">
+            <motion.div
+              className="text-center mb-12"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-4xl font-bold text-foreground mb-4">
+                Industries We Serve
+              </h2>
+              <p className="text-muted-foreground">
+                Vertical mobility solutions across diverse sectors
+              </p>
             </motion.div>
 
-            <TabsContent value="elevators" className="space-y-8">
-              <div className="space-y-8">
-                {elevatorTypes.map((elevator, index) => (
-                  <ElevatorCard
-                    key={elevator.id}
-                    elevator={elevator}
-                    index={index}
-                  />
-                ))}
-              </div>
-            </TabsContent>
-
-            <TabsContent value="solutions" className="space-y-8">
-              <div className="grid md:grid-cols-2 gap-8">
-                {solutions.map((solution, index) => (
-                  <SolutionCard
-                    key={solution.id}
-                    solution={solution}
-                    index={index}
-                  />
-                ))}
-              </div>
-            </TabsContent>
-          </Tabs>
-        </div>
-      </section>
-
-      {/* Industries Section */}
-      <section className="py-16 px-6 bg-surface-glass">
-        <div className="container mx-auto">
-          <motion.div
-            className="text-center mb-12"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-4xl font-bold text-foreground mb-4">
-              Industries We Serve
-            </h2>
-            <p className="text-muted-foreground">
-              Vertical mobility solutions across diverse sectors
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              { title: "Residential Buildings", icon: Home },
-              { title: "Commercial Complexes", icon: Building2 },
-              { title: "Hospitals & Healthcare", icon: Hospital },
-              { title: "Educational Institutions", icon: FileText },
-              { title: "Government Infrastructure", icon: Shield },
-              { title: "Malls & Retail", icon: Users },
-              { title: "Industrial Warehouses", icon: Truck },
-              { title: "Airports & Transport", icon: Zap },
-            ].map((industry, index) => (
-              <motion.div
-                key={industry.title}
-                className="text-center p-6 rounded-2xl bg-card border border-border hover:shadow-glow transition-all duration-300"
-                initial={{ opacity: 0, y: 20, scale: 0.9 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                whileHover={{ scale: 1.05, y: -5 }}
-              >
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {[
+                { title: "Residential Buildings", icon: Home },
+                { title: "Commercial Complexes", icon: Building2 },
+                { title: "Hospitals & Healthcare", icon: Hospital },
+                { title: "Educational Institutions", icon: FileText },
+                { title: "Government Infrastructure", icon: Shield },
+                { title: "Malls & Retail", icon: Users },
+                { title: "Industrial Warehouses", icon: Truck },
+                { title: "Airports & Transport", icon: Zap },
+              ].map((industry, index) => (
                 <motion.div
-                  whileHover={{ scale: 1.2, rotate: 5 }}
-                  transition={{ duration: 0.2 }}
+                  key={industry.title}
+                  className="text-center p-6 rounded-2xl bg-card border border-border hover:shadow-glow transition-all duration-300"
+                  initial={{ opacity: 0, y: 20, scale: 0.9 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  whileHover={{ scale: 1.05, y: -5 }}
                 >
-                  <industry.icon className="w-10 h-10 text-neon-cyan mx-auto mb-4" />
+                  <motion.div
+                    whileHover={{ scale: 1.2, rotate: 5 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <industry.icon className="w-10 h-10 text-neon-cyan mx-auto mb-4" />
+                  </motion.div>
+                  <h3 className="text-lg font-semibold text-foreground">
+                    {industry.title}
+                  </h3>
                 </motion.div>
-                <h3 className="text-lg font-semibold text-foreground">
-                  {industry.title}
-                </h3>
-              </motion.div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </PageLoadWrapper>
   );
 };
 
