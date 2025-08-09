@@ -27,7 +27,7 @@ const Navigation = () => {
           transition={{ duration: 0.6, delay: 0.2 }}
         >
           <motion.div
-            className="relative w-12 h-12 flex items-center justify-center overflow-hidden transition-all duration-300"
+            className="relative w-16 h-16 flex items-center justify-center overflow-hidden transition-all duration-300"
             whileHover={{
               scale: 1.1,
               rotate: 5,
@@ -35,7 +35,7 @@ const Navigation = () => {
             transition={{ duration: 0.3 }}
           >
             <img
-              src="/lovable-uploads/de7ef598-547e-4ffb-afa5-85e87165cd2b.png"
+              src="/Yata white.png"
               alt="Yatra Elevators Logo"
               className="w-full h-full object-contain filter brightness-110 group-hover:brightness-125 transition-all duration-300"
             />

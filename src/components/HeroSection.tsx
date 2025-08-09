@@ -10,7 +10,7 @@ import ImageStack from "./ImageStack";
 
 const HeroSection = () => {
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
+    <section className="h-auto min-h-[80vh] flex items-center justify-center relative overflow-hidden">
       {/* Animated Background Grid */}
       <motion.div
         className="absolute inset-0 bg-grid-pattern opacity-30"
