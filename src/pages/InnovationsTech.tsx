@@ -16,11 +16,11 @@ import {
   Battery,
   Waves,
 } from "lucide-react";
-import { 
-  PageLoadWrapper, 
-  AnimatedNav, 
-  AnimatedBackground 
-} from '@/components/AnimatedComponents';
+import {
+  PageLoadWrapper,
+  AnimatedNav,
+  AnimatedBackground,
+} from "@/components/AnimatedComponents";
 
 // Type definitions
 interface Innovation {
@@ -29,6 +29,7 @@ interface Innovation {
   icon: React.ComponentType<{ className?: string }>;
   description: string;
   features: string[];
+  image: string;
 }
 
 // Separate component for innovation cards to fix React Hooks rule
@@ -123,12 +124,20 @@ const InnovationCard = ({
         transition={{ duration: 0.6, delay: index * 0.1 + 0.4 }}
         whileHover={{ scale: 1.05, rotate: 1 }}
       >
-        <div className="aspect-square bg-gradient-to-br from-primary/20 to-secondary/20 rounded-2xl backdrop-blur-sm border border-border flex items-center justify-center">
+        <div className="relative overflow-hidden rounded-2xl aspect-square">
+          <img
+            src={innovation.image}
+            alt={innovation.title}
+            className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-br from-neon-cyan/20 to-neon-blue/20 mix-blend-overlay" />
           <motion.div
+            className="absolute top-4 right-4 w-12 h-12 bg-background/80 backdrop-blur-sm rounded-xl flex items-center justify-center"
             whileHover={{ scale: 1.1, rotate: 10 }}
             transition={{ duration: 0.3 }}
           >
-            <innovation.icon className="w-24 h-24 text-neon-cyan/50" />
+            <innovation.icon className="w-6 h-6 text-neon-cyan" />
           </motion.div>
         </div>
       </motion.div>
@@ -142,6 +151,8 @@ const InnovationsTech = () => {
       id: "smart-elevators",
       title: "Smart Elevators (AI + IoT)",
       icon: Brain,
+      image:
+        "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=600&h=600&fit=crop&auto=format&q=80",
       description:
         "At Yatra, we are reshaping the future of vertical mobility through smart elevators  propelled by Artificial Intelligent and IoT. Yatra elevators offer more advanced and elevating technological functionality where the Intelligent System goes beyond traditional functionality by learning passenger adaptability, optimizing data through real-time data Analysis, predicting & performing Systematic approach enabling voice prediction System. Every consultation is featured for comfort, hygiene, and user-friendly experience with AI–driven algorithms and IoT–enabled connectivity.",
       features: [
@@ -156,6 +167,8 @@ const InnovationsTech = () => {
       id: "energy-efficiency",
       title: "Energy Efficiency & Regenerative Drives",
       icon: Zap,
+      image:
+        "https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?w=600&h=600&fit=crop&auto=format&q=80",
       description:
         "At Yatra Elevators, energy is not just a source, it is the most crucial thing for every home. This not only talks about electricity and power but it is standard for building infrastructure. By integrating LED power, specifically engineered for heavy-duty commercial use, these elevators cope with substantial electrical bills  and energy, and meticulously prolonged operation, significant for hotels. Created  with protected cabins, maximum capability motors, moreover tailor made interiors, our service elevators enable magnanimous vertical transport of goods without compromising safety or adaptability.",
       features: [
@@ -170,6 +183,8 @@ const InnovationsTech = () => {
       id: "noise-control",
       title: "Noise & Vibration Control",
       icon: Volume,
+      image:
+        "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=600&h=600&fit=crop&auto=format&q=80",
       description:
         "At Yatra Elevators, Yatra's Passenger Elevators are comprehensively designed to serve serene, calm and most significant vertical mobility in diverse architectural environments to provide smooth, safe, and energy-effective vertical mobility for residential and commercial buildings. Established with user eye-catching design, stylistic appeal, appearance standards and we envisioned the  long term journey that carry in mind, our elevators integrate sophisticated technology, noise-optimized and cutting - edge control systems to embark every strike By integrating motor and precision, sensors and noise detection system, control systems, monitoring devices, yatra provides exclusively vibrational sensors to detect sensors.",
       features: [
@@ -184,6 +199,8 @@ const InnovationsTech = () => {
       id: "antimicrobial",
       title: "Anti-Microbial Features for Safety",
       icon: Shield,
+      image:
+        "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=600&h=600&fit=crop&auto=format&q=80",
       description:
         "At Yatra Elevators, safety is first and foremost essential to maintain hygiene, Anti- microbial Features for safety ,eradicating microbial creatures through biodegradable chemicals. Our Elevators not only provide elegant and good feel, but also deliver safety by enhancing the ability to handle any problem regarding safety issues, Anti – Microbial features. Going beyond the safety measures..  However we focus on healthy and powerful life to lead, uplift and engross many good lifestyles.",
       features: [
@@ -198,6 +215,8 @@ const InnovationsTech = () => {
       id: "emergency-response",
       title: "Emergency Response Systems",
       icon: AlertTriangle,
+      image:
+        "https://images.unsplash.com/photo-1534498842129-34d4d7e56210?w=600&h=600&fit=crop&auto=format&q=80",
       description:
         "Yatra elevators offer incredible and highly advanced response systems, though it is not just for the purpose of safety but also for security and incorporating accountability by yatra's  intelligent sensor–based effortless alerts and connectivity  for emergency Response Systems. These response Systems protect precious lives. Our Intelligent response System coordinates the control system and acts as an emergency System also equipped with water alert regulatory System.",
       features: [
@@ -212,6 +231,8 @@ const InnovationsTech = () => {
       id: "mobile-integration",
       title: "Mobile App Integration for Users",
       icon: Smartphone,
+      image:
+        "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&h=600&fit=crop&auto=format&q=80",
       description:
         "At Yatra Elevators, we understand people to give convenience and comfortness by integrating Mobile app technology for users. Technology has evolved drastically in this developing era where everything has digitalized, that's why convenience mobile and charging points and energy saving Systems . Whether you are a resident or builder, everyone should have to utilize technology in day to day life professionally. This System Mobile App Integration for Users from Yatra transforms lives from underprivileged communities to Sophisticated Communities where every futuristic goal can be accomplished.",
       features: [
@@ -226,6 +247,8 @@ const InnovationsTech = () => {
       id: "fire-resistant",
       title: "Fire-Resistant Design Options",
       icon: Flame,
+      image:
+        "https://images.unsplash.com/photo-1605296867304-46d5465a13f1?w=600&h=600&fit=crop&auto=format&q=80",
       description:
         "We at Yatra Elevators, light up many lives through our programs, deliverability, and systematic approach. These facilities are ideal for safety and moreover diminishes life threat in any place. These fire-resistant design Options aim at clearing out the fear of uncertainty and provide peace of mind through protection.",
       features: [

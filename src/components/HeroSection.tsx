@@ -38,14 +38,7 @@ const HeroSection = () => {
 
       {/* Gradient Overlay */}
       <motion.div
-        className="absolute inset-0 bg-gradient-hero"
-        animate={{
-          background: [
-            "linear-gradient(135deg, hsl(var(--background)), hsl(var(--surface-elevated)))",
-            "linear-gradient(225deg, hsl(var(--surface)), hsl(var(--background)))",
-            "linear-gradient(135deg, hsl(var(--background)), hsl(var(--surface-elevated)))",
-          ],
-        }}
+        className="absolute inset-0 bg-transparent"
         transition={{
           duration: 6,
           repeat: Infinity,
@@ -60,7 +53,7 @@ const HeroSection = () => {
             <div className="space-y-4 lg:space-y-6">
               <SplitTextAnimation
                 text="Yatra Elevators"
-                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight text-gradient"
+                className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-8xl font-bold leading-tight text-gradient"
               />
 
               <SlideInAnimation direction="right" delay={1.5}>

@@ -91,7 +91,7 @@ const ProductsSection = () => {
         "Custom Interiors",
       ],
       image:
-        "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?auto=format&fit=crop&w=400&q=80",
+        "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?auto=format&fit=crop&w=600&h=400&q=85",
     },
     {
       id: "02",
@@ -105,7 +105,7 @@ const ProductsSection = () => {
         "Premium Finish",
       ],
       image:
-        "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=400&q=80",
+        "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=600&h=400&q=85",
     },
     {
       id: "03",
@@ -119,7 +119,7 @@ const ProductsSection = () => {
         "Silent Operation",
       ],
       image:
-        "https://images.unsplash.com/photo-1538108149393-fbbd81895907?auto=format&fit=crop&w=400&q=80",
+        "https://images.unsplash.com/photo-1538108149393-fbbd81895907?auto=format&fit=crop&w=600&h=400&q=85",
     },
     {
       id: "04",
@@ -133,7 +133,7 @@ const ProductsSection = () => {
         "Multiple Entry Points",
       ],
       image:
-        "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=400&q=80",
+        "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=600&h=400&q=85",
     },
     {
       id: "05",
@@ -147,7 +147,7 @@ const ProductsSection = () => {
         "Weather Protection",
       ],
       image:
-        "https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=400&q=80",
+        "https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=600&h=400&q=85",
     },
     {
       id: "06",
@@ -161,7 +161,7 @@ const ProductsSection = () => {
         "Easy Maintenance",
       ],
       image:
-        "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=400&q=80",
+        "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=600&h=400&q=85",
     },
   ];
 
