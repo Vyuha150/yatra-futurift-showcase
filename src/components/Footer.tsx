@@ -20,6 +20,7 @@ const Footer = () => {
     { label: 'Freight Elevators', href: '#' },
     { label: 'Escalators', href: '#' },
     { label: 'Maintenance', href: '#' }
+    
   ];
 
   const services = [
@@ -28,7 +29,8 @@ const Footer = () => {
     { label: 'Modernization', href: '#' },
     { label: 'Emergency Repair', href: '#' },
     { label: 'IoT Monitoring', href: '#' },
-    { label: 'Consultation', href: '#' }
+    { label: 'Consultation', href: '#' },
+    { label: 'partnership', href: '/partner-application' }
   ];
 
   const company = [

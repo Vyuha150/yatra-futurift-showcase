@@ -11,6 +11,7 @@ import InnovationsTech from "./pages/InnovationsTech";
 import SupportServices from "./pages/SupportServices";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+import PartnerApplicationForm from "./components/ui/PartnerApplicationForm";
 
 const queryClient = new QueryClient();
 
@@ -19,6 +20,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
+    
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
@@ -28,12 +30,15 @@ const App = () => (
           <Route path="/innovations" element={<InnovationsTech />} />
           <Route path="/support" element={<SupportServices />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/partner-application" element={<PartnerApplicationForm/>}/>
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </TooltipProvider>
+    
   </QueryClientProvider>
+  
 );
 
 export default App;
