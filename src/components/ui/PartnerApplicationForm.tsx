@@ -1,4 +1,3 @@
-// src/pages/Consultation.tsx
 import React, { useState } from 'react';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
@@ -68,7 +67,6 @@ export default function Consultation() {
         <Navigation />
       </AnimatedNav>
       <AnimatedBackground />
-
       <CustomCursor />
 
       <section className="bg-[#0d1117] text-white min-h-screen pt-32 pb-20">
@@ -97,39 +95,58 @@ export default function Consultation() {
             transition={{ delay: 0.3 }}
             className="bg-[#161b22] p-8 rounded-xl shadow-lg space-y-6"
           >
-            <Input
-              placeholder="Business Name"
-              value={form.businessName}
-              onChange={(e) => handleChange("businessName", e.target.value)}
-            />
-            <Input
-              placeholder="Owner Name"
-              value={form.ownerName}
-              onChange={(e) => handleChange("ownerName", e.target.value)}
-            />
-            <Input
-              placeholder="Phone Number"
-              value={form.phoneNumber}
-              onChange={(e) => handleChange("phoneNumber", e.target.value)}
-            />
-            <Input
-              type="email"
-              placeholder="Email"
-              value={form.email}
-              onChange={(e) => handleChange("email", e.target.value)}
-            />
-            <Textarea
-              placeholder="Business Address"
-              value={form.businessAddress}
-              onChange={(e) => handleChange("businessAddress", e.target.value)}
-            />
+            <div>
+              <label className="block mb-1 font-semibold text-gray-100">Business Name</label>
+              <Input
+                placeholder="Enter your business name"
+                value={form.businessName}
+                onChange={(e) => handleChange("businessName", e.target.value)}
+              />
+            </div>
+
+            <div>
+              <label className="block mb-1 font-semibold text-gray-100">Owner Name</label>
+              <Input
+                placeholder="Enter owner name"
+                value={form.ownerName}
+                onChange={(e) => handleChange("ownerName", e.target.value)}
+              />
+            </div>
+
+            <div>
+              <label className="block mb-1 font-semibold text-gray-100">Phone Number</label>
+              <Input
+                placeholder="Enter phone number"
+                value={form.phoneNumber}
+                onChange={(e) => handleChange("phoneNumber", e.target.value)}
+              />
+            </div>
+
+            <div>
+              <label className="block mb-1 font-semibold text-gray-100">Email</label>
+              <Input
+                type="email"
+                placeholder="Enter email address"
+                value={form.email}
+                onChange={(e) => handleChange("email", e.target.value)}
+              />
+            </div>
+
+            <div>
+              <label className="block mb-1 font-semibold text-gray-100">Business Address</label>
+              <Textarea
+                placeholder="Enter business address"
+                value={form.businessAddress}
+                onChange={(e) => handleChange("businessAddress", e.target.value)}
+              />
+            </div>
 
             {/* Nature of Business */}
             <div>
-              <p className="mb-2 text-gray-300">Nature of Business</p>
+              <label className="block mb-2 font-semibold text-gray-100">Nature of Business</label>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                 {NATURE_OPTIONS.map(opt => (
-                  <label key={opt} className="flex items-center space-x-2">
+                  <label key={opt} className="flex items-center space-x-2 text-gray-200">
                     <input
                       type="checkbox"
                       checked={form.natureOfBusiness.includes(opt)}
@@ -149,23 +166,30 @@ export default function Consultation() {
               )}
             </div>
 
-            <Input
-              placeholder="Years in Operation"
-              value={form.yearsInOperation}
-              onChange={(e) => handleChange("yearsInOperation", e.target.value)}
-            />
-            <Input
-              placeholder="Regions Served"
-              value={form.regionsServed}
-              onChange={(e) => handleChange("regionsServed", e.target.value)}
-            />
+            <div>
+              <label className="block mb-1 font-semibold text-gray-100">Years in Operation</label>
+              <Input
+                placeholder="Enter number of years"
+                value={form.yearsInOperation}
+                onChange={(e) => handleChange("yearsInOperation", e.target.value)}
+              />
+            </div>
+
+            <div>
+              <label className="block mb-1 font-semibold text-gray-100">Regions Served</label>
+              <Input
+                placeholder="Enter regions served"
+                value={form.regionsServed}
+                onChange={(e) => handleChange("regionsServed", e.target.value)}
+              />
+            </div>
 
             {/* Represents other brands */}
             <div>
-              <p className="mb-2 text-gray-300">
+              <label className="block mb-2 font-semibold text-gray-100">
                 Do you currently represent any other elevator brands?
-              </p>
-              <div className="flex gap-6">
+              </label>
+              <div className="flex gap-6 text-gray-200">
                 <label className="flex items-center space-x-2">
                   <input
                     type="radio"
@@ -185,7 +209,7 @@ export default function Consultation() {
               </div>
               {form.representsOtherBrands === "Yes" && (
                 <Input
-                  placeholder="If yes please specify:"
+                  placeholder="If yes, specify brands"
                   className="mt-2"
                   value={form.otherBrands}
                   onChange={(e) => handleChange("otherBrands", e.target.value)}
@@ -193,15 +217,20 @@ export default function Consultation() {
               )}
             </div>
 
-            <Textarea
-              placeholder="Reason for Partnership / Business Goals"
-              value={form.reason}
-              onChange={(e) => handleChange("reason", e.target.value)}
-            />
+            <div>
+              <label className="block mb-1 font-semibold text-gray-100">
+                Reason for Partnership / Business Goals
+              </label>
+              <Textarea
+                placeholder="Enter your reason or goals"
+                value={form.reason}
+                onChange={(e) => handleChange("reason", e.target.value)}
+              />
+            </div>
 
             {/* File Upload */}
             <div>
-              <p className="mb-2 text-gray-300">Upload Business Profile (optional)</p>
+              <label className="block mb-1 font-semibold text-gray-100">Upload Business Profile (optional)</label>
               <input
                 type="file"
                 accept=".pdf,.doc,.docx,image/*"
@@ -216,7 +245,7 @@ export default function Consultation() {
             </div>
 
             {/* Checkboxes */}
-            <label className="flex items-center space-x-2">
+            <label className="flex items-center space-x-2 text-gray-200">
               <input
                 type="checkbox"
                 checked={form.exclusiveRegion}
@@ -225,7 +254,7 @@ export default function Consultation() {
               <span>I am interested in exclusive regional rights</span>
             </label>
 
-            <label className="flex items-center space-x-2">
+            <label className="flex items-center space-x-2 text-gray-200">
               <input
                 type="checkbox"
                 checked={form.acceptTerms}

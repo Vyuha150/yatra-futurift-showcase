@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X, User } from "lucide-react";
+import { Menu, X, LogIn, UserPlus } from "lucide-react";
 import { motion } from "framer-motion";
+import { Link, useLocation } from "react-router-dom";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
 
   const navItems = [
     { label: "About", href: "/about" },
@@ -57,9 +59,8 @@ const Navigation = () => {
           transition={{ duration: 0.6, delay: 0.4 }}
         >
           {navItems.map((item, index) => (
-            <motion.a
+            <motion.div
               key={item.label}
-              href={item.href}
               className="relative text-foreground hover:text-neon-cyan transition-all duration-300 font-medium group"
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -70,7 +71,14 @@ const Navigation = () => {
               }}
               whileHover={{ y: -2 }}
             >
-              <span className="relative z-10">{item.label}</span>
+              <Link
+                to={item.href}
+                className={`relative z-10 ${
+                  location.pathname === item.href ? "text-neon-cyan" : ""
+                }`}
+              >
+                {item.label}
+              </Link>
               {/* Hover underline animation */}
               <motion.div
                 className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-accent origin-left"
@@ -85,11 +93,11 @@ const Navigation = () => {
                 whileHover={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.3 }}
               />
-            </motion.a>
+            </motion.div>
           ))}
         </motion.div>
 
-        {/* Login Button */}
+        {/* Auth Buttons */}
         <motion.div
           className="hidden md:flex items-center space-x-4"
           initial={{ opacity: 0, x: 20 }}
@@ -97,10 +105,20 @@ const Navigation = () => {
           transition={{ duration: 0.6, delay: 1 }}
         >
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-            <Button variant="outline" size="sm" className="btn-outline">
-              <User className="w-4 h-4 mr-2" />
-              Log in
-            </Button>
+            <Link to="/login">
+              <Button variant="outline" size="sm" className="btn-outline">
+                <LogIn className="w-4 h-4 mr-2" />
+                Login
+              </Button>
+            </Link>
+          </motion.div>
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <Link to="/signup">
+              <Button size="sm" className="btn-primary">
+                <UserPlus className="w-4 h-4 mr-2" />
+                Sign Up
+              </Button>
+            </Link>
           </motion.div>
         </motion.div>
 
@@ -142,9 +160,8 @@ const Navigation = () => {
         >
           <div className="flex flex-col space-y-4">
             {navItems.map((item, index) => (
-              <motion.a
+              <motion.div
                 key={item.label}
-                href={item.href}
                 className="text-foreground hover:text-neon-cyan transition-colors duration-300 font-medium"
                 onClick={() => setIsMenuOpen(false)}
                 initial={{ opacity: 0, x: -20 }}
@@ -157,8 +174,8 @@ const Navigation = () => {
                   delay: isMenuOpen ? 0.2 + index * 0.1 : 0,
                 }}
               >
-                {item.label}
-              </motion.a>
+                <Link to={item.href}>{item.label}</Link>
+              </motion.div>
             ))}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
@@ -171,10 +188,24 @@ const Navigation = () => {
                 delay: isMenuOpen ? 0.2 + navItems.length * 0.1 : 0,
               }}
             >
-              <Button variant="outline" size="sm" className="btn-outline w-fit">
-                <User className="w-4 h-4 mr-2" />
-                Log in
-              </Button>
+              <div className="flex gap-3">
+                <Link to="/login" onClick={() => setIsMenuOpen(false)}>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="btn-outline w-fit"
+                  >
+                    <LogIn className="w-4 h-4 mr-2" />
+                    Login
+                  </Button>
+                </Link>
+                <Link to="/signup" onClick={() => setIsMenuOpen(false)}>
+                  <Button size="sm" className="btn-primary w-fit">
+                    <UserPlus className="w-4 h-4 mr-2" />
+                    Sign Up
+                  </Button>
+                </Link>
+              </div>
             </motion.div>
           </div>
         </motion.div>
