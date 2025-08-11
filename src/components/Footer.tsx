@@ -19,9 +19,12 @@ const Footer = () => {
     { label: 'Hospital Elevators', href: '#' },
     { label: 'Freight Elevators', href: '#' },
     { label: 'Escalators', href: '#' },
-    { label: 'Maintenance', href: '#' }
+    { label: 'Maintenance', href: '#' },
+    { label: 'clientRequirementForm', href: '/clientForm' }
     
-  ];
+
+    
+];
 
   const services = [
     { label: 'Installation', href: '#' },
@@ -39,7 +42,11 @@ const Footer = () => {
     { label: 'Case Studies', href: '#' },
     { label: 'Blog', href: '#' },
     { label: 'Press', href: '#' },
-    { label: 'Contact', href: '#contact' }
+    { label: 'Contact', href: '#contact' },
+    { label: 'FeedBack', href: '/FeedBack' }
+
+
+
   ];
 
   return (

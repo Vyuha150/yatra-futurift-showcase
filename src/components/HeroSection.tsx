@@ -1,5 +1,7 @@
 import { ArrowRight, Calendar, Eye } from "lucide-react";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
+
 import {
   SplitTextAnimation,
   SlideInAnimation,
@@ -9,6 +11,8 @@ import {
 import ImageStack from "./ImageStack";
 
 const HeroSection = () => {
+  const navigate = useNavigate();
+
   return (
     <section className="h-auto min-h-[80vh] flex items-center justify-center relative overflow-hidden">
       {/* Animated Background Grid */}
@@ -79,13 +83,15 @@ const HeroSection = () => {
                 <span>Get Quote</span>
                 <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform shrink-0" />
               </GlowButton>
-              <GlowButton
-                className="btn-outline group min-w-[140px] h-10 px-4"
-                size="sm"
-              >
-                <Calendar className="w-4 h-4 mr-2 shrink-0" />
-                <span>Book Service</span>
+               <GlowButton
+                  className="btn-outline group min-w-[140px] h-10 px-4"
+                  size="sm"
+                  onClick={() => navigate("/service-request")}
+>
+                 <Calendar className="w-4 h-4 mr-2 shrink-0" />
+                  <span>Book Service</span>
               </GlowButton>
+
               <GlowButton
                 className="btn-outline group min-w-[130px] h-10 px-4"
                 size="sm"

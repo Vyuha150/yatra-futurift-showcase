@@ -15,6 +15,13 @@ import SignUp from "./pages/SignUp";
 import OTPVerification from "./pages/OTPVerification";
 import NotFound from "./pages/NotFound";
 import PartnerApplicationForm from "./components/ui/PartnerApplicationForm";
+import FeedbackForm from "./components/ui/FeedBackForm";
+import ServiceRequestForm from "./components/ui/ServiceRequestForm";
+import ClientForm from "./components/ui/ClientForm";
+
+
+
+
 
 const queryClient = new QueryClient();
 
@@ -34,6 +41,11 @@ const App = () => (
           <Route path="/support" element={<SupportServices />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/partner-application" element={<PartnerApplicationForm/>} />
+          <Route path="/FeedBack" element={<FeedbackForm/>} />
+          <Route path="/service-request" element={<ServiceRequestForm />} />
+          <Route path="/clientForm" element={<ClientForm />} />
+         
+         
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

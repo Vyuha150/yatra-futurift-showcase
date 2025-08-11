@@ -3,6 +3,9 @@ import Footer from "@/components/Footer";
 import CustomCursor from "@/components/CustomCursor";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { useNavigate } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+
 import {
   Clock,
   FileText,
@@ -108,6 +111,9 @@ const ServiceCard = ({
 };
 
 const SupportServices = () => {
+    const navigate = useNavigate();
+
+
   const [heroRef, heroInView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -200,6 +206,7 @@ const SupportServices = () => {
         </AnimatedNav>
 
         {/* Hero Section */}
+        
         <section className="pt-24 pb-16 px-6" ref={heroRef}>
           <div className="container mx-auto">
             <motion.div
@@ -207,6 +214,7 @@ const SupportServices = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={heroInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8 }}
+          
             >
               <motion.h1
                 className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-neon-cyan via-neon-blue to-neon-green bg-clip-text text-transparent mb-6"
@@ -225,6 +233,15 @@ const SupportServices = () => {
                 Comprehensive support solutions ensuring your vertical mobility
                 systems operate at peak performance 24/7.
               </motion.p>
+               {/* Request for Service Button */}
+                
+                <br></br>
+                
+              <Button
+                className="bg-neon-cyan hover:bg-neon-blue text-black font-semibold px-8 py-4 text-lg rounded-lg shadow-lg hover:shadow-neon-cyan transition-all duration-300"
+                onClick={() => navigate("/service-request")}
+              >Request for Service
+              </Button>
             </motion.div>
           </div>
         </section>
