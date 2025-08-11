@@ -18,12 +18,12 @@ const Particles = () => {
     const generateParticles = () => {
       const newParticles: Particle[] = [];
       const colors = [
-        "rgba(0, 255, 255, 0.8)", // bright neon-cyan
-        "rgba(0, 150, 255, 0.7)", // bright neon-blue
-        "rgba(0, 255, 150, 0.6)", // bright neon-green
-        "rgba(255, 100, 255, 0.5)", // bright purple
-        "rgba(255, 255, 255, 0.4)", // bright white
-        "rgba(255, 200, 0, 0.6)", // golden
+        "rgba(0, 100, 255, 0.8)", // deep blue
+        "rgba(0, 150, 255, 0.7)", // medium blue
+        "rgba(0, 200, 255, 0.6)", // light blue
+        "rgba(70, 130, 255, 0.5)", // steel blue
+        "rgba(30, 100, 255, 0.4)", // dark blue
+        "rgba(100, 180, 255, 0.6)", // sky blue
       ];
 
       // Create particles - reduced from 80 to 30
@@ -58,7 +58,7 @@ const Particles = () => {
             height: particle.size,
             backgroundColor: particle.color,
             boxShadow: `0 0 ${particle.size * 2}px ${particle.color}`,
-            filter: 'blur(0.5px)',
+            filter: "blur(0.5px)",
           }}
           animate={{
             y: [0, -150, 0],

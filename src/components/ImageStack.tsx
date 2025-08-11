@@ -1,19 +1,13 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 
-const images = [
-  "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=480&h=768&q=85",
-  "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=480&h=768&q=85",
-  "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=480&h=768&q=85",
-  "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=480&h=768&q=85",
-  "https://images.unsplash.com/photo-1519985176271-adb1088fa94c?auto=format&fit=crop&w=480&h=768&q=85",
-];
+const images = ["/1.png", "/2.png", "/3.png", "/4.png", "/5.png"];
 
 export default function ImageStack() {
   const [hovered, setHovered] = useState<number | null>(null);
 
   return (
-    <div className="flex items-end justify-center h-64 sm:h-72 md:h-80 lg:h-96 gap-0 relative">
+    <div className="flex items-center justify-center h-64 sm:h-72 md:h-80 lg:h-96 gap-0 relative">
       {images.map((src, idx) => (
         <motion.div
           key={src}

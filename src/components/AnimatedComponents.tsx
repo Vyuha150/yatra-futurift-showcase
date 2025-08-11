@@ -65,9 +65,7 @@ export const PageLoadWrapper = ({ children }: PageLoadWrapperProps) => {
       className="min-h-screen bg-background relative"
     >
       <AnimatedBackground />
-      <div className="relative z-10">
-        {children}
-      </div>
+      <div className="relative z-10">{children}</div>
     </motion.div>
   );
 };
@@ -277,17 +275,9 @@ export const AnimatedBackground = () => {
       <Particles />
       <motion.div
         className="absolute inset-0 -z-10"
-        animate={{
-          background: [
-            "linear-gradient(45deg, rgba(0, 255, 255, 0.1) 0%, rgba(0, 0, 255, 0.1) 100%)",
-            "linear-gradient(225deg, rgba(255, 0, 255, 0.1) 0%, rgba(0, 255, 255, 0.1) 100%)",
-            "linear-gradient(45deg, rgba(0, 255, 255, 0.1) 0%, rgba(0, 0, 255, 0.1) 100%)",
-          ],
-        }}
-        transition={{
-          duration: 8,
-          repeat: Infinity,
-          ease: "linear",
+        style={{
+          background:
+            "linear-gradient(45deg, rgba(0, 100, 255, 0.1) 0%, rgba(0, 150, 255, 0.1) 100%)",
         }}
       />
     </>

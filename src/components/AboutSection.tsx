@@ -94,7 +94,9 @@ const AboutSection = () => {
           <div className="relative">
             <div className="relative overflow-hidden rounded-2xl">
               <img
-                src={roboticHand}
+                src={
+                  "/Products that reshape the vertical transportation industry (2).png"
+                }
                 alt="Advanced Automation Technology"
                 className="w-full h-auto"
               />

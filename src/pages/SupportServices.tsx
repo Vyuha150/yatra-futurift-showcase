@@ -133,16 +133,14 @@ const SupportServices = () => {
     {
       icon: Monitor,
       title: "Remote Monitoring Dashboard",
-      image:
-        "https://images.unsplash.com/photo-1551808525-51a94da548ce?w=600&h=600&fit=crop&auto=format&q=80",
+      image: "/service1.png",
       description:
         "Do you want to get connected to your elevator and escalator performance in real time with Yatra's innovative Remote Monitoring Dashboard. This advanced system gives live status updates, performance analysis, fault identification alerts, and maintenance logs each and everything is accessible from a secure online platform. Designed for property managers and facility operators, our dashboard offers complete clarity and control, permitting quick response times and smarter decision-making. With anticipating insights and remote diagnostics, we help you to decrease downtime, optimize maintenance schedules, and ensure safe, uninterrupted operation at any time, from anywhere.",
     },
     {
       icon: Wrench,
       title: "Spare Parts & Repairs",
-      image:
-        "https://images.unsplash.com/photo-1581092162384-8987c1d64718?w=600&h=600&fit=crop&auto=format&q=80",
+      image: "/service2.png",
       description:
         "We offer a wide range of genuine spare parts suitable with all major elevator and escalator models, ensuring quick replacements and less downtime. Our skilled technicians are trained to identify and solve issues efficiently, whether it's a minor failure or a major mechanical repair.",
     },
