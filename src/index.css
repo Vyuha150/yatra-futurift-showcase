@@ -108,6 +108,35 @@
     cursor: none !important;
   }
 
+  /* Auth pages - restore cursor for inputs and text areas */
+  .auth-page,
+  .auth-page * {
+    cursor: auto !important;
+  }
+
+  .auth-page input,
+  .auth-page textarea,
+  .auth-page [contenteditable],
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="tel"],
+  input[type="number"],
+  textarea {
+    cursor: text !important;
+  }
+
+  .auth-page button,
+  .auth-page a,
+  .auth-page [role="button"] {
+    cursor: pointer !important;
+  }
+
+  /* Override custom cursor for auth pages */
+  .auth-page body {
+    cursor: auto !important;
+  }
+
   /* Scrollbar Styling */
   ::-webkit-scrollbar {
     width: 8px;
@@ -155,6 +184,11 @@
 
   .text-brand {
     @apply bg-gradient-to-r from-[hsl(var(--brand-slate-light))] to-[hsl(var(--neon-cyan))] bg-clip-text text-transparent;
+  }
+
+  /* Caret Color */
+  .caret-neon-cyan {
+    caret-color: hsl(var(--neon-cyan));
   }
 
   /* Animations */
