@@ -41,13 +41,12 @@ export default function ImageStack() {
           }}
           transition={{ type: "spring", stiffness: 300, damping: 30 }}
         >
-          <img
+            <img
             src={src}
             alt={`Stacked ${idx}`}
             className="w-28 h-44 sm:w-32 sm:h-48 md:w-36 md:h-56 lg:w-40 lg:h-64 object-cover rounded-xl border-2 border-white shadow-lg select-none"
             draggable={false}
           />
-
           {/* Elevator Name Overlay */}
           <motion.div
             className="absolute bottom-0 left-0 right-0 flex items-end justify-center p-2 rounded-b-xl"
@@ -59,16 +58,18 @@ export default function ImageStack() {
             transition={{ duration: 0.3 }}
             style={{ pointerEvents: "none" }}
           >
-            <motion.span
-              className="text-blue-300 font-bold text-sm md:text-base lg:text-lg text-center px-3 py-2 bg-blue-900/80 backdrop-blur-sm rounded-lg border border-blue-400/50 shadow-lg"
-              initial={{ scale: 0.8 }}
-              animate={{
-                scale: hovered === idx ? 1 : 0.8,
-              }}
-              transition={{ duration: 0.3, ease: "easeOut" }}
-            >
-              {elevatorNames[idx]}
-            </motion.span>
+           <motion.span
+           style={{ fontSize: '0.75rem' }}
+           className="text-blue-300 font-bold text-center px-3 py-1.5 bg-blue-900/80 backdrop-blur-sm rounded-lg border border-blue-400/50 shadow-lg"
+            initial={{ scale: 0.7 }}
+            animate={{
+            scale: hovered === idx ? 0.9 : 0.7,
+       }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+>
+           {elevatorNames[idx]}
+          </motion.span>
+
           </motion.div>
         </motion.div>
       ))}

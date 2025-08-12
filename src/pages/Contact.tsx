@@ -7,6 +7,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { MapPin, Phone, Mail, Clock } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { MessageSquare } from "lucide-react";
 import { 
   PageLoadWrapper, 
   AnimatedNav, 
@@ -263,7 +264,7 @@ const Contact = () => {
                 For urgent elevator service or emergency situations, our support team is available round the clock.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" variant="destructive">
+                <Button size="lg" variant="outline" className="btn-outline">
                   <Phone className="w-5 h-5 mr-2" />
                   Emergency Hotline
                 </Button>
@@ -271,6 +272,17 @@ const Contact = () => {
                   <Mail className="w-5 h-5 mr-2" />
                   Emergency Email
                 </Button>
+                <Button 
+                size="lg" 
+                variant="outline" 
+                className="btn-outline" 
+                onClick={() => window.location.href = "/FeedBack"}
+>
+              <MessageSquare className="w-5 h-5 mr-2" />
+               Feedback
+               </Button>
+
+               
               </div>
             </motion.div>
           </div>
