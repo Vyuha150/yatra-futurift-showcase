@@ -73,7 +73,7 @@ export default function ServiceRequestForm() {
             className="text-center mb-12"
           >
             <h1 className="text-4xl font-bold text-[#00bcd4] mb-3">
-              Yatra Elevators & Escalators – Service & Maintenance Request
+               Service & Maintenance Request
             </h1>
             <p className="text-gray-400 max-w-2xl mx-auto">
               Are you looking for help? Our support team is ready to assist you promptly.

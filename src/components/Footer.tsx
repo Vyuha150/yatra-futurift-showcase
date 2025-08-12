@@ -20,7 +20,7 @@ const Footer = () => {
     { label: 'Freight Elevators', href: '#' },
     { label: 'Escalators', href: '#' },
     { label: 'Maintenance', href: '#' },
-    { label: 'clientRequirementForm', href: '/clientForm' }
+    
     
 
     

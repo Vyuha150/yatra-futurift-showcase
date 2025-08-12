@@ -4,6 +4,8 @@ import CustomCursor from "@/components/CustomCursor";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
+
 import { useInView } from "react-intersection-observer";
 import {
   Building2,
@@ -207,6 +209,19 @@ const SolutionCard = ({
     triggerOnce: true,
     threshold: 0.1,
   });
+    const navigate = useNavigate();
+
+const handleGetStarted = () => {
+  if (solution.id === "installation" || solution.id === "custom") {
+    navigate("/clientForm");
+  } else if (solution.id === "modernization" || solution.id === "maintenance") {
+    navigate("/service-request");
+  } else {
+    navigate("/");
+  }
+};
+
+
 
   return (
     <motion.div
@@ -271,12 +286,13 @@ const SolutionCard = ({
             delay: index * 0.15 + 0.6,
           }}
         >
-          <Button className="btn-outline group w-full">
+          <Button className="btn-outline group w-full" onClick={handleGetStarted}>
             <span>Get Started</span>
             <motion.div whileHover={{ x: 4 }} transition={{ duration: 0.2 }}>
               →
             </motion.div>
           </Button>
+
         </motion.div>
 
         {/* Hover Image */}

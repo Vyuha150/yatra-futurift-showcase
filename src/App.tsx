@@ -18,6 +18,7 @@ import PartnerApplicationForm from "./components/ui/PartnerApplicationForm";
 import FeedbackForm from "./components/ui/FeedBackForm";
 import ServiceRequestForm from "./components/ui/ServiceRequestForm";
 import ClientForm from "./components/ui/ClientForm";
+import PriceQuotation from "./components/ui/PriceQuotation";
 
 
 
@@ -44,6 +45,7 @@ const App = () => (
           <Route path="/FeedBack" element={<FeedbackForm/>} />
           <Route path="/service-request" element={<ServiceRequestForm />} />
           <Route path="/clientForm" element={<ClientForm />} />
+          <Route path="/quotationform" element={<PriceQuotation />} />
          
          
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

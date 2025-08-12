@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
 import { motion } from "framer-motion";
+
 import { useInView } from "react-intersection-observer";
 import {
   MapPin,
@@ -19,7 +20,10 @@ import {
   Wrench,
   BookOpen,
   CheckCircle,
+  Headphones,
+  Megaphone,
 } from "lucide-react";
+
 import { useState, useRef } from "react";
 import { PageLoadWrapper } from "@/components/AnimatedComponents";
 
@@ -301,56 +305,64 @@ const Career = () => {
       </section>
 
       {/* Current Openings */}
-      <section className="py-16 px-6">
-        <div className="container mx-auto">
-          <motion.div
-            className="text-center mb-12"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-4xl font-bold text-foreground mb-4">
-              Current Openings
-            </h2>
-            <p className="text-muted-foreground">
-              In future we need to update this based on the number of openings
-            </p>
-          </motion.div>
+      {/* Current Openings */}
+<section className="py-16 px-6">
+  <div className="container mx-auto">
+    <motion.div
+      className="text-center mb-12"
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      viewport={{ once: true }}
+    >
+      <h2 className="text-4xl font-bold text-foreground mb-4">
+        Current Openings
+      </h2>
+      <p className="text-muted-foreground">
+        We are hiring for the following positions. Apply now to join our team.
+      </p>
+    </motion.div>
 
+    <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+      {[
+        { title: "Service Engineer", icon: Wrench, desc: "Responsible for installation, repair, and maintenance of elevators and escalators ensuring safety and quality standards." },
+        { title: "Service Executive", icon: Headphones, desc: "Coordinate with clients, schedule services, and ensure smooth service operations and customer satisfaction." },
+        { title: "Marketing Executive", icon: Megaphone, desc: "Promote our products and services, identify new business opportunities, and maintain client relationships." },
+      ].map((role, index) => {
+        const Icon = role.icon;
+        return (
           <motion.div
-            className="max-w-4xl mx-auto"
+            key={role.title}
+            className="p-6 rounded-2xl bg-card border border-border hover:shadow-glow transition-all duration-300"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.6, delay: index * 0.1 }}
             viewport={{ once: true }}
           >
-            <Card className="p-8 text-center bg-gradient-to-br from-primary/10 to-secondary/10 border-border">
-              <CardContent className="space-y-4">
-                <Briefcase className="w-16 h-16 text-neon-cyan mx-auto" />
-                <h3 className="text-2xl font-bold text-foreground">
-                  Exciting Opportunities Coming Soon!
-                </h3>
-                <p className="text-muted-foreground">
-                  We are constantly growing and will be updating this section
-                  with new openings. In the meantime, feel free to submit your
-                  resume for future opportunities.
-                </p>
-                <Button
-                  className="btn-primary mt-4"
-                  onClick={() =>
-                    document
-                      .getElementById("resume-section")
-                      ?.scrollIntoView({ behavior: "smooth" })
-                  }
-                >
-                  Submit Your Resume
-                </Button>
-              </CardContent>
-            </Card>
+            <Icon className="w-12 h-12 text-neon-cyan mb-4" />
+            <h3 className="text-xl font-semibold text-foreground mb-2">
+              {role.title}
+            </h3>
+            <p className="text-muted-foreground text-sm">
+              {role.desc}
+            </p>
+            <Button
+              className="btn-primary mt-4"
+              onClick={() =>
+                document
+                  .getElementById("resume-section")
+                  ?.scrollIntoView({ behavior: "smooth" })
+              }
+            >
+              Apply Now
+            </Button>
           </motion.div>
-        </div>
-      </section>
+        );
+      })}
+    </div>
+  </div>
+</section>
+
 
       {/* Internships & Training Programs */}
       <section className="py-16 px-6 bg-surface-glass">

@@ -77,12 +77,14 @@ const HeroSection = () => {
               transition={{ duration: 0.8, delay: 2 }}
             >
               <GlowButton
-                className="btn-primary group min-w-[120px] h-10 px-4"
-                size="sm"
-              >
-                <span>Get Quote</span>
-                <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform shrink-0" />
+              className="btn-primary group min-w-[120px] h-10 px-4"
+              size="sm"
+              onClick={() => navigate("/quotationform")}
+>
+              <span>Get Quote</span>
+              <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform shrink-0" />
               </GlowButton>
+
                <GlowButton
                   className="btn-outline group min-w-[140px] h-10 px-4"
                   size="sm"
@@ -113,14 +115,15 @@ const HeroSection = () => {
           </div>
 
           {/* Right Side: Image Stack */}
-          <motion.div
-            className="relative w-full max-w-lg mx-auto lg:max-w-none flex items-center justify-center"
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, delay: 2.5, ease: "easeOut" }}
-          >
-            <ImageStack />
-          </motion.div>
+         <motion.div
+        className="relative w-[120px] sm:w-[150px] mx-auto flex items-center justify-center"
+        initial={{ opacity: 0, x: 50 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 1, delay: 2.5, ease: "easeOut" }}
+>
+       <ImageStack />
+       </motion.div>
+
         </div>
       </div>
     </section>
