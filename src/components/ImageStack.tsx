@@ -59,7 +59,7 @@ export default function ImageStack() {
             style={{ pointerEvents: "none" }}
           >
             <motion.span
-              className="text-blue-300 font-bold text-sm md:text-base lg:text-lg text-center px-3 py-2 bg-blue-900/80 backdrop-blur-sm rounded-lg border border-blue-400/50 shadow-lg"
+              className="text-blue-300 font-bold text-sm md:text-sm lg:text-sm text-center px-3 py-2 bg-blue-900/80 backdrop-blur-sm rounded-lg border border-blue-400/50 shadow-lg"
               initial={{ scale: 0.8 }}
               animate={{
                 scale: hovered === idx ? 1 : 0.8,
