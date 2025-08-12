@@ -57,7 +57,7 @@ const HeroSection = () => {
             <div className="space-y-4 lg:space-y-6">
               <SplitTextAnimation
                 text="Yatra Elevators"
-                className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-8xl font-bold leading-tight text-gradient"
+                className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight text-gradient"
               />
 
               <SlideInAnimation direction="right" delay={1.5}>
