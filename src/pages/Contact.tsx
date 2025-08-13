@@ -268,10 +268,16 @@ const Contact = () => {
                   <Phone className="w-5 h-5 mr-2" />
                   Emergency Hotline
                 </Button>
-                <Button size="lg" variant="outline" className="btn-outline">
-                  <Mail className="w-5 h-5 mr-2" />
-                  Emergency Email
-                </Button>
+                <a 
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=info@yatraelevators.com" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               className="btn-outline flex items-center justify-center px-4 py-2 rounded-md border border-border text-neon-cyan"
+  >
+               <Mail className="w-5 h-5 mr-2 text-neon-cyan" />
+                Emergency Email
+                </a>
+
                 <Button 
                 size="lg" 
                 variant="outline" 

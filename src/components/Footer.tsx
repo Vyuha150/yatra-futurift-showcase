@@ -19,7 +19,7 @@ const Footer = () => {
     { label: 'Hospital Elevators', href: '#' },
     { label: 'Freight Elevators', href: '#' },
     { label: 'Escalators', href: '#' },
-    { label: 'Maintenance', href: '#' },
+    { label: 'Maintenance', href: '/service-request' },
     
     
 
@@ -28,21 +28,21 @@ const Footer = () => {
 
   const services = [
     { label: 'Installation', href: '#' },
-    { label: 'AMC Services', href: '#' },
+    { label: 'AMC Services', href: '/support' },
     { label: 'Modernization', href: '#' },
-    { label: 'Emergency Repair', href: '#' },
+    { label: 'Emergency Repair', href: '/service-request' },
     { label: 'IoT Monitoring', href: '#' },
-    { label: 'Consultation', href: '#' },
+    { label: 'Consultation', href: '/contact' },
     { label: 'partnership', href: '/partner-application' }
   ];
 
   const company = [
-    { label: 'About Us', href: '#about' },
-    { label: 'Careers', href: '#' },
+    { label: 'About Us', href: '/about' },
+    { label: 'Careers', href: '/career' },
     { label: 'Case Studies', href: '#' },
     { label: 'Blog', href: '#' },
     { label: 'Press', href: '#' },
-    { label: 'Contact', href: '#contact' },
+    { label: 'Contact', href: '/contact' },
     { label: 'FeedBack', href: '/FeedBack' }
 
 

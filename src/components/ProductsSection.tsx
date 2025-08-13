@@ -90,7 +90,7 @@ const ProductsSection = () => {
         "Silent Operation",
         "Custom Interiors",
       ],
-      image: "/home elevators.png",
+      image: "src/assets/Residential Elevators.png",
     },
     {
       id: "02",
@@ -103,7 +103,7 @@ const ProductsSection = () => {
         "LED Lighting",
         "Premium Finish",
       ],
-      image: "/capsule relevators.png",
+      image: "src/assets/Capsule Elevators (Panoramic).png",
     },
     {
       id: "03",
@@ -116,7 +116,7 @@ const ProductsSection = () => {
         "Emergency Backup",
         "Silent Operation",
       ],
-      image: "/hospital elevators.png",
+      image: "src/assets/Bed Elevators.png",
     },
     {
       id: "04",
@@ -129,7 +129,7 @@ const ProductsSection = () => {
         "Safety Systems",
         "Multiple Entry Points",
       ],
-      image: "/FreightServices Elevators.png",
+      image: "src/assets/Service Elevators.png",
     },
     {
       id: "05",
@@ -142,7 +142,7 @@ const ProductsSection = () => {
         "Safety Sensors",
         "Weather Protection",
       ],
-      image: "/passengerelevators.png",
+      image: "/src/assets/Commercial Escalators.png",
     },
     {
       id: "06",
@@ -155,7 +155,7 @@ const ProductsSection = () => {
         "Food Grade Materials",
         "Easy Maintenance",
       ],
-      image: "/Machine-Room Less(MRL) elevators.png",
+      image: "src/assets/Machine-Room Less (MRL) Elevators.png",
     },
   ];
 
