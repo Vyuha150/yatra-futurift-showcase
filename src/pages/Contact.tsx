@@ -187,12 +187,12 @@ const Contact = () => {
                     {
                       icon: MapPin,
                       title: "Office Address",
-                      content: "123 Business District, Mumbai, Maharashtra 400001, India"
+                      content: "Plot 3-538, Sri Krishna Heights, 100 feet road , Ayyappa society, Madhapur , Hyderabad 500018, India"
                     },
                     {
                       icon: Phone,
                       title: "Phone Number",
-                      content: "+91 98765 43210"
+                      content: "+91 9091844844"
                     },
                     {
                       icon: Mail,

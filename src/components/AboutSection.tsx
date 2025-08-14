@@ -67,46 +67,45 @@ const AboutSection = () => {
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
-          {services.map((service, index) => (
-            <div
-              key={index}
-              className="card-glow p-6 group hover:scale-102 transition-all duration-300 cursor-pointer"
-            >
-              <div className="flex flex-col items-center text-center space-y-4">
-                <div className="w-16 h-16 bg-gradient-accent rounded-full flex items-center justify-center group-hover:animate-pulse-glow transition-all duration-300">
-                  <service.icon className="w-8 h-8 text-accent-foreground" />
-                </div>
-                <h3 className="font-semibold text-lg text-foreground">
-                  {service.title}
-                </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  {service.description}
-                </p>
-              </div>
-            </div>
-          ))}
+<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
+  {services.map((service, index) => (
+    <div
+      key={index}
+      className="card-glow p-6 group hover:scale-105 transition-all duration-300 cursor-pointer"
+    >
+      <div className="flex flex-col items-center text-center space-y-4">
+        <div className="w-16 h-16 bg-gradient-accent rounded-full flex items-center justify-center group-hover:animate-pulse-glow transition-all duration-300">
+          <service.icon className="w-8 h-8 text-accent-foreground" />
         </div>
+        <h3 className="font-semibold text-lg text-foreground">
+          {service.title}
+        </h3>
+        <p className="text-muted-foreground text-sm leading-relaxed">
+          {service.description}
+        </p>
+      </div>
+    </div>
+  ))}
+</div>
 
-        {/* Bottom Content */}
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left - Robotic Hand Visual */}
-          <div className="relative">
-            <div className="relative overflow-hidden rounded-2xl">
-              <img
-                src={
-                  "/Products that reshape the vertical transportation industry (2).png"
-                }
-                alt="Advanced Automation Technology"
-                className="w-full h-auto"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent"></div>
-            </div>
+{/* Bottom Content */}
+<div className="grid lg:grid-cols-2 gap-12 items-center">
+  {/* Left - Robotic Hand Visual */}
+  <div className="relative flex justify-center">
+    <div className="relative overflow-hidden rounded-2xl max-w-[500px]">
+      <img
+        src={"/Products that reshape the vertical transportation industry (2).png"}
+        alt="Advanced Automation Technology"
+        className="w-full h-auto"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent"></div>
+    </div>
 
-            {/* Floating Tech Elements */}
-            <div className="absolute top-4 right-4 w-12 h-12 bg-neon-cyan/20 rounded-full animate-pulse"></div>
-            <div className="absolute bottom-8 left-8 w-8 h-8 border-2 border-neon-blue rounded-full animate-float"></div>
-          </div>
+    {/* Floating Tech Elements */}
+    <div className="absolute top-4 right-4 w-12 h-12 bg-neon-cyan/20 rounded-full animate-pulse"></div>
+    <div className="absolute bottom-8 left-8 w-8 h-8 border-2 border-neon-blue rounded-full animate-float"></div>
+  </div>
+
 
           {/* Right - Description */}
           <div className="space-y-6">

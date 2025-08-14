@@ -78,7 +78,7 @@ const SignUp = () => {
               <p className="text-muted-foreground text-sm">
                 Already have an account?{" "}
                 <Link
-                  to="/login"
+                  to="/signin"
                   className="text-neon-cyan hover:text-neon-blue transition-colors duration-300 font-medium"
                 >
                   Sign in here
