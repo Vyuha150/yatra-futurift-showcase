@@ -46,6 +46,9 @@ const App = () => (
           <Route path="/service-request" element={<ServiceRequestForm />} />
           <Route path="/clientForm" element={<ClientForm />} />
           <Route path="/quotationform" element={<PriceQuotation />} />
+          <Route path="/signin" element={<SignIn/>}/>
+          <Route path="/signup" element={<SignUp/>}/>
+          <Route path="/otp-verification" element={<OTPVerification/>}/>
          
          
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

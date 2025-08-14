@@ -54,9 +54,12 @@ const SignUp = () => {
             >
               <h1 className="text-3xl font-bold bg-gradient-accent bg-clip-text text-transparent mb-2">
                 Create Account
+                 
               </h1>
               <p className="text-muted-foreground">
                 Join us and start your journey
+                
+
               </p>
             </motion.div>
 

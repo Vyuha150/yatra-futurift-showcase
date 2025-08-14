@@ -105,7 +105,7 @@ const Navigation = () => {
           transition={{ duration: 0.6, delay: 1 }}
         >
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-            <Link to="/login">
+            <Link to="/signin">
               <Button variant="outline" size="sm" className="btn-outline">
                 <LogIn className="w-4 h-4 mr-2" />
                 Login
@@ -189,7 +189,7 @@ const Navigation = () => {
               }}
             >
               <div className="flex gap-3">
-                <Link to="/login" onClick={() => setIsMenuOpen(false)}>
+                <Link to="/signin" onClick={() => setIsMenuOpen(false)}>
                   <Button
                     variant="outline"
                     size="sm"

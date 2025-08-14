@@ -57,6 +57,11 @@ const SignIn = () => {
               </h1>
               <p className="text-muted-foreground">
                 Sign in to your account to continue
+                 <Link
+                  to="/signin"
+                  className="text-neon-cyan hover:text-neon-blue transition-colors duration-300 font-medium"
+                ></Link>
+
               </p>
             </motion.div>
 
