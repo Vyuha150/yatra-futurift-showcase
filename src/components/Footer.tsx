@@ -232,8 +232,7 @@ const handleSend = () => {
 
 {/* Chatbox */}
 {isChatOpen && (
-  <div className="fixed bottom-24 right-6 w-80 bg-black text-white rounded-xl shadow-2xl border border-gray-800 overflow-hidden animate-fadeIn z-50">
-
+  <div className="fixed bottom-24 right-4 sm:right-6 w-[90%] sm:w-80 max-w-sm bg-surface-elevated text-white rounded-xl shadow-2xl border border-gray-800 overflow-hidden animate-fadeIn z-50">
     {/* Header */}
     <div className="flex justify-between items-center bg-neon-cyan p-3">
       <span className="font-semibold text-black">Yatra Assistant</span>
@@ -246,42 +245,41 @@ const handleSend = () => {
     </div>
 
     {/* Messages Area */}
-    <div className="p-4 h-64 overflow-y-auto bg-black">
-
-      {messages.map((msg, idx) => (
-        <div
-          key={idx}
-          className={`px-3 py-2 rounded-lg mb-2 max-w-[80%] ${
-  msg.from === "bot"
-    ? "bg-neon-cyan/30 text-white"
-    : "bg-neon-cyan text-white ml-auto"
-}`}
-
-        >
-          {msg.text}
-        </div>
-      ))}
+<div className="p-4 h-64 overflow-y-auto bg-surface-elevated space-y-2">
+  {messages.map((msg, idx) => (
+    <div
+      key={idx}
+      className={`px-4 py-2 rounded-2xl text-sm leading-snug max-w-[80%] ${
+        msg.from === "bot"
+          ? "bg-white/10 text-white" // Bot: subtle transparent white bubble
+          : "bg-neon-cyan text-black ml-auto" // User: bright accent
+      }`}
+    >
+      {msg.text}
     </div>
-
-    {/* Input Area */}
-    <div className="p-3 border-t border-gray-800 flex space-x-2 bg-black">
-  <Input
-    placeholder="Type your message..."
-    value={inputValue}
-    onChange={(e) => setInputValue(e.target.value)}
-    className="flex-1 border border-neon-cyan bg-black text-white rounded-lg focus:border-neon-cyan focus:ring-1 focus:ring-neon-cyan"
-  />
-  <Button
-    size="icon"
-    onClick={handleSend}
-    className="bg-neon-cyan hover:bg-neon-cyan/80 text-black rounded-full p-2"
-  >
-    <Send className="w-4 h-4" />
-  </Button>
+  ))}
 </div>
 
+
+    {/* Input Area */}
+    <div className="p-3 border-t border-gray-800 flex space-x-2 bg-surface-elevated">
+      <Input
+        placeholder="Type your message..."
+        value={inputValue}
+        onChange={(e) => setInputValue(e.target.value)}
+        className="flex-1 border border-neon-cyan bg-surface-elevated text-white rounded-lg focus:border-neon-cyan focus:ring-1 focus:ring-neon-cyan"
+      />
+      <Button
+        size="icon"
+        onClick={handleSend}
+        className="bg-neon-cyan hover:bg-neon-cyan/80 text-black rounded-full p-2"
+      >
+        <Send className="w-4 h-4" />
+      </Button>
+    </div>
   </div>
 )}
+
 
 
     </footer>
