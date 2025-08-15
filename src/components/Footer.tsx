@@ -264,11 +264,18 @@ const handleSend = () => {
     {/* Input Area */}
     <div className="p-3 border-t border-gray-800 flex space-x-2 bg-surface-elevated">
       <Input
-        placeholder="Type your message..."
-        value={inputValue}
-        onChange={(e) => setInputValue(e.target.value)}
-        className="flex-1 border border-neon-cyan bg-surface-elevated text-white rounded-lg focus:border-neon-cyan focus:ring-1 focus:ring-neon-cyan"
-      />
+  placeholder="Type your message..."
+  value={inputValue}
+  onChange={(e) => setInputValue(e.target.value)}
+  onKeyDown={(e) => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault(); // prevent newline
+      handleSend();
+    }
+  }}
+  className="flex-1 border border-neon-cyan bg-surface-elevated text-white rounded-lg focus:border-neon-cyan focus:ring-1 focus:ring-neon-cyan"
+/>
+
       <Button
         size="icon"
         onClick={handleSend}
