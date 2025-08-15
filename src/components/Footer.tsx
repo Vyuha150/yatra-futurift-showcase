@@ -1,5 +1,9 @@
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { useState } from "react";
+import { Send } from 'lucide-react';
+
+
 import { 
   Phone, 
   Mail, 
@@ -48,6 +52,34 @@ const Footer = () => {
 
 
   ];
+  const [isChatOpen, setIsChatOpen] = useState(false);
+  const [messages, setMessages] = useState([
+  { text: "Hi! 👋 How can we help you today?", from: "bot" }
+]);
+const [inputValue, setInputValue] = useState("");
+
+const handleSend = () => {
+  if (!inputValue.trim()) return;
+
+  // Add user message
+  setMessages((prev) => [...prev, { text: inputValue, from: "user" }]);
+
+  const userText = inputValue; // store before clearing
+  setInputValue("");
+
+  // Simulate bot reply
+  setTimeout(() => {
+    setMessages((prev) => [
+      ...prev,
+      {
+        text: ` Our team will get back to you soon! 🚀`,
+        from: "bot",
+      },
+    ]);
+  }, 800);
+};
+
+
 
   return (
     <footer className="bg-surface-elevated border-t border-border relative">
@@ -188,12 +220,70 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* WhatsApp Chat Button */}
-      <div className="fixed bottom-6 right-6 z-50">
-        <Button className="btn-accent rounded-full w-14 h-14 shadow-glow animate-pulse-glow">
-          <MessageCircle className="w-6 h-6" />
-        </Button>
-      </div>
+     {/* WhatsApp Chat Button */}
+<div className="fixed bottom-6 right-6 z-50">
+  <Button
+    onClick={() => setIsChatOpen(!isChatOpen)}
+    className="btn-accent rounded-full w-14 h-14 shadow-glow animate-pulse-glow"
+  >
+    <MessageCircle className="w-6 h-6" />
+  </Button>
+</div>
+
+{/* Chatbox */}
+{isChatOpen && (
+  <div className="fixed bottom-24 right-6 w-80 bg-black text-white rounded-xl shadow-2xl border border-gray-800 overflow-hidden animate-fadeIn z-50">
+
+    {/* Header */}
+    <div className="flex justify-between items-center bg-neon-cyan p-3">
+      <span className="font-semibold text-black">Yatra Assistant</span>
+      <button
+        onClick={() => setIsChatOpen(false)}
+        className="text-black hover:text-gray-700 text-lg"
+      >
+        ✕
+      </button>
+    </div>
+
+    {/* Messages Area */}
+    <div className="p-4 h-64 overflow-y-auto bg-black">
+
+      {messages.map((msg, idx) => (
+        <div
+          key={idx}
+          className={`px-3 py-2 rounded-lg mb-2 max-w-[80%] ${
+  msg.from === "bot"
+    ? "bg-neon-cyan/30 text-white"
+    : "bg-neon-cyan text-white ml-auto"
+}`}
+
+        >
+          {msg.text}
+        </div>
+      ))}
+    </div>
+
+    {/* Input Area */}
+    <div className="p-3 border-t border-gray-800 flex space-x-2 bg-black">
+  <Input
+    placeholder="Type your message..."
+    value={inputValue}
+    onChange={(e) => setInputValue(e.target.value)}
+    className="flex-1 border border-neon-cyan bg-black text-white rounded-lg focus:border-neon-cyan focus:ring-1 focus:ring-neon-cyan"
+  />
+  <Button
+    size="icon"
+    onClick={handleSend}
+    className="bg-neon-cyan hover:bg-neon-cyan/80 text-black rounded-full p-2"
+  >
+    <Send className="w-4 h-4" />
+  </Button>
+</div>
+
+  </div>
+)}
+
+
     </footer>
   );
 };

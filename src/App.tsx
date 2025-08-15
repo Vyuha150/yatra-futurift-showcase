@@ -24,6 +24,7 @@ import PriceQuotation from "./components/ui/PriceQuotation";
 
 
 
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -49,11 +50,14 @@ const App = () => (
           <Route path="/signin" element={<SignIn/>}/>
           <Route path="/signup" element={<SignUp/>}/>
           <Route path="/otp-verification" element={<OTPVerification/>}/>
+
+          
          
          
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
+      
       </BrowserRouter>
     </TooltipProvider>
     
