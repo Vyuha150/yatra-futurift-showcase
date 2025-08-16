@@ -33,9 +33,9 @@ const Footer = () => {
   const services = [
     { label: 'Installation', href: '#' },
     { label: 'AMC Services', href: '/support' },
-    { label: 'Modernization', href: '#' },
+    { label: 'Modernization', href: '/innovations' },
     { label: 'Emergency Repair', href: '/service-request' },
-    { label: 'IoT Monitoring', href: '#' },
+    { label: 'IoT Monitoring', href: '/innovations' },
     { label: 'Consultation', href: '/contact' },
     { label: 'partnership', href: '/partner-application' }
   ];
