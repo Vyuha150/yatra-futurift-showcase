@@ -53,10 +53,15 @@ const ElevatorCard = ({
   elevator: ElevatorType;
   index: number;
 }) => {
+  const navigate = useNavigate();
   const [cardRef, cardInView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
+
+  const handleExploreDetails = () => {
+    navigate(`/elevators/${elevator.id}`);
+  };
 
   return (
     <motion.div
@@ -102,7 +107,7 @@ const ElevatorCard = ({
               transition={{ duration: 0.6, delay: index * 0.1 + 0.6 }}
               className="hidden lg:block"
             >
-              <Button className="btn-primary group w-full">
+              <Button className="btn-primary group w-full" onClick={handleExploreDetails}>
                 <span>Explore Details</span>
                 <Eye className="w-4 h-4 ml-2 group-hover:scale-110 transition-transform" />
               </Button>
@@ -181,7 +186,7 @@ const ElevatorCard = ({
               transition={{ duration: 0.6, delay: index * 0.1 + 0.7 }}
               className="lg:hidden pt-4"
             >
-              <Button className="btn-outline group w-full">
+              <Button className="btn-outline group w-full" onClick={handleExploreDetails}>
                 <span>Learn More</span>
                 <Eye className="w-4 h-4 ml-2 group-hover:scale-110 transition-transform" />
               </Button>
@@ -330,7 +335,7 @@ const ProjectsSolutions = () => {
       icon: Building2,
       image: "/passengerelevators.png",
       description:
-        "Yatra’s Passenger Elevators are contemplatively designed to provide serene, calm and most significant vertical mobility in a diverse architectural environment to deliver smooth, safe, and energy efficient vertical mobility for residential and commercial buildings alike. Established with user attractive design, stylistic appeal, appearance standards and we envisioned the  long term journey carried in our minds. Our elevators integrate advanced technology, noise-optimized and cutting - edge control systems to venture every strike. From streamlined interiors to customizable and user -friendly cabin finishes, yatra aims at dynamic design  options , advanced architecture and exceptional service to people, our elevators incorporate safety protocols, innovations ,hygiene scintillating Interiors spacious to drive stellar lifestyle.",
+        "Yatra's Passenger Elevators are contemplatively designed to provide serene, calm and most significant vertical mobility in a diverse architectural environment to deliver smooth, safe, and energy efficient vertical mobility for residential and commercial buildings alike. Established with user attractive design, stylistic appeal, appearance standards and we envisioned the  long term journey carried in our minds. Our elevators integrate advanced technology, noise-optimized and cutting - edge control systems to venture every strike. From streamlined interiors to customizable and user -friendly cabin finishes, yatra aims at dynamic design  options , advanced architecture and exceptional service to people, our elevators incorporate safety protocols, innovations ,hygiene scintillating Interiors spacious to drive stellar lifestyle.",
       features: [
         "Advanced technology integration",
         "Noise-optimized systems",
@@ -345,7 +350,7 @@ const ProjectsSolutions = () => {
       icon: Home,
       image: "/home elevators.png",
       description:
-        "Yatra’s Elevators promote jubilant, elegant and enhancing incredible environments into your residence. These are fabricated with cutting-edge technology and modern stylish appearance versatility, these elevators smoothly get adjusted  into villas, duplexes and multi story residences. Yatra’s offerings are capacity monitoring, high tech mobility solutions, backup system, and pathogen resistance. With customizable finishes, compact and dynamic shafts, and dazzling smooth ride quality, our residential elevators ensure the mobility and momentum for all age groups and optimisation to your residence. For the compact and flexibility that simplifies your day, the luxury that intuitively accelerates your lifestyle, or the accessibility that opens up  your entire home, Yatra's Home Elevators bring a new stylish version for your residence.",
+        "Yatra's Elevators promote jubilant, elegant and enhancing incredible environments into your residence. These are fabricated with cutting-edge technology and modern stylish appearance versatility, these elevators smoothly get adjusted  into villas, duplexes and multi story residences. Yatra's offerings are capacity monitoring, high tech mobility solutions, backup system, and pathogen resistance. With customizable finishes, compact and dynamic shafts, and dazzling smooth ride quality, our residential elevators ensure the mobility and momentum for all age groups and optimisation to your residence. For the compact and flexibility that simplifies your day, the luxury that intuitively accelerates your lifestyle, or the accessibility that opens up  your entire home, Yatra's Home Elevators bring a new stylish version for your residence.",
       features: [
         "Capacity monitoring",
         "High tech mobility solutions",
@@ -360,7 +365,7 @@ const ProjectsSolutions = () => {
       icon: Hospital,
       image: "/hospital elevators.png",
       description:
-        "Yatra’s Hospital/Bed Elevators Instituted with quiet, controlled acoustic environments, structural integrity, and advanced medical equipment and accommodations that prioritizes patient convenience and safety and security. Designed  with meticulous determination to patient needs, these elevators provide whisper-quiet operation and exceptional stability rather than insecure mobility, enabling that every journey is as cozy and assuring as possible for patients and their families. Advanced features like Emergency power bank, safety practices, healthy lifestyle and physically untouched control systems, are more likely to focus on hygiene and cleanliness and essentially critical operations will be enhanced or handled with more care and concern. Most Ideal for clinics, hospitals, infrastructure can be customisable for users, where yatra’s Hospitals and Bed elevators are called by everyone as exceptional.",
+        "Yatra's Hospital/Bed Elevators Instituted with quiet, controlled acoustic environments, structural integrity, and advanced medical equipment and accommodations that prioritizes patient convenience and safety and security. Designed  with meticulous determination to patient needs, these elevators provide whisper-quiet operation and exceptional stability rather than insecure mobility, enabling that every journey is as cozy and assuring as possible for patients and their families. Advanced features like Emergency power bank, safety practices, healthy lifestyle and physically untouched control systems, are more likely to focus on hygiene and cleanliness and essentially critical operations will be enhanced or handled with more care and concern. Most Ideal for clinics, hospitals, infrastructure can be customisable for users, where yatra's Hospitals and Bed elevators are called by everyone as exceptional.",
       features: [
         "Whisper-quiet operation",
         "Emergency power bank",
@@ -375,7 +380,7 @@ const ProjectsSolutions = () => {
       icon: Truck,
       image: "/FreightServices Elevators.png",
       description:
-        "Yatra’s Freight and Service Elevators are designed for maximum potential, solidity and firmness, and flawless performance in rigorous environments. Specifically engineered for heavy-duty commercial use, these elevators cope with substantial loads, bulky advanced equipment, and meticulously prolonged operation , significant for motels, warehouses, hotels, hospitals, astonishing  balcony residences, shopping centres, and professional architectures buildings where performance and reliability are essential. Created  with fortified cabins, maximum capability motors, moreover customizable interiors, our service elevators enable magnanimous vertical transport of goods without compromising safety or versatility with  safety and secured functions, drives that are energy effective, and flawless technology, Yatra’s service elevators are not just only adaptable, reliable, they are founded to speed up operational productivity with spotted and long-term proactiveness.",
+        "Yatra's Freight and Service Elevators are designed for maximum potential, solidity and firmness, and flawless performance in rigorous environments. Specifically engineered for heavy-duty commercial use, these elevators cope with substantial loads, bulky advanced equipment, and meticulously prolonged operation , significant for motels, warehouses, hotels, hospitals, astonishing  balcony residences, shopping centres, and professional architectures buildings where performance and reliability are essential. Created  with fortified cabins, maximum capability motors, moreover customizable interiors, our service elevators enable magnanimous vertical transport of goods without compromising safety or versatility with  safety and secured functions, drives that are energy effective, and flawless technology, Yatra's service elevators are not just only adaptable, reliable, they are founded to speed up operational productivity with spotted and long-term proactiveness.",
       features: [
         "Heavy-duty commercial use",
         "Substantial load capacity",
@@ -405,7 +410,7 @@ const ProjectsSolutions = () => {
       icon: Cog,
       image: "/Machine-Room Less(MRL) elevators.png",
       description:
-        "Yatra’s Machine-Room Less (MRL) Elevators are developed with advanced, sophisticated infrastructure where the space consumption is minimized. Designed in such a way that without the necessity of a traditional mechanical room, these elevators provide strong installation, reduced consumption, and enhanced architectural flexibility, facilitating them significantly as advanced elevators especially authorised in rendering solutions for problems with unpredictable scenarios. MRL elevators are exceptionally advanced, their durability ,versatility , superior striking interiors, facilitating control systems, safety guidelines, providing an advanced technology, mobility lift and good environment. Yatra’s Elevators are profoundly designed perfectly for the sophisticated environment.",
+        "Yatra's Machine-Room Less (MRL) Elevators are developed with advanced, sophisticated infrastructure where the space consumption is minimized. Designed in such a way that without the necessity of a traditional mechanical room, these elevators provide strong installation, reduced consumption, and enhanced architectural flexibility, facilitating them significantly as advanced elevators especially authorised in rendering solutions for problems with unpredictable scenarios. MRL elevators are exceptionally advanced, their durability ,versatility , superior striking interiors, facilitating control systems, safety guidelines, providing an advanced technology, mobility lift and good environment. Yatra's Elevators are profoundly designed perfectly for the sophisticated environment.",
       features: [
         "Space optimization",
         "Reduced consumption",
@@ -433,7 +438,7 @@ const ProjectsSolutions = () => {
       image:
         "https://images.unsplash.com/photo-1581092162384-8987c1d64718?w=720&h=540&fit=crop&auto=format&q=80",
       description:
-        "At Yatra, Elevators turn out to be sophisticated with advanced technology that are decommissioned with technical progress . Integrating new features, always intended to be  updated, using smart  and cool materials for elevating cutting-edge robust intrications. With minimal interruption and high rate of influence, we transform legacy systems into high-performance, future-ready mobility solutions. Enabling and ensuring wide changes in people's lifestyle, yatra’s aims for a  futuristic infrastructural bundle of opportunities venturing into the segment of vertical mobility.",
+        "At Yatra, Elevators turn out to be sophisticated with advanced technology that are decommissioned with technical progress . Integrating new features, always intended to be  updated, using smart  and cool materials for elevating cutting-edge robust intrications. With minimal interruption and high rate of influence, we transform legacy systems into high-performance, future-ready mobility solutions. Enabling and ensuring wide changes in people's lifestyle, yatra's aims for a  futuristic infrastructural bundle of opportunities venturing into the segment of vertical mobility.",
     },
     {
       id: "maintenance",
@@ -441,7 +446,7 @@ const ProjectsSolutions = () => {
       icon: Wrench,
       image: "/product1.png",
       description:
-        "Yatra's Services doesn’t serve a good advanced features, but it’s only the initial stage of advancements. Our elevator Care & Protection Plan  Maintenance and Annual Maintenance Contract (AMC) services are engineered to maintain that your elevators and escalators function uninterruptedly, safely, and effectively bound to system controls. With a passionate and committed to excellence team of Qualified technicians, real-time sensors and monitoring systems, and proactive, planned maintenance activities, we minimize down line time and ensure to implement technical expertise so that the life of your vertical mobility solutions are smoothly taken care off. Driven AMS services offer regular preventive maintenance,24/7 technical support, Performance checks and optimisation.",
+        "Yatra's Services doesn't serve a good advanced features, but it's only the initial stage of advancements. Our elevator Care & Protection Plan  Maintenance and Annual Maintenance Contract (AMC) services are engineered to maintain that your elevators and escalators function uninterruptedly, safely, and effectively bound to system controls. With a passionate and committed to excellence team of Qualified technicians, real-time sensors and monitoring systems, and proactive, planned maintenance activities, we minimize down line time and ensure to implement technical expertise so that the life of your vertical mobility solutions are smoothly taken care off. Driven AMS services offer regular preventive maintenance,24/7 technical support, Performance checks and optimisation.",
     },
     {
       id: "custom",
@@ -449,7 +454,7 @@ const ProjectsSolutions = () => {
       icon: Users,
       image: "/product2.png",
       description:
-        "At Yatra Elevators, we acknowledge that every area has its own comprehensive and unique character and functional requirements, especially when it comes to architectural vision, structural design, and user experience. That’s why we offer Tailor Made Lift Solutions configured particularly for professionals, engineers, builders and Institutions addressing solutions and sorting out many technical problems by builders. Yatra’s elevators don’t overlook the minute problems, they take immediate actions to eradicate them. With brilliant development expertise, intelligent automation and design flexibility, users can be given to design their own customized Lift Solutions.",
+        "At Yatra Elevators, we acknowledge that every area has its own comprehensive and unique character and functional requirements, especially when it comes to architectural vision, structural design, and user experience. That's why we offer Tailor Made Lift Solutions configured particularly for professionals, engineers, builders and Institutions addressing solutions and sorting out many technical problems by builders. Yatra's elevators don't overlook the minute problems, they take immediate actions to eradicate them. With brilliant development expertise, intelligent automation and design flexibility, users can be given to design their own customized Lift Solutions.",
     },
   ];
 

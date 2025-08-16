@@ -20,6 +20,7 @@ import ServiceRequestForm from "./components/ui/ServiceRequestForm";
 import ClientForm from "./components/ui/ClientForm";
 import PriceQuotation from "./components/ui/PriceQuotation";
 import Opportunities from "./pages/Opportunities";
+import ElevatorDetails from "./pages/ElevatorDetails";
 
 
 
@@ -52,6 +53,7 @@ const App = () => (
           <Route path="/signup" element={<SignUp/>}/>
           <Route path="/otp-verification" element={<OTPVerification/>}/>
           <Route path="/opportunities" element={<Opportunities/>}/>
+          <Route path="/elevators/:id" element={<ElevatorDetails />} />
 
 
           
