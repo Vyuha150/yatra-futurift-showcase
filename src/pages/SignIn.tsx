@@ -57,11 +57,10 @@ const SignIn = () => {
               </h1>
               <p className="text-muted-foreground">
                 Sign in to your account to continue
-                 <Link
+                <Link
                   to="/signin"
                   className="text-neon-cyan hover:text-neon-blue transition-colors duration-300 font-medium"
                 ></Link>
-
               </p>
             </motion.div>
 
@@ -89,6 +88,14 @@ const SignIn = () => {
                   Sign up here
                 </Link>
               </p>
+              <div className="flex flex-col gap-2 mt-4">
+                <Link
+                  to="/reset-password"
+                  className="text-neon-cyan hover:text-neon-blue transition-colors duration-300 font-medium"
+                >
+                  Reset Password
+                </Link>
+              </div>
             </motion.div>
           </div>
         </motion.div>

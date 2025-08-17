@@ -1,12 +1,51 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X, LogIn, UserPlus } from "lucide-react";
+import { Menu, X, LogIn, UserPlus, User, Settings, LogOut } from "lucide-react";
 import { motion } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
+  const [user, setUser] = useState(null);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const apiUrl = import.meta.env.VITE_API_URL;
+        const res = await fetch(`${apiUrl}/api/auth/me`, {
+          method: "GET",
+          credentials: "include", // Send cookies
+        });
+        if (res.ok) {
+          const data = await res.json();
+          setUser(data);
+        } else {
+          setUser(null);
+        }
+      } catch {
+        setUser(null);
+      }
+    };
+    fetchUser();
+  }, []);
+
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
+        setDropdownOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   const navItems = [
     { label: "About", href: "/about" },
@@ -18,7 +57,7 @@ const Navigation = () => {
   ];
 
   return (
-    <div className="container mx-auto px-6 py-4">
+    <div className="auth-page container mx-auto px-6 py-4">
       <div className="flex items-center justify-between">
         {/* Logo */}
         <motion.a
@@ -104,22 +143,78 @@ const Navigation = () => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 1 }}
         >
-          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-            <Link to="/signin">
-              <Button variant="outline" size="sm" className="btn-outline">
-                <LogIn className="w-4 h-4 mr-2" />
-                Login
+          {user ? (
+            <div className="relative" ref={dropdownRef}>
+              <Button
+                size="sm"
+                className="btn-primary flex items-center gap-2"
+                onClick={() => setDropdownOpen((open) => !open)}
+              >
+                <User className="w-4 h-4 mr-2" />
+                {user.firstName}
               </Button>
-            </Link>
-          </motion.div>
-          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-            <Link to="/signup">
-              <Button size="sm" className="btn-primary">
-                <UserPlus className="w-4 h-4 mr-2" />
-                Sign Up
-              </Button>
-            </Link>
-          </motion.div>
+              {dropdownOpen && (
+                <div className="absolute right-0 mt-2 w-48 bg-surface-glass/95 rounded-xl shadow-lg border border-surface-glass/30 z-50">
+                  <ul className="py-2">
+                    <li>
+                      <Link
+                        to="/userprofile"
+                        className="flex items-center px-4 py-2 hover:bg-surface-glass/60 transition-colors rounded-lg"
+                        onClick={() => setDropdownOpen(false)}
+                      >
+                        <User className="w-4 h-4 mr-2" /> Profile
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        to="/settings"
+                        className="flex items-center px-4 py-2 hover:bg-surface-glass/60 transition-colors rounded-lg"
+                        onClick={() => setDropdownOpen(false)}
+                      >
+                        <Settings className="w-4 h-4 mr-2" /> Settings
+                      </Link>
+                    </li>
+                    <li>
+                      <button
+                        className="flex items-center w-full px-4 py-2 hover:bg-surface-glass/60 transition-colors rounded-lg text-left"
+                        onClick={() => {
+                          setDropdownOpen(false);
+                          window.location.href = "/signin";
+                        }}
+                      >
+                        <LogOut className="w-4 h-4 mr-2" /> Logout
+                      </button>
+                    </li>
+                  </ul>
+                </div>
+              )}
+            </div>
+          ) : (
+            <>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Link to="/signin">
+                  <Button variant="outline" size="sm" className="btn-outline">
+                    <LogIn className="w-4 h-4 mr-2" />
+                    Login
+                  </Button>
+                </Link>
+              </motion.div>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Link to="/signup">
+                  <Button size="sm" className="btn-primary">
+                    <UserPlus className="w-4 h-4 mr-2" />
+                    Sign Up
+                  </Button>
+                </Link>
+              </motion.div>
+            </>
+          )}
         </motion.div>
 
         {/* Mobile Menu Button */}
@@ -189,22 +284,33 @@ const Navigation = () => {
               }}
             >
               <div className="flex gap-3">
-                <Link to="/signin" onClick={() => setIsMenuOpen(false)}>
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    className="btn-outline w-fit"
-                  >
-                    <LogIn className="w-4 h-4 mr-2" />
-                    Login
-                  </Button>
-                </Link>
-                <Link to="/signup" onClick={() => setIsMenuOpen(false)}>
-                  <Button size="sm" className="btn-primary w-fit">
-                    <UserPlus className="w-4 h-4 mr-2" />
-                    Sign Up
-                  </Button>
-                </Link>
+                {user ? (
+                  <Link to="/userprofile" onClick={() => setIsMenuOpen(false)}>
+                    <Button size="sm" className="btn-primary w-fit">
+                      <User className="w-4 h-4 mr-2" />
+                      Profile
+                    </Button>
+                  </Link>
+                ) : (
+                  <>
+                    <Link to="/signin" onClick={() => setIsMenuOpen(false)}>
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        className="btn-outline w-fit"
+                      >
+                        <LogIn className="w-4 h-4 mr-2" />
+                        Login
+                      </Button>
+                    </Link>
+                    <Link to="/signup" onClick={() => setIsMenuOpen(false)}>
+                      <Button size="sm" className="btn-primary w-fit">
+                        <UserPlus className="w-4 h-4 mr-2" />
+                        Sign Up
+                      </Button>
+                    </Link>
+                  </>
+                )}
               </div>
             </motion.div>
           </div>

@@ -78,11 +78,25 @@ export default function PriceQuotation() {
     setForm((prev) => ({ ...prev, [key]: value }));
   }
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    console.log("Price Quotation Submitted:", form);
-    alert("Your quotation request has been submitted successfully!");
-    setForm(initialForm);
+    try {
+      const apiUrl = import.meta.env.VITE_API_URL;
+      const res = await fetch(`${apiUrl}/api/price-quotation`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (res.ok) {
+        alert("Your quotation request has been submitted successfully!");
+        setForm(initialForm);
+      } else {
+        const data = await res.json();
+        alert(data.error || "Failed to submit quotation request.");
+      }
+    } catch (err) {
+      alert("Network error. Please try again.");
+    }
   }
 
   return (
@@ -102,10 +116,12 @@ export default function PriceQuotation() {
             className="text-center mb-12"
           >
             <h1 className="text-4xl font-bold text-[#00bcd4] mb-3">
-             Get The Free Quote
+              Get The Free Quote
             </h1>
             <p className="text-gray-400 max-w-2xl mx-auto">
-              Promote your vision with our customized solutions. Fill the below form and our team will get in touch with a quote that perfectly suits your needs.
+              Promote your vision with our customized solutions. Fill the below
+              form and our team will get in touch with a quote that perfectly
+              suits your needs.
             </p>
           </motion.div>
 
@@ -235,7 +251,13 @@ export default function PriceQuotation() {
 }
 
 // Section heading component
-function SectionHeading({ title, subtitle }: { title: string; subtitle?: string }) {
+function SectionHeading({
+  title,
+  subtitle,
+}: {
+  title: string;
+  subtitle?: string;
+}) {
   return (
     <div className="mt-8">
       <h2 className="text-2xl font-bold text-[#00bcd4] mb-2">{title}</h2>

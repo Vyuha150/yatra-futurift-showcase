@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Eye,
@@ -11,6 +11,7 @@ import {
   Shield,
 } from "lucide-react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 type AuthMode = "login" | "signup" | "otp";
 
@@ -93,11 +94,37 @@ const AuthForm = ({
       return;
     }
 
-    // Simulate API call
-    setTimeout(() => {
+    try {
+      const apiUrl = import.meta.env.VITE_API_URL;
+      const res = await fetch(`${apiUrl}/api/auth/login`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: form.email, password: form.password }),
+        credentials: "include", // Important for cookies
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        if (data.error === "Email not verified") {
+          // Redirect to verify email page
+          window.location.href = `/verify-email?email=${encodeURIComponent(
+            form.email
+          )}`;
+          return;
+        }
+        setError(data.error || "Login failed");
+        setIsLoading(false);
+        return;
+      }
+      // No need to store token client-side, cookie is set by backend
       setSuccess("Welcome back! Login successful.");
       setIsLoading(false);
-    }, 1000);
+      setTimeout(() => {
+        window.location.href = "/";
+      }, 1200);
+    } catch (err) {
+      setError("Network error. Please try again.");
+      setIsLoading(false);
+    }
   };
 
   // Signup
@@ -137,19 +164,33 @@ const AuthForm = ({
       return;
     }
 
-    // Simulate OTP send
-    setTimeout(() => {
-      const otpCode = generateOtp();
-      setOtp(otpCode);
-      setOtpSent(true);
-      setSuccess(`Verification code sent to ${form.email}`);
-      setIsLoading(false);
-
-      // Call callback explicitly (avoid short-circuit expression for eslint no-unused-expressions)
-      if (onOtpRequest) {
-        onOtpRequest(form.email, otpCode);
+    try {
+      const apiUrl = import.meta.env.VITE_API_URL;
+      const res = await fetch(`${apiUrl}/api/auth/register`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          firstName: form.firstName,
+          lastName: form.lastName,
+          phone: form.phone,
+          email: form.email,
+          password: form.password,
+        }),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        setError(data.error || "Signup failed");
+        setIsLoading(false);
+        return;
       }
-    }, 1000);
+      // Redirect to verify email page
+      window.location.href = `/verify-email?email=${encodeURIComponent(
+        form.email
+      )}`;
+    } catch (err) {
+      setError("Network error. Please try again.");
+      setIsLoading(false);
+    }
   };
 
   // OTP
@@ -459,12 +500,12 @@ const AuthForm = ({
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.4 }}
         >
-          <button
-            type="button"
-            className="text-sm text-muted-foreground hover:text-neon-cyan transition-colors duration-200"
+          <Link
+            to="/forgot-password"
+            className="text-neon-cyan hover:text-neon-blue transition-colors duration-300 font-medium"
           >
-            Forgot your password?
-          </button>
+            Forgot Password?
+          </Link>
         </motion.div>
       )}
     </motion.form>

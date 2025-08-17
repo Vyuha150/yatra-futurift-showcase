@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import CustomCursor from "@/components/CustomCursor";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { motion } from "framer-motion";
-import { PageLoadWrapper, AnimatedNav, AnimatedBackground } from "@/components/AnimatedComponents";
+import {
+  PageLoadWrapper,
+  AnimatedNav,
+  AnimatedBackground,
+} from "@/components/AnimatedComponents";
 
 const EQUIPMENT_TYPES = ["Elevator", "Escalator", "Travelator"];
 const MODEL_NAMES = ["Prarambh", "Unnati", "Vaibhav", "Param"];
@@ -35,7 +38,10 @@ export default function ServiceRequestForm() {
     acknowledgeCharges: false,
   });
 
-  function handleChange<K extends keyof typeof form>(key: K, value: typeof form[K]) {
+  function handleChange<K extends keyof typeof form>(
+    key: K,
+    value: (typeof form)[K]
+  ) {
     setForm((prev) => ({ ...prev, [key]: value }));
   }
 
@@ -49,10 +55,40 @@ export default function ServiceRequestForm() {
     });
   }
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    console.log("Service Request Submitted:", form);
-    alert("Your service request has been submitted. Our team will contact you shortly.");
+    try {
+      const apiUrl = import.meta.env.VITE_API_URL;
+      const res = await fetch(`${apiUrl}/api/service-request`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (res.ok) {
+        alert(
+          "Your service request has been submitted. Our team will contact you shortly."
+        );
+        setForm({
+          clientName: "",
+          companyName: "",
+          phone: "",
+          email: "",
+          address: "",
+          equipmentType: "",
+          modelName: "",
+          installationDate: "",
+          issueTypes: [],
+          otherIssue: "",
+          preferredDateTime: "",
+          acknowledgeCharges: false,
+        });
+      } else {
+        const data = await res.json();
+        alert(data.error || "Failed to submit service request.");
+      }
+    } catch (err) {
+      alert("Network error. Please try again.");
+    }
   }
 
   return (
@@ -61,9 +97,8 @@ export default function ServiceRequestForm() {
         <Navigation />
       </AnimatedNav>
       <AnimatedBackground />
-      <CustomCursor />
 
-      <section className="bg-[#0d1117] text-white min-h-screen pt-32 pb-20">
+      <section className="auth-page bg-[#0d1117] text-white min-h-screen pt-32 pb-20">
         <div className="container mx-auto px-6 max-w-4xl">
           {/* Heading */}
           <motion.div
@@ -73,10 +108,11 @@ export default function ServiceRequestForm() {
             className="text-center mb-12"
           >
             <h1 className="text-4xl font-bold text-[#00bcd4] mb-3">
-               Service & Maintenance Request
+              Service & Maintenance Request
             </h1>
             <p className="text-gray-400 max-w-2xl mx-auto">
-              Are you looking for help? Our support team is ready to assist you promptly.
+              Are you looking for help? Our support team is ready to assist you
+              promptly.
             </p>
           </motion.div>
 
@@ -90,7 +126,9 @@ export default function ServiceRequestForm() {
           >
             {/* Client Info */}
             <div>
-              <label className="block mb-1 font-semibold text-gray-100">Client Name</label>
+              <label className="block mb-1 font-semibold text-gray-100">
+                Client Name
+              </label>
               <Input
                 placeholder="Enter client name"
                 value={form.clientName}
@@ -99,7 +137,9 @@ export default function ServiceRequestForm() {
             </div>
 
             <div>
-              <label className="block mb-1 font-semibold text-gray-100">Company Name (if applicable)</label>
+              <label className="block mb-1 font-semibold text-gray-100">
+                Company Name (if applicable)
+              </label>
               <Input
                 placeholder="Enter company name"
                 value={form.companyName}
@@ -108,7 +148,9 @@ export default function ServiceRequestForm() {
             </div>
 
             <div>
-              <label className="block mb-1 font-semibold text-gray-100">Phone Number</label>
+              <label className="block mb-1 font-semibold text-gray-100">
+                Phone Number
+              </label>
               <Input
                 placeholder="Enter phone number"
                 value={form.phone}
@@ -117,7 +159,9 @@ export default function ServiceRequestForm() {
             </div>
 
             <div>
-              <label className="block mb-1 font-semibold text-gray-100">Email Address</label>
+              <label className="block mb-1 font-semibold text-gray-100">
+                Email Address
+              </label>
               <Input
                 type="email"
                 placeholder="Enter email"
@@ -128,7 +172,9 @@ export default function ServiceRequestForm() {
 
             {/* Address */}
             <div>
-              <label className="block mb-1 font-semibold text-gray-100">Installation Address</label>
+              <label className="block mb-1 font-semibold text-gray-100">
+                Installation Address
+              </label>
               <Textarea
                 placeholder="Enter installation address"
                 value={form.address}
@@ -138,7 +184,9 @@ export default function ServiceRequestForm() {
 
             {/* Equipment Type */}
             <div>
-              <label className="block mb-1 font-semibold text-gray-100">Type of Equipment</label>
+              <label className="block mb-1 font-semibold text-gray-100">
+                Type of Equipment
+              </label>
               <div className="flex gap-6 text-gray-200 flex-wrap">
                 {EQUIPMENT_TYPES.map((type) => (
                   <label key={type} className="flex items-center space-x-2">
@@ -155,7 +203,9 @@ export default function ServiceRequestForm() {
 
             {/* Model Name */}
             <div>
-              <label className="block mb-1 font-semibold text-gray-100">Model Name</label>
+              <label className="block mb-1 font-semibold text-gray-100">
+                Model Name
+              </label>
               <div className="flex gap-6 text-gray-200 flex-wrap">
                 {MODEL_NAMES.map((model) => (
                   <label key={model} className="flex items-center space-x-2">
@@ -171,17 +221,24 @@ export default function ServiceRequestForm() {
             </div>
 
             <div>
-              <label className="block mb-1 font-semibold text-gray-100">Date of Installation (approx.)</label>
+              <label className="block mb-1 font-semibold text-gray-100">
+                Installation Date
+              </label>
               <Input
                 type="date"
                 value={form.installationDate}
-                onChange={(e) => handleChange("installationDate", e.target.value)}
+                onChange={(e) =>
+                  handleChange("installationDate", e.target.value)
+                }
+                min={new Date().toISOString().split("T")[0]}
               />
             </div>
 
             {/* Issue Types */}
             <div>
-              <label className="block mb-1 font-semibold text-gray-100">Type of Issue</label>
+              <label className="block mb-1 font-semibold text-gray-100">
+                Type of Issue
+              </label>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 text-gray-200">
                 {ISSUE_TYPES.map((issue) => (
                   <label key={issue} className="flex items-center space-x-2">
@@ -205,11 +262,16 @@ export default function ServiceRequestForm() {
             </div>
 
             <div>
-              <label className="block mb-1 font-semibold text-gray-100">Preferred Service Date/Time</label>
+              <label className="block mb-1 font-semibold text-gray-100">
+                Preferred Date & Time
+              </label>
               <Input
-                type="date"
+                type="datetime-local"
                 value={form.preferredDateTime}
-                onChange={(e) => handleChange("preferredDateTime", e.target.value)}
+                onChange={(e) =>
+                  handleChange("preferredDateTime", e.target.value)
+                }
+                min={new Date().toISOString().slice(0, 16)}
               />
             </div>
 
@@ -218,10 +280,13 @@ export default function ServiceRequestForm() {
               <input
                 type="checkbox"
                 checked={form.acknowledgeCharges}
-                onChange={(e) => handleChange("acknowledgeCharges", e.target.checked)}
+                onChange={(e) =>
+                  handleChange("acknowledgeCharges", e.target.checked)
+                }
               />
               <span>
-                I acknowledge that an on-site visit may involve charges if warranty period is over / AMC expired.
+                I acknowledge that an on-site visit may involve charges if
+                warranty period is over / AMC expired.
               </span>
             </label>
 

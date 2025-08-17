@@ -1,12 +1,16 @@
-import React, { useState } from 'react';
-import Navigation from '@/components/Navigation';
-import Footer from '@/components/Footer';
-import CustomCursor from '@/components/CustomCursor';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { motion } from 'framer-motion';
-import { PageLoadWrapper, AnimatedNav, AnimatedBackground } from '@/components/AnimatedComponents';
+import React, { useState } from "react";
+import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
+import CustomCursor from "@/components/CustomCursor";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { motion } from "framer-motion";
+import {
+  PageLoadWrapper,
+  AnimatedNav,
+  AnimatedBackground,
+} from "@/components/AnimatedComponents";
 
 const NATURE_OPTIONS = [
   "Distributor",
@@ -33,18 +37,21 @@ export default function Consultation() {
     reason: "",
     exclusiveRegion: false,
     acceptTerms: false,
-    profileFileName: ""
+    profileFileName: "",
   });
 
-  function handleChange<K extends keyof typeof form>(key: K, value: typeof form[K]) {
-    setForm(prev => ({ ...prev, [key]: value }));
+  function handleChange<K extends keyof typeof form>(
+    key: K,
+    value: (typeof form)[K]
+  ) {
+    setForm((prev) => ({ ...prev, [key]: value }));
   }
 
   function toggleNature(option: string) {
-    setForm(prev => {
+    setForm((prev) => {
       const exists = prev.natureOfBusiness.includes(option);
       const updated = exists
-        ? prev.natureOfBusiness.filter(o => o !== option)
+        ? prev.natureOfBusiness.filter((o) => o !== option)
         : [...prev.natureOfBusiness, option];
       return { ...prev, natureOfBusiness: updated };
     });
@@ -55,10 +62,41 @@ export default function Consultation() {
     if (file) handleChange("profileFileName", file.name);
   }
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    console.log("Form Submitted:", form);
-    alert("Application submitted!");
+    try {
+      const apiUrl = import.meta.env.VITE_API_URL;
+      const res = await fetch(`${apiUrl}/api/partner-application`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (res.ok) {
+        alert("Application submitted!");
+        setForm({
+          businessName: "",
+          ownerName: "",
+          phoneNumber: "",
+          email: "",
+          businessAddress: "",
+          natureOfBusiness: [],
+          otherNature: "",
+          yearsInOperation: "",
+          regionsServed: "",
+          representsOtherBrands: "",
+          otherBrands: "",
+          reason: "",
+          exclusiveRegion: false,
+          acceptTerms: false,
+          profileFileName: "",
+        });
+      } else {
+        const data = await res.json();
+        alert(data.error || "Failed to submit application.");
+      }
+    } catch (err) {
+      alert("Network error. Please try again.");
+    }
   }
 
   return (
@@ -69,7 +107,7 @@ export default function Consultation() {
       <AnimatedBackground />
       <CustomCursor />
 
-      <section className="bg-[#0d1117] text-white min-h-screen pt-32 pb-20">
+      <section className="auth-page bg-[#0d1117] text-white min-h-screen pt-32 pb-20">
         <div className="container mx-auto px-6 max-w-5xl">
           {/* Heading */}
           <motion.div
@@ -82,8 +120,9 @@ export default function Consultation() {
               Partner With Us
             </h1>
             <p className="text-gray-400 max-w-2xl mx-auto">
-              Interested in becoming a Yatra Partner – Dealer/Distributor?
-              Fill out the form below and join hands with Yatra Elevators & Escalators.
+              Interested in becoming a Yatra Partner – Dealer/Distributor? Fill
+              out the form below and join hands with Yatra Elevators &
+              Escalators.
             </p>
           </motion.div>
 
@@ -96,7 +135,9 @@ export default function Consultation() {
             className="bg-[#161b22] p-8 rounded-xl shadow-lg space-y-6"
           >
             <div>
-              <label className="block mb-1 font-semibold text-gray-100">Business Name</label>
+              <label className="block mb-1 font-semibold text-gray-100">
+                Business Name
+              </label>
               <Input
                 placeholder="Enter your business name"
                 value={form.businessName}
@@ -105,7 +146,9 @@ export default function Consultation() {
             </div>
 
             <div>
-              <label className="block mb-1 font-semibold text-gray-100">Owner Name</label>
+              <label className="block mb-1 font-semibold text-gray-100">
+                Owner Name
+              </label>
               <Input
                 placeholder="Enter owner name"
                 value={form.ownerName}
@@ -114,7 +157,9 @@ export default function Consultation() {
             </div>
 
             <div>
-              <label className="block mb-1 font-semibold text-gray-100">Phone Number</label>
+              <label className="block mb-1 font-semibold text-gray-100">
+                Phone Number
+              </label>
               <Input
                 placeholder="Enter phone number"
                 value={form.phoneNumber}
@@ -123,7 +168,9 @@ export default function Consultation() {
             </div>
 
             <div>
-              <label className="block mb-1 font-semibold text-gray-100">Email</label>
+              <label className="block mb-1 font-semibold text-gray-100">
+                Email
+              </label>
               <Input
                 type="email"
                 placeholder="Enter email address"
@@ -133,20 +180,29 @@ export default function Consultation() {
             </div>
 
             <div>
-              <label className="block mb-1 font-semibold text-gray-100">Business Address</label>
+              <label className="block mb-1 font-semibold text-gray-100">
+                Business Address
+              </label>
               <Textarea
                 placeholder="Enter business address"
                 value={form.businessAddress}
-                onChange={(e) => handleChange("businessAddress", e.target.value)}
+                onChange={(e) =>
+                  handleChange("businessAddress", e.target.value)
+                }
               />
             </div>
 
             {/* Nature of Business */}
             <div>
-              <label className="block mb-2 font-semibold text-gray-100">Nature of Business</label>
+              <label className="block mb-2 font-semibold text-gray-100">
+                Nature of Business
+              </label>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-                {NATURE_OPTIONS.map(opt => (
-                  <label key={opt} className="flex items-center space-x-2 text-gray-200">
+                {NATURE_OPTIONS.map((opt) => (
+                  <label
+                    key={opt}
+                    className="flex items-center space-x-2 text-gray-200"
+                  >
                     <input
                       type="checkbox"
                       checked={form.natureOfBusiness.includes(opt)}
@@ -167,16 +223,22 @@ export default function Consultation() {
             </div>
 
             <div>
-              <label className="block mb-1 font-semibold text-gray-100">Years in Operation</label>
+              <label className="block mb-1 font-semibold text-gray-100">
+                Years in Operation
+              </label>
               <Input
                 placeholder="Enter number of years"
                 value={form.yearsInOperation}
-                onChange={(e) => handleChange("yearsInOperation", e.target.value)}
+                onChange={(e) =>
+                  handleChange("yearsInOperation", e.target.value)
+                }
               />
             </div>
 
             <div>
-              <label className="block mb-1 font-semibold text-gray-100">Regions Served</label>
+              <label className="block mb-1 font-semibold text-gray-100">
+                Regions Served
+              </label>
               <Input
                 placeholder="Enter regions served"
                 value={form.regionsServed}
@@ -194,7 +256,9 @@ export default function Consultation() {
                   <input
                     type="radio"
                     checked={form.representsOtherBrands === "Yes"}
-                    onChange={() => handleChange("representsOtherBrands", "Yes")}
+                    onChange={() =>
+                      handleChange("representsOtherBrands", "Yes")
+                    }
                   />
                   <span>Yes</span>
                 </label>
@@ -230,7 +294,9 @@ export default function Consultation() {
 
             {/* File Upload */}
             <div>
-              <label className="block mb-1 font-semibold text-gray-100">Upload Business Profile (optional)</label>
+              <label className="block mb-1 font-semibold text-gray-100">
+                Upload Business Profile (optional)
+              </label>
               <input
                 type="file"
                 accept=".pdf,.doc,.docx,image/*"
@@ -249,7 +315,9 @@ export default function Consultation() {
               <input
                 type="checkbox"
                 checked={form.exclusiveRegion}
-                onChange={(e) => handleChange("exclusiveRegion", e.target.checked)}
+                onChange={(e) =>
+                  handleChange("exclusiveRegion", e.target.checked)
+                }
               />
               <span>I am interested in exclusive regional rights</span>
             </label>
@@ -261,11 +329,15 @@ export default function Consultation() {
                 onChange={(e) => handleChange("acceptTerms", e.target.checked)}
               />
               <span>
-                I accept the terms and will follow Yatra's quality and service standards
+                I accept the terms and will follow Yatra's quality and service
+                standards
               </span>
             </label>
 
-            <Button type="submit" className="bg-[#00bcd4] hover:bg-[#00acc1] text-black font-semibold">
+            <Button
+              type="submit"
+              className="bg-[#00bcd4] hover:bg-[#00acc1] text-black font-semibold"
+            >
               Submit Application
             </Button>
           </motion.form>

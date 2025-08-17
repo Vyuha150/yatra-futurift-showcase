@@ -6,7 +6,11 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { motion } from "framer-motion";
-import { PageLoadWrapper, AnimatedNav, AnimatedBackground } from "@/components/AnimatedComponents";
+import {
+  PageLoadWrapper,
+  AnimatedNav,
+  AnimatedBackground,
+} from "@/components/AnimatedComponents";
 
 const PRODUCT_OPTIONS = [
   "Passenger Elevator",
@@ -30,7 +34,10 @@ export default function FeedbackForm() {
     showcasePermission: "",
   });
 
-  function handleChange<K extends keyof typeof form>(key: K, value: typeof form[K]) {
+  function handleChange<K extends keyof typeof form>(
+    key: K,
+    value: (typeof form)[K]
+  ) {
     setForm((prev) => ({ ...prev, [key]: value }));
   }
 
@@ -44,10 +51,40 @@ export default function FeedbackForm() {
     });
   }
 
-  function handleSubmit(e: React.FormEvent) {
+  const [submitting, setSubmitting] = useState(false);
+
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    console.log("Feedback submitted:", form);
-    alert("Thank you for your feedback!");
+    setSubmitting(true);
+    try {
+      const apiUrl = import.meta.env.VITE_API_URL;
+      const res = await fetch(`${apiUrl}/api/customer-feedback`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (res.ok) {
+        alert("Thank you for your feedback!");
+        setForm({
+          name: "",
+          companyName: "",
+          email: "",
+          phone: "",
+          productTypes: [],
+          otherProduct: "",
+          location: "",
+          feedback: "",
+          showcasePermission: "",
+        });
+      } else {
+        const data = await res.json();
+        alert(data.error || "Failed to submit feedback.");
+      }
+    } catch (err) {
+      alert("Network error. Please try again.");
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   return (
@@ -58,7 +95,7 @@ export default function FeedbackForm() {
       <AnimatedBackground />
       <CustomCursor />
 
-      <section className="bg-[#0d1117] text-white min-h-screen pt-32 pb-20">
+      <section className="bg-[#0d1117] text-white min-h-screen pt-32 pb-20 auth-page">
         <div className="container mx-auto px-6 max-w-4xl">
           {/* Heading */}
           <motion.div
@@ -71,7 +108,8 @@ export default function FeedbackForm() {
               Share Your Memorable Experience
             </h1>
             <p className="text-gray-400 max-w-2xl mx-auto">
-              We give lots of priority to your feedback as it helps us to improve and inspire future clients.
+              We give lots of priority to your feedback as it helps us to
+              improve and inspire future clients.
             </p>
           </motion.div>
 
@@ -84,7 +122,9 @@ export default function FeedbackForm() {
             className="bg-[#161b22] p-8 rounded-xl shadow-lg space-y-6"
           >
             <div>
-              <label className="block mb-1 font-semibold text-gray-100">Name</label>
+              <label className="block mb-1 font-semibold text-gray-100">
+                Name
+              </label>
               <Input
                 placeholder="Enter your name"
                 value={form.name}
@@ -93,7 +133,9 @@ export default function FeedbackForm() {
             </div>
 
             <div>
-              <label className="block mb-1 font-semibold text-gray-100">Company / Project Name</label>
+              <label className="block mb-1 font-semibold text-gray-100">
+                Company / Project Name
+              </label>
               <Input
                 placeholder="Enter company or project name"
                 value={form.companyName}
@@ -102,7 +144,9 @@ export default function FeedbackForm() {
             </div>
 
             <div>
-              <label className="block mb-1 font-semibold text-gray-100">Email Address</label>
+              <label className="block mb-1 font-semibold text-gray-100">
+                Email Address
+              </label>
               <Input
                 type="email"
                 placeholder="Enter your email"
@@ -112,7 +156,9 @@ export default function FeedbackForm() {
             </div>
 
             <div>
-              <label className="block mb-1 font-semibold text-gray-100">Phone Number (optional)</label>
+              <label className="block mb-1 font-semibold text-gray-100">
+                Phone Number (optional)
+              </label>
               <Input
                 placeholder="Enter phone number"
                 value={form.phone}
@@ -122,7 +168,9 @@ export default function FeedbackForm() {
 
             {/* Product Types */}
             <div>
-              <label className="block mb-2 font-semibold text-gray-100">Type of Product Installed</label>
+              <label className="block mb-2 font-semibold text-gray-100">
+                Type of Product Installed
+              </label>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 text-gray-200">
                 {PRODUCT_OPTIONS.map((opt) => (
                   <label key={opt} className="flex items-center space-x-2">
@@ -146,7 +194,9 @@ export default function FeedbackForm() {
             </div>
 
             <div>
-              <label className="block mb-1 font-semibold text-gray-100">Location / City</label>
+              <label className="block mb-1 font-semibold text-gray-100">
+                Location / City
+              </label>
               <Input
                 placeholder="Enter location or city"
                 value={form.location}
@@ -155,7 +205,9 @@ export default function FeedbackForm() {
             </div>
 
             <div>
-              <label className="block mb-1 font-semibold text-gray-100">Your Feedback / Testimonial</label>
+              <label className="block mb-1 font-semibold text-gray-100">
+                Your Feedback / Testimonial
+              </label>
               <Textarea
                 placeholder="Share your insights and experiences"
                 value={form.feedback}
@@ -191,8 +243,9 @@ export default function FeedbackForm() {
             <Button
               type="submit"
               className="bg-[#00bcd4] hover:bg-[#00acc1] text-black font-semibold"
+              disabled={submitting}
             >
-              Submit Feedback
+              {submitting ? "Submitting..." : "Submit Feedback"}
             </Button>
           </motion.form>
         </div>
