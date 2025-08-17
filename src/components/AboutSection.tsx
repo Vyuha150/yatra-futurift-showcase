@@ -7,6 +7,7 @@ import {
   Building2,
   Home,
   Truck,
+  Cog,
   ChevronRight,
 } from "lucide-react";
 import roboticHand from "@/assets/robotic-hand.jpg";
@@ -53,6 +54,12 @@ const AboutSection = () => {
       title: "Commercial Systems",
       description: "Hospital, freight & passenger elevators",
     },
+    {
+  icon: Cog,
+  title: "Custom Engineering",
+  description: "Tailored elevator solutions for unique building needs",
+}
+
   ];
 
   return (

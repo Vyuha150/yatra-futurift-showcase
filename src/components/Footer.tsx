@@ -18,11 +18,11 @@ import {
 
 const Footer = () => {
   const quickLinks = [
-    { label: 'Home Elevators', href: '#' },
-    { label: 'Commercial Lifts', href: '#' },
-    { label: 'Hospital Elevators', href: '#' },
-    { label: 'Freight Elevators', href: '#' },
-    { label: 'Escalators', href: '#' },
+    { label: 'Home Elevators', href: '/projects' },
+    { label: 'Commercial Lifts', href: '/projects' },
+    { label: 'Hospital Elevators', href: '/projects' },
+    { label: 'Freight Elevators', href: '/projects' },
+    { label: 'Escalators', href: '/projects' },
     { label: 'Maintenance', href: '/service-request' },
     
     
@@ -31,7 +31,7 @@ const Footer = () => {
 ];
 
   const services = [
-    { label: 'Installation', href: '#' },
+    { label: 'Installation', href: '/support' },
     { label: 'AMC Services', href: '/support' },
     { label: 'Modernization', href: '/innovations' },
     { label: 'Emergency Repair', href: '/service-request' },

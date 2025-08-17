@@ -21,7 +21,7 @@ import ClientForm from "./components/ui/ClientForm";
 import PriceQuotation from "./components/ui/PriceQuotation";
 import Opportunities from "./pages/Opportunities";
 import ElevatorDetails from "./pages/ElevatorDetails";
-
+import ProductDetail from "./pages/ProductDetail";
 
 
 
@@ -37,29 +37,26 @@ const App = () => (
     
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/career" element={<Career />} />
-          <Route path="/projects" element={<ProjectsSolutions />} />
-          <Route path="/innovations" element={<InnovationsTech />} />
-          <Route path="/support" element={<SupportServices />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/partner-application" element={<PartnerApplicationForm/>} />
-          <Route path="/FeedBack" element={<FeedbackForm/>} />
-          <Route path="/service-request" element={<ServiceRequestForm />} />
-          <Route path="/clientForm" element={<ClientForm />} />
-          <Route path="/quotationform" element={<PriceQuotation />} />
-          <Route path="/signin" element={<SignIn/>}/>
-          <Route path="/signup" element={<SignUp/>}/>
-          <Route path="/otp-verification" element={<OTPVerification/>}/>
-          <Route path="/opportunities" element={<Opportunities/>}/>
-          <Route path="/elevators/:id" element={<ElevatorDetails />} />
-
-
+          <Route path = "/" element                    = {<Index />} />
+          <Route path = "/about" element               = {<About />} />
+          <Route path = "/career" element              = {<Career />} />
+          <Route path = "/projects" element            = {<ProjectsSolutions />} />
+          <Route path = "/innovations" element         = {<InnovationsTech />} />
+          <Route path = "/support" element             = {<SupportServices />} />
+          <Route path = "/contact" element             = {<Contact />} />
+          <Route path = "/partner-application" element = {<PartnerApplicationForm/>} />
+          <Route path = "/FeedBack" element            = {<FeedbackForm/>} />
+          <Route path = "/service-request" element     = {<ServiceRequestForm />} />
+          <Route path = "/clientForm" element          = {<ClientForm />} />
+          <Route path = "/quotationform" element       = {<PriceQuotation />} />
+          <Route path = "/signin" element              = {<SignIn/>}/>
+          <Route path = "/signup" element              = {<SignUp/>}/>
+          <Route path = "/otp-verification" element    = {<OTPVerification/>}/>
+          <Route path = "/opportunities" element       = {<Opportunities/>}/>
+          <Route path = "/elevators/:id" element       = {<ElevatorDetails />} />
+          <Route path="/products/:id" element={<ProductDetail />} />
           
-         
-         
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
       
