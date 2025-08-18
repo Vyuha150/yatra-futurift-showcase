@@ -342,6 +342,7 @@ const ProjectsSolutions = () => {
         "Customizable cabin finishes",
         "Safety protocols",
         "Hygiene standards",
+        "Streamlined interiors",
       ],
     },
     {
@@ -357,6 +358,7 @@ const ProjectsSolutions = () => {
         "Backup system",
         "Pathogen resistance",
         "Compact design",
+        "Cutting-edge technology",
       ],
     },
     {
@@ -372,6 +374,7 @@ const ProjectsSolutions = () => {
         "Touchless control systems",
         "Medical equipment compatibility",
         "Enhanced hygiene protocols",
+        "Customisable for users",
       ],
     },
     {
@@ -387,6 +390,7 @@ const ProjectsSolutions = () => {
         "Fortified cabins",
         "Energy effective drives",
         "Long-term reliability",
+        "Advanced equipment",
       ],
     },
     {
@@ -402,6 +406,7 @@ const ProjectsSolutions = () => {
         "Energy effective capability",
         "Architectural integration",
         "Visual experience enhancement",
+        "Advanced equipment",
       ],
     },
     {
@@ -417,6 +422,7 @@ const ProjectsSolutions = () => {
         "Architectural flexibility",
         "Advanced technology",
         "Superior control systems",
+        "Strong installation",
       ],
     },
   ];

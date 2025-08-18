@@ -111,9 +111,12 @@ const handleSend = () => {
                 <span className="text-foreground">info@yatraelevators.com</span>
               </div>
               <div className="flex items-center space-x-3">
-                <MapPin className="w-5 h-5 text-neon-cyan" />
-                <span className="text-foreground">Plot 3-538, Sri Krishna Heights, 100 feet road , Ayyappa society, Madhapur , Hyderabad 500018, India</span>
+              <MapPin className="w-8 h-8 text-neon-cyan" /> 
+              <span className="text-foreground">
+              Plot 3-538, Sri Krishna Heights, 100 feet road , Ayyappa society, Madhapur , Hyderabad 500018, India
+              </span>
               </div>
+
             </div>
 
             {/* Social Links */}

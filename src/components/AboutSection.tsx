@@ -144,12 +144,14 @@ const AboutSection = () => {
               </span>
             </div>
 
-            <button className="group flex items-center space-x-2 text-neon-cyan hover:text-neon-cyan-glow transition-colors">
-              <span className="font-semibold">
-                Learn more about our technology
-              </span>
-              <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </button>
+            <a 
+            href="/innovations" 
+           className="group flex items-center space-x-2 text-neon-cyan hover:text-neon-cyan-glow transition-colors"
+>
+             <span className="font-semibold">Learn more about our technology</span>
+             <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </a>
+
           </div>
         </div>
       </div>
