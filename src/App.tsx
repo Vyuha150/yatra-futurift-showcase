@@ -22,6 +22,11 @@ import PriceQuotation from "./components/ui/PriceQuotation";
 import Opportunities from "./pages/Opportunities";
 import ElevatorDetails from "./pages/ElevatorDetails";
 import ProductDetail from "./pages/ProductDetail";
+import PassengerElevators from "@/pages/PassengerElevators";
+import FreightElevators from "@/pages/FreightElevators";
+import HospitalElevators from "@/pages/HospitalElevators";
+import GlassElevators from "@/pages/GlassElevators";
+import HomeElevators from "@/pages/HomeElevators";
 
 
 
@@ -55,7 +60,11 @@ const App = () => (
           <Route path = "/opportunities" element       = {<Opportunities/>}/>
           <Route path = "/elevators/:id" element       = {<ElevatorDetails />} />
           <Route path="/products/:id" element={<ProductDetail />} />
-          
+          <Route path="/passenger-elevator" element={<PassengerElevators />} />
+          <Route path="/freight-elevator" element={<FreightElevators/>}/>
+          <Route path="/hospital-elevator" element={<HospitalElevators/>}/>
+          <Route path="/glass-elevator" element={<GlassElevators/>}/>
+          <Route path="home-elevator" element={<HomeElevators/>}/>
          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
