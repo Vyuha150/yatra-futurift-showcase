@@ -18,11 +18,11 @@ import {
 
 const Footer = () => {
   const quickLinks = [
-    { label: 'Home Elevators', href: '/projects' },
-    { label: 'Commercial Lifts', href: '/projects' },
-    { label: 'Hospital Elevators', href: '/projects' },
-    { label: 'Freight Elevators', href: '/projects' },
-    { label: 'Escalators', href: '/projects' },
+    { label: 'Home Elevators', href: 'home-elevator' },
+    { label: 'Passenger Elevators', href: '/passenger-elevator' },
+    { label: 'Hospital Elevators', href: '/hospital-elevator' },
+    { label: 'Freight Elevators', href: '/freight-elevator' },
+    { label: 'Glass Elevators', href: '/glass-elevator' },
     { label: 'Maintenance', href: '/service-request' },
     
     
