@@ -68,7 +68,7 @@ const AboutSection = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold mb-6">
-            <span className="text-foreground">We are </span>
+            <span className="text-foreground">We @ </span>
             <span className="text-brand">Yatra</span>
           </h2>
         </div>

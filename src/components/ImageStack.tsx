@@ -3,9 +3,9 @@ import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
 const images = ["src/assets/Passenger Elevators.png", 
-   "public/hospital elevators.png",
-    "public/cabin4.jpeg", 
-    "public/cabin5.jpeg",
+   "/hospital elevators.png",
+    "/cabin4.jpeg", 
+    "/cabin5.jpeg",
     "src/assets/Public Transport Escalators.png"];
 const elevatorNames = [
   "Passenger Elevator",

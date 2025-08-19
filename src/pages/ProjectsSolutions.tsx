@@ -101,18 +101,7 @@ const ElevatorCard = ({
             </motion.div>
 
             {/* CTA Button */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={cardInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.1 + 0.6 }}
-              className="hidden lg:block"
-            >
-              <Button className="btn-primary group w-full" onClick={handleExploreDetails}>
-                <span>Explore Details</span>
-                <Eye className="w-4 h-4 ml-2 group-hover:scale-110 transition-transform" />
-              </Button>
-            </motion.div>
-
+            
             {/* Hover Image */}
             <motion.div
               initial={{ opacity: 0, y: 20, scale: 0.95 }}
@@ -132,7 +121,21 @@ const ElevatorCard = ({
                 </p>
               </div>
             </motion.div>
+            {/* CTA Button BELOW Image */}
+            <motion.div
+           initial={{ opacity: 0, y: 20 }}
+            animate={cardInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: index * 0.1 + 1 }}
+            className="hidden lg:block mt-4"
+>
+          <Button className="btn-primary group w-full" onClick={handleExploreDetails}>
+          <span>Explore Details</span>
+          <Eye className="w-4 h-4 ml-2 group-hover:scale-110 transition-transform" />
+         </Button>
+         </motion.div>
+
           </div>
+          
 
           {/* Right: Description and Features */}
           <div className="lg:col-span-2 space-y-6">
@@ -333,7 +336,7 @@ const ProjectsSolutions = () => {
       id: "passenger",
       title: "Passenger Elevators",
       icon: Building2,
-      image: "/passengerelevators.png",
+      image: "src/assets/Passenger Elevators.png",
       description:
         "Yatra's Passenger Elevators are contemplatively designed to provide serene, calm and most significant vertical mobility in a diverse architectural environment to deliver smooth, safe, and energy efficient vertical mobility for residential and commercial buildings alike. Established with user attractive design, stylistic appeal, appearance standards and we envisioned the  long term journey carried in our minds. Our elevators integrate advanced technology, noise-optimized and cutting - edge control systems to venture every strike. From streamlined interiors to customizable and user -friendly cabin finishes, yatra aims at dynamic design  options , advanced architecture and exceptional service to people, our elevators incorporate safety protocols, innovations ,hygiene scintillating Interiors spacious to drive stellar lifestyle.",
       features: [
@@ -349,7 +352,7 @@ const ProjectsSolutions = () => {
       id: "residential",
       title: "Home/Residential Elevators",
       icon: Home,
-      image: "/home elevators.png",
+      image: "/cabin5.jpeg",
       description:
         "Yatra's Elevators promote jubilant, elegant and enhancing incredible environments into your residence. These are fabricated with cutting-edge technology and modern stylish appearance versatility, these elevators smoothly get adjusted  into villas, duplexes and multi story residences. Yatra's offerings are capacity monitoring, high tech mobility solutions, backup system, and pathogen resistance. With customizable finishes, compact and dynamic shafts, and dazzling smooth ride quality, our residential elevators ensure the mobility and momentum for all age groups and optimisation to your residence. For the compact and flexibility that simplifies your day, the luxury that intuitively accelerates your lifestyle, or the accessibility that opens up  your entire home, Yatra's Home Elevators bring a new stylish version for your residence.",
       features: [
@@ -397,7 +400,7 @@ const ProjectsSolutions = () => {
       id: "capsule",
       title: "Capsule Elevators (Panoramic)",
       icon: Eye,
-      image: "/capsule relevators.png",
+      image: "/cabin4.jpeg",
       description:
         "Yatra's Capsule Elevators are a meritorious blend of scintillating and elegance, constructed to elevate both momentum and across all architectural beauty. Significant for advanced residential high-towers, premiere hotels, malls, and commercial areas, these comprehensive elevators put forward a 360-degree angle bird-eye view, accelerating the visual experience for passengers  and people while appreciating the architectural beauty. Constructed exactly with using advanced safety operations and mechanisms and capability which is energy effective.",
       features: [

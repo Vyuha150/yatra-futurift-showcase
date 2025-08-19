@@ -23,17 +23,17 @@ const cabins = [
   },
   {
     title: "Hospital Elevator",
-    img: "public/hospital elevators.png",
+    img: "/hospital elevators.png",
     link: "/hospital-elevator",
   },
   {
     title: "Capsule Elevator",
-    img: "public/cabin4.jpeg",
+    img: "/cabin4.jpeg",
     link: "/glass-elevator",
   },
   {
     title: "Home Elevator",
-    img: "public/cabin5.jpeg",
+    img: "/cabin5.jpeg",
     link: "/home-elevator",
   },
   {
