@@ -129,26 +129,27 @@ const PassengerElevators = () => {
       <section className="px-6 py-16 bg-surface-glass">
         <div className="container mx-auto grid items-center gap-10 md:grid-cols-2">
           <motion.img
-  src="/1.png"
-  alt="Home Elevator"
-  className="mx-auto rounded-2xl shadow-lg border border-gray-700 
-             w-full max-w-[380px] sm:max-w-[450px] md:max-w-[500px] 
-             h-[300px] object-cover"
-  initial={{ opacity: 0, scale: 0.9 }}
-  whileInView={{ opacity: 1, scale: 1 }}
-  transition={{ duration: 0.8 }}
+          src="src/assets/Passenger Elevators.png"
+          alt="Home Elevator"
+          className="mx-auto rounded-2xl shadow-lg border border-gray-700 
+             w-full max-w-[680px] sm:max-w-[720px] md:max-w-[750px] 
+             h-[420px] object-cover"
+        initial={{ opacity: 0, scale: 0.9 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.8 }}
 />
+
 
           <div>
             <h2 className="mb-4 text-4xl font-bold">Modern Elevators for Modern Living</h2>
             <p className="mb-6 text-lg text-muted-foreground">
-              Our home elevators are designed to seamlessly integrate with your interiors while ensuring both safety and performance.
-              Whether it’s a luxury residence or a commercial space, our elevators deliver smooth, quiet, and efficient rides.
-            </p>
+             Yatra’s Passenger Elevators are contemplatively designed to provide serene, calm and most 
+             significant vertical mobility in diverse architectural environment to deliver smooth, safe, and 
+             energy-efficient vertical mobility for residential and commercial buildings</p>
             <ul className="space-y-3 text-muted-foreground">
               <li>✔ Smooth and noiseless ride</li>
               <li>✔ Elegant and customizable cabins</li>
-              <li>✔ Long-lasting with low maintenance</li>
+              <li>✔ Hygiene scintillating Interiors</li>
             </ul>
           </div>
         </div>

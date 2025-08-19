@@ -128,26 +128,27 @@ const PassengerElevators = () => {
       ---------------------- */}
       <section className="px-6 py-16 bg-surface-glass">
         <div className="container mx-auto grid items-center gap-10 md:grid-cols-2">
-          <motion.img
-  src="/2.png"
-  alt="Home Elevator"
-  className="mx-auto rounded-2xl shadow-lg border border-gray-700 
-             w-full max-w-[380px] sm:max-w-[450px] md:max-w-[500px] 
-             h-[300px] object-cover"
-  initial={{ opacity: 0, scale: 0.9 }}
-  whileInView={{ opacity: 1, scale: 1 }}
-  transition={{ duration: 0.8 }}
+           <motion.img
+          src="/2.png"
+          alt="Home Elevator"
+          className="mx-auto rounded-2xl shadow-lg border border-gray-700 
+             w-full max-w-[680px] sm:max-w-[720px] md:max-w-[750px] 
+             h-[420px] object-cover"
+        initial={{ opacity: 0, scale: 0.9 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.8 }}
 />
 
           <div>
             <h2 className="mb-4 text-4xl font-bold">Modern Elevators for Modern Living</h2>
             <p className="mb-6 text-lg text-muted-foreground">
-              Our home elevators are designed to seamlessly integrate with your interiors while ensuring both safety and performance.
-              Whether it’s a luxury residence or a commercial space, our elevators deliver smooth, quiet, and efficient rides.
+              Yatra’s Freight and Service Elevators are designed for maximum potential, solidity and 
+              firmness, and flawless performance in rigorous environments. Specifically engineered for 
+              heavy-duty commercial use.
             </p>
             <ul className="space-y-3 text-muted-foreground">
-              <li>✔ Smooth and noiseless ride</li>
-              <li>✔ Elegant and customizable cabins</li>
+              <li>✔ Created  with fortified cabins</li>
+              <li>✔ Energy-effective -drives</li>
               <li>✔ Long-lasting with low maintenance</li>
             </ul>
           </div>

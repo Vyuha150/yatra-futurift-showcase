@@ -9,7 +9,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
-import { Users, Heart, Target, Lightbulb, Building, Hotel, Home, Hospital } from "lucide-react";
+import { Users, Heart, Target, Lightbulb, Building, Hotel, Home, ShoppingCart } from "lucide-react";
 
 // ----------------------
 // Types
@@ -48,34 +48,34 @@ const FeatureCard = ({ feature, index }: { feature: Feature; index: number }) =>
 // ----------------------
 // Page Component
 // ----------------------
-const PassengerElevators = () => {
+const MovingWalkwaysEscalators = () => {
   const [heroRef, heroInView] = useInView({ triggerOnce: true, threshold: 0.1 });
 
-  // Elevator Features
+  // Features
   const features: Feature[] = [
     {
       icon: Heart,
-      title: "Safety First",
+      title: "Safe & Reliable",
       description:
-        "Built with world-class safety systems that comply with international standards, ensuring complete peace of mind.",
+        "Equipped with advanced braking systems, sensors, and emergency features for maximum passenger safety.",
     },
     {
       icon: Target,
       title: "Energy Efficient",
       description:
-        "Smart power-saving technology reduces energy consumption without compromising on performance.",
+        "Designed with smart power management to reduce energy usage during low traffic hours.",
     },
     {
       icon: Lightbulb,
-      title: "Innovative Designs",
+      title: "Modern Aesthetics",
       description:
-        "Stylish interiors and customizable cabins that blend seamlessly into your space.",
+        "Sleek designs with customizable finishes that complement malls, airports, and commercial spaces.",
     },
     {
       icon: Users,
-      title: "Capacity Options",
+      title: "High Capacity",
       description:
-        "Available in multiple capacities – from compact home elevators to large-scale commercial solutions.",
+        "Engineered to handle heavy foot traffic with smooth and continuous movement.",
     },
   ];
 
@@ -95,7 +95,7 @@ const PassengerElevators = () => {
             animate={heroInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 1 }}
           >
-            Capsule Elevators
+            Public Transport Esclators
           </motion.h1>
 
           <motion.p
@@ -104,7 +104,7 @@ const PassengerElevators = () => {
             animate={heroInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Bringing comfort, safety, and elegance to your home and workplace with our premium passenger elevators.
+            Ensuring seamless movement of people in airports, malls, and commercial hubs with world-class escalators and walkways.
           </motion.p>
 
           <motion.div
@@ -128,28 +128,27 @@ const PassengerElevators = () => {
       ---------------------- */}
       <section className="px-6 py-16 bg-surface-glass">
         <div className="container mx-auto grid items-center gap-10 md:grid-cols-2">
-           <motion.img
-          src="public/cabin4.jpeg"
-          alt="Home Elevator"
-          className="mx-auto rounded-2xl shadow-lg border border-gray-700 
-             w-full max-w-[680px] sm:max-w-[720px] md:max-w-[750px] 
-             h-[420px] object-cover"
-        initial={{ opacity: 0, scale: 0.9 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.8 }}
-/>
-
+          <motion.img
+            src="src/assets/Public Transport Escalators.png"
+            alt="Escalators & Walkways"
+            className="mx-auto rounded-2xl shadow-lg border border-gray-700 
+               w-full max-w-[680px] sm:max-w-[720px] md:max-w-[750px] 
+               h-[420px] object-cover"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8 }}
+          />
 
           <div>
-            <h2 className="mb-4 text-4xl font-bold">Modern Elevators for Modern Living</h2>
+            <h2 className="mb-4 text-4xl font-bold">Effortless Mobility Solutions</h2>
             <p className="mb-6 text-lg text-muted-foreground">
-              Yatra's Capsule Elevators are a meritorious blend of scintillating and elegance, constructed 
-              to elevate both momentum and across all architectural beauty . significant for advanced 
-              residential high-towers, premiere hotels, malls, and commercial areas</p>
+              Our escalators and moving walkways are engineered for safety, comfort, and efficiency. 
+              Whether it’s a busy airport or a modern shopping mall, they are designed to keep people moving smoothly.
+            </p>
             <ul className="space-y-3 text-muted-foreground">
-              <li>✔ Creating a futuristic feel </li>
-              <li>✔ Elegant and customizable cabins</li>
-              <li>✔ A 360-degree angle bird-eye view</li>
+              <li>✔ Smooth and continuous movement</li>
+              <li>✔ Durable with low maintenance needs</li>
+              <li>✔ Customizable designs to match interiors</li>
             </ul>
           </div>
         </div>
@@ -161,9 +160,9 @@ const PassengerElevators = () => {
       <section className="bg-white/5 px-6 py-16">
         <div className="container mx-auto">
           <motion.div className="mb-12 text-center">
-            <h2 className="mb-4 text-4xl font-bold text-foreground">Why Choose Our Elevators</h2>
+            <h2 className="mb-4 text-4xl font-bold text-foreground">Why Choose Our Solutions</h2>
             <p className="mx-auto max-w-3xl text-muted-foreground">
-              Combining cutting-edge technology with world-class safety standards to give you the best elevator experience.
+              From heavy-duty reliability to modern designs, our escalators and walkways are built for today’s urban spaces.
             </p>
           </motion.div>
 
@@ -181,35 +180,35 @@ const PassengerElevators = () => {
       <section className="px-6 py-16 bg-surface-glass">
         <div className="container mx-auto">
           <div className="mb-12 text-center">
-            <h2 className="mb-4 text-4xl font-bold text-foreground">Where Can They Be Used?</h2>
+            <h2 className="mb-4 text-4xl font-bold text-foreground">Where Are They Used?</h2>
             <p className="mx-auto max-w-2xl text-muted-foreground">
-              Our elevators are designed to serve diverse needs across different industries and spaces.
+              Trusted by leading businesses and public spaces for efficient crowd movement.
             </p>
           </div>
 
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             <Card>
               <CardContent className="p-6 text-center space-y-3">
-                <Home className="mx-auto h-10 w-10 text-neon-cyan" />
-                <h3 className="font-semibold">Residential Homes</h3>
+                <ShoppingCart className="mx-auto h-10 w-10 text-neon-cyan" />
+                <h3 className="font-semibold">Shopping Malls</h3>
               </CardContent>
             </Card>
             <Card>
               <CardContent className="p-6 text-center space-y-3">
                 <Building className="mx-auto h-10 w-10 text-neon-cyan" />
-                <h3 className="font-semibold">Commercial Buildings</h3>
+                <h3 className="font-semibold">Airports & Stations</h3>
               </CardContent>
             </Card>
             <Card>
               <CardContent className="p-6 text-center space-y-3">
                 <Hotel className="mx-auto h-10 w-10 text-neon-cyan" />
-                <h3 className="font-semibold">Hotels & Apartments</h3>
+                <h3 className="font-semibold">Hotels & Convention Centers</h3>
               </CardContent>
             </Card>
             <Card>
               <CardContent className="p-6 text-center space-y-3">
-                <Hospital className="mx-auto h-10 w-10 text-neon-cyan" />
-                <h3 className="font-semibold">Hospitals</h3>
+                <Home className="mx-auto h-10 w-10 text-neon-cyan" />
+                <h3 className="font-semibold">Public & Corporate Buildings</h3>
               </CardContent>
             </Card>
           </div>
@@ -219,23 +218,22 @@ const PassengerElevators = () => {
       {/* ----------------------
           Final Call To Action
       ---------------------- */}
-     <section className="py-20 text-center bg-surface">
-  <h2 className="mb-6 text-4xl font-bold text-white">
-    Ready to Elevate Your Space?
-  </h2>
-  <Button
-    size="lg"
-    className="bg-neon-cyan text-black hover:bg-neon-blue transition-all duration-300"
-    onClick={() => (window.location.href = "/contact")}
-  >
-    Contact Us Today
-  </Button>
-</section>
-
+      <section className="py-20 text-center bg-surface">
+        <h2 className="mb-6 text-4xl font-bold text-white">
+          Ready to Move with Ease?
+        </h2>
+        <Button
+          size="lg"
+          className="bg-neon-cyan text-black hover:bg-neon-blue transition-all duration-300"
+          onClick={() => (window.location.href = "/contact")}
+        >
+          Contact Us Today
+        </Button>
+      </section>
 
       <Footer />
     </PageLoadWrapper>
   );
 };
 
-export default PassengerElevators;
+export default MovingWalkwaysEscalators;

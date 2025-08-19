@@ -96,12 +96,13 @@ const HeroSection = () => {
               </GlowButton>
 
               <GlowButton
-                className = "btn-outline group min-w-[130px] h-10 px-4"
-                size      = "sm"
-              >
-                <Eye className = "w-4 h-4 mr-2 shrink-0" />
-                <span>View Cabins</span>
+              className="btn-outline group min-w-[130px] h-10 px-4"
+              size="sm"
+              onClick={() => navigate("/cabins")}   // 👈 Add this
+>             <Eye className="w-4 h-4 mr-2 shrink-0" />
+              <span>View Cabins</span>
               </GlowButton>
+
             </motion.div>
 
             {/* Discover Section */}

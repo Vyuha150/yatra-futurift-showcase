@@ -27,9 +27,9 @@ import FreightElevators from "@/pages/FreightElevators";
 import HospitalElevators from "@/pages/HospitalElevators";
 import GlassElevators from "@/pages/GlassElevators";
 import HomeElevators from "@/pages/HomeElevators";
-
-
-
+import CabinShowcase from "./pages/CabinShowcase";
+import MovingWalkWays from "./pages/MovingWalkWays";
+import PublicEscalators from "./pages/PublicEscalators";
 
 
 const queryClient = new QueryClient();
@@ -65,6 +65,9 @@ const App = () => (
           <Route path="/hospital-elevator" element={<HospitalElevators/>}/>
           <Route path="/glass-elevator" element={<GlassElevators/>}/>
           <Route path="home-elevator" element={<HomeElevators/>}/>
+          <Route path="/cabins" element={<CabinShowcase/>}/>
+          <Route path="/moving-walkway-escalators" element={<MovingWalkWays/>}/>
+          <Route path="/public-transport-escalators" element={<PublicEscalators/>}/>
          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

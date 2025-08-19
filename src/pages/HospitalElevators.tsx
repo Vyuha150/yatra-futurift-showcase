@@ -129,26 +129,27 @@ const PassengerElevators = () => {
       <section className="px-6 py-16 bg-surface-glass">
         <div className="container mx-auto grid items-center gap-10 md:grid-cols-2">
           <motion.img
-  src="/3.png"
-  alt="Home Elevator"
-  className="mx-auto rounded-2xl shadow-lg border border-gray-700 
-             w-full max-w-[380px] sm:max-w-[450px] md:max-w-[500px] 
-             h-[300px] object-cover"
-  initial={{ opacity: 0, scale: 0.9 }}
-  whileInView={{ opacity: 1, scale: 1 }}
-  transition={{ duration: 0.8 }}
+          src="public/hospital elevators.png"
+          alt="Home Elevator"
+          className="mx-auto rounded-2xl shadow-lg border border-gray-700 
+             w-full max-w-[680px] sm:max-w-[720px] md:max-w-[750px] 
+             h-[420px] object-cover"
+        initial={{ opacity: 0, scale: 0.9 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.8 }}
 />
 
           <div>
             <h2 className="mb-4 text-4xl font-bold">Modern Elevators for Modern Living</h2>
             <p className="mb-6 text-lg text-muted-foreground">
-              Our home elevators are designed to seamlessly integrate with your interiors while ensuring both safety and performance.
-              Whether it’s a luxury residence or a commercial space, our elevators deliver smooth, quiet, and efficient rides.
+              Yatra’s Hospital/Bed Elevators Instituted with  quiet, controlled acoustic 
+              environments,  structural integrity, and advanced medical equipment and accommodations 
+              that prioritizes patient convience and safety and security .
             </p>
             <ul className="space-y-3 text-muted-foreground">
               <li>✔ Smooth and noiseless ride</li>
               <li>✔ Elegant and customizable cabins</li>
-              <li>✔ Long-lasting with low maintenance</li>
+              <li>✔ Emergency power bank</li>
             </ul>
           </div>
         </div>
@@ -190,7 +191,7 @@ const PassengerElevators = () => {
             <Card>
               <CardContent className="p-6 text-center space-y-3">
                 <Home className="mx-auto h-10 w-10 text-neon-cyan" />
-                <h3 className="font-semibold">Residential Homes</h3>
+                <h3 className="font-semibold">Clinics</h3>
               </CardContent>
             </Card>
             <Card>

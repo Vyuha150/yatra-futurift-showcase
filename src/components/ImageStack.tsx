@@ -2,22 +2,27 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
-const images = ["/1.png", "/2.png", "/3.png", "/4.png", "/5.png"];
+const images = ["src/assets/Passenger Elevators.png", 
+   "public/hospital elevators.png",
+    "public/cabin4.jpeg", 
+    "public/cabin5.jpeg",
+    "src/assets/Public Transport Escalators.png"];
 const elevatorNames = [
   "Passenger Elevator",
-  "Freight Elevator",
   "Hospital Elevator",
-  "Glass Elevator",
+  "Capsule Elevator",
   "Home Elevator",
+  "Escalators",
+  
 ];
 
 // Add the routes corresponding to each elevator
 const elevatorRoutes = [
   "/passenger-elevator",
-  "/freight-elevator",
   "/hospital-elevator",
   "/glass-elevator",
   "/home-elevator",
+  "/public-transport-escalators",
 ];
 
 export default function ImageStack() {
