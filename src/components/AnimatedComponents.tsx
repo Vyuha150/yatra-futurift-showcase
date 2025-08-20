@@ -103,7 +103,7 @@ export const SplitTextAnimation = ({
             delay: i * 0.1 + 0.5,
             ease: "easeOut",
           }}
-          className="inline-block mr-2"
+          className="inline-block mr-2 uppercase"
         >
           {word}
         </motion.span>

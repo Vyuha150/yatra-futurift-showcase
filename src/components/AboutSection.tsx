@@ -7,6 +7,7 @@ import {
   Building2,
   Home,
   Truck,
+  Cog,
   ChevronRight,
 } from "lucide-react";
 import roboticHand from "@/assets/robotic-hand.jpg";
@@ -53,6 +54,12 @@ const AboutSection = () => {
       title: "Commercial Systems",
       description: "Hospital, freight & passenger elevators",
     },
+    {
+  icon: Cog,
+  title: "Custom Engineering",
+  description: "Tailored elevator solutions for unique building needs",
+}
+
   ];
 
   return (
@@ -61,7 +68,7 @@ const AboutSection = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold mb-6">
-            <span className="text-foreground">We are </span>
+            <span className="text-foreground">We @ </span>
             <span className="text-brand">Yatra</span>
           </h2>
         </div>
@@ -137,12 +144,14 @@ const AboutSection = () => {
               </span>
             </div>
 
-            <button className="group flex items-center space-x-2 text-neon-cyan hover:text-neon-cyan-glow transition-colors">
-              <span className="font-semibold">
-                Learn more about our technology
-              </span>
-              <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </button>
+            <a 
+            href="/innovations" 
+           className="group flex items-center space-x-2 text-neon-cyan hover:text-neon-cyan-glow transition-colors"
+>
+             <span className="font-semibold">Learn more about our technology</span>
+             <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </a>
+
           </div>
         </div>
       </div>

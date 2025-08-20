@@ -311,7 +311,7 @@ const About = () => {
               { title: "Ready Mix Concrete", icon: Factory },
               { title: "Enterprises & Global Infrastructure", icon: Globe },
               { title: "Elevators & Escalators", icon: Zap },
-              { title: "Food Products & Solutions", icon: Heart },
+             
               { title: "Highway Food Courts", icon: Users },
               { title: "Women Empowerment Initiatives", icon: Handshake },
               { title: "Education & IT Solutions", icon: Lightbulb },

@@ -112,9 +112,7 @@ const InnovationCard = ({
           </ul>
         </div>
         <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-          <Button variant="outline" className="btn-outline">
-            Learn More
-          </Button>
+         
         </motion.div>
       </motion.div>
       <motion.div
@@ -416,7 +414,9 @@ const InnovationsTech = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Button size="lg" className="btn-primary">
+                <Button size="lg" 
+                className="btn-primary"
+                 onClick={() => window.location.href = "/projects"}>
                   Explore Our Solutions
                 </Button>
               </motion.div>

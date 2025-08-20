@@ -1,5 +1,9 @@
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { useState } from "react";
+import { Send } from 'lucide-react';
+
+
 import { 
   Phone, 
   Mail, 
@@ -14,11 +18,11 @@ import {
 
 const Footer = () => {
   const quickLinks = [
-    { label: 'Home Elevators', href: '#' },
-    { label: 'Commercial Lifts', href: '#' },
-    { label: 'Hospital Elevators', href: '#' },
-    { label: 'Freight Elevators', href: '#' },
-    { label: 'Escalators', href: '#' },
+    { label: 'Home Elevators', href: 'home-elevator' },
+    { label: 'Passenger Elevators', href: '/passenger-elevator' },
+    { label: 'Hospital Elevators', href: '/hospital-elevator' },
+    { label: 'Freight Elevators', href: '/freight-elevator' },
+    { label: 'Glass Elevators', href: '/glass-elevator' },
     { label: 'Maintenance', href: '/service-request' },
     
     
@@ -27,11 +31,11 @@ const Footer = () => {
 ];
 
   const services = [
-    { label: 'Installation', href: '#' },
+    { label: 'Installation', href: '/support' },
     { label: 'AMC Services', href: '/support' },
-    { label: 'Modernization', href: '#' },
+    { label: 'Modernization', href: '/innovations' },
     { label: 'Emergency Repair', href: '/service-request' },
-    { label: 'IoT Monitoring', href: '#' },
+    { label: 'IoT Monitoring', href: '/innovations' },
     { label: 'Consultation', href: '/contact' },
     { label: 'partnership', href: '/partner-application' }
   ];
@@ -48,6 +52,34 @@ const Footer = () => {
 
 
   ];
+  const [isChatOpen, setIsChatOpen] = useState(false);
+  const [messages, setMessages] = useState([
+  { text: "Hi! 👋 How can we help you today?", from: "bot" }
+]);
+const [inputValue, setInputValue] = useState("");
+
+const handleSend = () => {
+  if (!inputValue.trim()) return;
+
+  // Add user message
+  setMessages((prev) => [...prev, { text: inputValue, from: "user" }]);
+
+  const userText = inputValue; // store before clearing
+  setInputValue("");
+
+  // Simulate bot reply
+  setTimeout(() => {
+    setMessages((prev) => [
+      ...prev,
+      {
+        text: ` Our team will get back to you soon! 🚀`,
+        from: "bot",
+      },
+    ]);
+  }, 800);
+};
+
+
 
   return (
     <footer className="bg-surface-elevated border-t border-border relative">
@@ -72,16 +104,19 @@ const Footer = () => {
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
                 <Phone className="w-5 h-5 text-neon-cyan" />
-                <span className="text-foreground">+91 1800-123-4567</span>
+                <span className="text-foreground">+91 9091844844</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="w-5 h-5 text-neon-cyan" />
                 <span className="text-foreground">info@yatraelevators.com</span>
               </div>
               <div className="flex items-center space-x-3">
-                <MapPin className="w-5 h-5 text-neon-cyan" />
-                <span className="text-foreground">Mumbai, Delhi, Bangalore & 15+ Cities</span>
+              <MapPin className="w-8 h-8 text-neon-cyan" /> 
+              <span className="text-foreground">
+              Plot 3-538, Sri Krishna Heights, 100 feet road , Ayyappa society, Madhapur , Hyderabad 500018, India
+              </span>
               </div>
+
             </div>
 
             {/* Social Links */}
@@ -188,12 +223,75 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* WhatsApp Chat Button */}
-      <div className="fixed bottom-6 right-6 z-50">
-        <Button className="btn-accent rounded-full w-14 h-14 shadow-glow animate-pulse-glow">
-          <MessageCircle className="w-6 h-6" />
-        </Button>
-      </div>
+     {/* WhatsApp Chat Button */}
+<div className="fixed bottom-6 right-6 z-50">
+  <Button
+    onClick={() => setIsChatOpen(!isChatOpen)}
+    className="btn-accent rounded-full w-14 h-14 shadow-glow animate-pulse-glow"
+  >
+    <MessageCircle className="w-6 h-6" />
+  </Button>
+</div>
+
+{/* Chatbox */}
+{isChatOpen && (
+  <div className="fixed bottom-24 right-4 sm:right-6 w-[90%] sm:w-80 max-w-sm bg-surface-elevated text-white rounded-xl shadow-2xl border border-gray-800 overflow-hidden animate-fadeIn z-50">
+    {/* Header */}
+    <div className="flex justify-between items-center bg-neon-cyan p-3">
+      <span className="font-semibold text-black">Yatra Assistant</span>
+      <button
+        onClick={() => setIsChatOpen(false)}
+        className="text-black hover:text-gray-700 text-lg"
+      >
+        ✕
+      </button>
+    </div>
+
+    {/* Messages Area */}
+<div className="p-4 h-64 overflow-y-auto bg-surface-elevated space-y-2">
+  {messages.map((msg, idx) => (
+    <div
+      key={idx}
+      className={`px-4 py-2 rounded-2xl text-sm leading-snug max-w-[80%] ${
+        msg.from === "bot"
+          ? "bg-white/10 text-white" // Bot: subtle transparent white bubble
+          : "bg-neon-cyan text-black ml-auto" // User: bright accent
+      }`}
+    >
+      {msg.text}
+    </div>
+  ))}
+</div>
+
+
+    {/* Input Area */}
+    <div className="p-3 border-t border-gray-800 flex space-x-2 bg-surface-elevated">
+      <Input
+  placeholder="Type your message..."
+  value={inputValue}
+  onChange={(e) => setInputValue(e.target.value)}
+  onKeyDown={(e) => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault(); // prevent newline
+      handleSend();
+    }
+  }}
+  className="flex-1 border border-neon-cyan bg-surface-elevated text-white rounded-lg focus:border-neon-cyan focus:ring-1 focus:ring-neon-cyan"
+/>
+
+      <Button
+        size="icon"
+        onClick={handleSend}
+        className="bg-neon-cyan hover:bg-neon-cyan/80 text-black rounded-full p-2"
+      >
+        <Send className="w-4 h-4" />
+      </Button>
+    </div>
+  </div>
+)}
+
+
+
     </footer>
   );
 };

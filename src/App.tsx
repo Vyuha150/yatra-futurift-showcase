@@ -19,10 +19,6 @@ import FeedbackForm from "./components/ui/FeedBackForm";
 import ServiceRequestForm from "./components/ui/ServiceRequestForm";
 import ClientForm from "./components/ui/ClientForm";
 import PriceQuotation from "./components/ui/PriceQuotation";
-import VerifyEmail from "./pages/VerifyEmail";
-import ForgotPassword from "./pages/ForgotPassword";
-import ResetPassword from "./pages/ResetPassword";
-import UserProfile from "./pages/UserProfile";
 
 const queryClient = new QueryClient();
 
@@ -52,10 +48,6 @@ const App = () => (
           <Route path="/signin" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/otp-verification" element={<OTPVerification />} />
-          <Route path="/verify-email" element={<VerifyEmail />} />
-          <Route path="/forgot-password" element={<ForgotPassword />} />
-          <Route path="/reset-password" element={<ResetPassword />} />
-          <Route path="/userprofile" element={<UserProfile />} />
 
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

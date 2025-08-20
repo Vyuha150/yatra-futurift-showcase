@@ -1,17 +1,33 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
-const images = ["/1.png", "/2.png", "/3.png", "/4.png", "/5.png"];
+const images = ["src/assets/Passenger Elevators.png", 
+   "/hospital elevators.png",
+    "/cabin4.jpeg", 
+    "/cabin5.jpeg",
+    "src/assets/Public Transport Escalators.png"];
 const elevatorNames = [
   "Passenger Elevator",
-  "Freight Elevator",
   "Hospital Elevator",
-  "Glass Elevator",
+  "Capsule Elevator",
   "Home Elevator",
+  "Escalators",
+  
+];
+
+// Add the routes corresponding to each elevator
+const elevatorRoutes = [
+  "/passenger-elevator",
+  "/hospital-elevator",
+  "/glass-elevator",
+  "/home-elevator",
+  "/public-transport-escalators",
 ];
 
 export default function ImageStack() {
   const [hovered, setHovered] = useState<number | null>(null);
+  const navigate = useNavigate();
 
   return (
     <div className="flex items-center justify-center h-64 sm:h-72 md:h-80 lg:h-96 gap-0 relative">
@@ -21,22 +37,23 @@ export default function ImageStack() {
           className="relative cursor-pointer"
           style={{
             zIndex: hovered === idx ? 10 : idx,
-            marginLeft: idx === 0 ? 0 : -24, // Reduced overlap for mobile
+            marginLeft: idx === 0 ? 0 : -24,
           }}
           onMouseEnter={() => setHovered(idx)}
           onMouseLeave={() => setHovered(null)}
+          onClick={() => navigate(elevatorRoutes[idx])} // Redirect on click
           animate={{
-            scale: hovered === idx ? 1.5 : 1, // Increased from 1.3 to 1.5 (50% larger)
+            scale: hovered === idx ? 1.5 : 1,
             x:
               hovered !== null && hovered !== idx
                 ? idx < hovered
-                  ? -30 // Increased movement to accommodate larger scale
+                  ? -30
                   : 30
                 : 0,
-            filter: "none", // Remove blur effect
+            filter: "none",
             boxShadow:
               hovered === idx
-                ? "0 12px 48px 0 rgba(0, 230, 255, 0.35), 0 0 0 6px hsl(var(--neon-cyan) / 0.4)" // Enhanced glow effect
+                ? "0 12px 48px 0 rgba(0, 230, 255, 0.35), 0 0 0 6px hsl(var(--neon-cyan) / 0.4)"
                 : "0 2px 8px 0 rgba(0,0,0,0.10)",
           }}
           transition={{ type: "spring", stiffness: 300, damping: 30 }}

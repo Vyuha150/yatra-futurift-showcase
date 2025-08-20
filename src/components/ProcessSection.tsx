@@ -203,13 +203,24 @@ const ProcessSection = () => {
                   </p>
                 </div>
 
-                <div className="flex flex-col sm:flex-row gap-3">
-                  <Button className="btn-primary group">
-                    Start Your Project
-                    <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                  </Button>
-                  <Button className="btn-outline">Schedule Consultation</Button>
-                </div>
+               <div className="flex flex-col sm:flex-row gap-3">
+              <Button
+              className="btn-primary group"
+              onClick={() => window.location.href = "/clientForm"}
+  >
+              Start Your Project
+              <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+             </Button>
+
+              <Button
+              className="btn-outline"
+              onClick={() => window.location.href = "/contact"}
+  >
+              Schedule Consultation
+             </Button>
+             </div>
+
+
               </div>
 
               <div className="space-y-4">

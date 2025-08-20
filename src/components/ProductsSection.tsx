@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight, ArrowRight, Play } from "lucide-react";
+import { Link } from "react-router-dom";
 
 interface Product {
   id: string;
@@ -64,11 +65,13 @@ const ProductCard = ({ product, index, currentProduct }: ProductCardProps) => {
           ))}
         </div>
 
-        <div className="pt-4">
-          <Button className="btn-outline group w-full">
-            Learn more
-            <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-          </Button>
+  <div    className         = "pt-4">
+  <Button asChild className = "btn-outline group w-full">
+  <Link   to                = {`/products/${product.id}`}>
+    Learn more
+    <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+  </Link>
+</Button>
         </div>
       </div>
     </div>
