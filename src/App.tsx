@@ -19,6 +19,17 @@ import FeedbackForm from "./components/ui/FeedBackForm";
 import ServiceRequestForm from "./components/ui/ServiceRequestForm";
 import ClientForm from "./components/ui/ClientForm";
 import PriceQuotation from "./components/ui/PriceQuotation";
+import Opportunities from "./pages/Opportunities";
+import ElevatorDetails from "./pages/ElevatorDetails";
+import ProductDetail from "./pages/ProductDetail";
+import PassengerElevators from "./pages/PassengerElevators";
+import FreightElevators from "./pages/FreightElevators";
+import HospitalElevators from "./pages/HospitalElevators";
+import GlassElevators from "./pages/GlassElevators";
+import HomeElevators from "./pages/HomeElevators";
+import CabinShowcase from "./pages/CabinShowcase";
+import MovingWalkWays from "./pages/MovingWalkWays";
+import PublicEscalators from "./pages/PublicEscalators";
 
 const queryClient = new QueryClient();
 
@@ -48,6 +59,23 @@ const App = () => (
           <Route path="/signin" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/otp-verification" element={<OTPVerification />} />
+          <Route path="/opportunities" element={<Opportunities />} />
+          <Route path="/elevators/:id" element={<ElevatorDetails />} />
+          <Route path="/products/:id" element={<ProductDetail />} />
+          <Route path="/passenger-elevators" element={<PassengerElevators />} />
+          <Route path="/freight-elevators" element={<FreightElevators />} />
+          <Route path="/hospital-elevators" element={<HospitalElevators />} />
+          <Route path="/glass-elevators" element={<GlassElevators />} />
+          <Route path="/home-elevators" element={<HomeElevators />} />
+          <Route path="/cabins" element={<CabinShowcase />} />
+          <Route
+            path="/moving-walkways-escalators"
+            element={<MovingWalkWays />}
+          />
+          <Route
+            path="/public-transport-escalators"
+            element={<PublicEscalators />}
+          />
 
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

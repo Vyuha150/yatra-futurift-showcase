@@ -9,7 +9,16 @@ import { Card, CardContent } from "@/components/ui/card";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
-import { Users, Heart, Target, Lightbulb, Building, Hotel, Home, Hospital } from "lucide-react";
+import {
+  Users,
+  Heart,
+  Target,
+  Lightbulb,
+  Building,
+  Hotel,
+  Home,
+  Hospital,
+} from "lucide-react";
 
 // ----------------------
 // Types
@@ -23,7 +32,13 @@ interface Feature {
 // ----------------------
 // Feature Card Component
 // ----------------------
-const FeatureCard = ({ feature, index }: { feature: Feature; index: number }) => {
+const FeatureCard = ({
+  feature,
+  index,
+}: {
+  feature: Feature;
+  index: number;
+}) => {
   const [cardRef] = useInView({ triggerOnce: true, threshold: 0.1 });
 
   return (
@@ -37,7 +52,9 @@ const FeatureCard = ({ feature, index }: { feature: Feature; index: number }) =>
       <Card className="h-full p-6 bg-gradient-to-br from-surface/50 to-surface-elevated/50 border-border hover:border-neon-cyan/50 transition-all duration-300 hover:shadow-glow">
         <CardContent className="space-y-4">
           <feature.icon className="w-12 h-12 text-neon-cyan" />
-          <h3 className="text-xl font-semibold text-foreground">{feature.title}</h3>
+          <h3 className="text-xl font-semibold text-foreground">
+            {feature.title}
+          </h3>
           <p className="text-muted-foreground">{feature.description}</p>
         </CardContent>
       </Card>
@@ -48,8 +65,11 @@ const FeatureCard = ({ feature, index }: { feature: Feature; index: number }) =>
 // ----------------------
 // Page Component
 // ----------------------
-const PassengerElevators = () => {
-  const [heroRef, heroInView] = useInView({ triggerOnce: true, threshold: 0.1 });
+const HomeElevators = () => {
+  const [heroRef, heroInView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
 
   // Elevator Features
   const features: Feature[] = [
@@ -104,7 +124,8 @@ const PassengerElevators = () => {
             animate={heroInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Bringing comfort, safety, and elegance to your home and workplace with our premium passenger elevators.
+            Bringing comfort, safety, and elegance to your home and workplace
+            with our premium passenger elevators.
           </motion.p>
 
           <motion.div
@@ -128,22 +149,26 @@ const PassengerElevators = () => {
       ---------------------- */}
       <section className="px-6 py-16 bg-surface-glass">
         <div className="container mx-auto grid items-center gap-10 md:grid-cols-2">
-           <motion.img
-          src="/cabin5.jpeg"
-          alt="Home Elevator"
-          className="mx-auto rounded-2xl shadow-lg border border-gray-700 
+          <motion.img
+            src="/cabin5.jpeg"
+            alt="Home Elevator"
+            className="mx-auto rounded-2xl shadow-lg border border-gray-700 
              w-full max-w-[680px] sm:max-w-[720px] md:max-w-[750px] 
              h-[420px] object-cover"
-        initial={{ opacity: 0, scale: 0.9 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.8 }}
-/>
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8 }}
+          />
 
           <div>
-            <h2 className="mb-4 text-4xl font-bold">Modern Elevators for Modern Living</h2>
+            <h2 className="mb-4 text-4xl font-bold">
+              Modern Elevators for Modern Living
+            </h2>
             <p className="mb-6 text-lg text-muted-foreground">
-              Our home elevators are designed to seamlessly integrate with your interiors while ensuring both safety and performance.
-              Whether it’s a luxury residence or a commercial space, our elevators deliver smooth, quiet, and efficient rides.
+              Our home elevators are designed to seamlessly integrate with your
+              interiors while ensuring both safety and performance. Whether it’s
+              a luxury residence or a commercial space, our elevators deliver
+              smooth, quiet, and efficient rides.
             </p>
             <ul className="space-y-3 text-muted-foreground">
               <li>✔ Smooth and noiseless ride</li>
@@ -160,15 +185,22 @@ const PassengerElevators = () => {
       <section className="bg-white/5 px-6 py-16">
         <div className="container mx-auto">
           <motion.div className="mb-12 text-center">
-            <h2 className="mb-4 text-4xl font-bold text-foreground">Why Choose Our Elevators</h2>
+            <h2 className="mb-4 text-4xl font-bold text-foreground">
+              Why Choose Our Elevators
+            </h2>
             <p className="mx-auto max-w-3xl text-muted-foreground">
-              Combining cutting-edge technology with world-class safety standards to give you the best elevator experience.
+              Combining cutting-edge technology with world-class safety
+              standards to give you the best elevator experience.
             </p>
           </motion.div>
 
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {features.map((feature, index) => (
-              <FeatureCard key={feature.title} feature={feature} index={index} />
+              <FeatureCard
+                key={feature.title}
+                feature={feature}
+                index={index}
+              />
             ))}
           </div>
         </div>
@@ -180,9 +212,12 @@ const PassengerElevators = () => {
       <section className="px-6 py-16 bg-surface-glass">
         <div className="container mx-auto">
           <div className="mb-12 text-center">
-            <h2 className="mb-4 text-4xl font-bold text-foreground">Where Can They Be Used?</h2>
+            <h2 className="mb-4 text-4xl font-bold text-foreground">
+              Where Can They Be Used?
+            </h2>
             <p className="mx-auto max-w-2xl text-muted-foreground">
-              Our elevators are designed to serve diverse needs across different industries and spaces.
+              Our elevators are designed to serve diverse needs across different
+              industries and spaces.
             </p>
           </div>
 
@@ -218,23 +253,22 @@ const PassengerElevators = () => {
       {/* ----------------------
           Final Call To Action
       ---------------------- */}
-     <section className="py-20 text-center bg-surface">
-  <h2 className="mb-6 text-4xl font-bold text-white">
-    Ready to Elevate Your Space?
-  </h2>
-  <Button
-    size="lg"
-    className="bg-neon-cyan text-black hover:bg-neon-blue transition-all duration-300"
-    onClick={() => (window.location.href = "/contact")}
-  >
-    Contact Us Today
-  </Button>
-</section>
-
+      <section className="py-20 text-center bg-surface">
+        <h2 className="mb-6 text-4xl font-bold text-white">
+          Ready to Elevate Your Space?
+        </h2>
+        <Button
+          size="lg"
+          className="bg-neon-cyan text-black hover:bg-neon-blue transition-all duration-300"
+          onClick={() => (window.location.href = "/contact")}
+        >
+          Contact Us Today
+        </Button>
+      </section>
 
       <Footer />
     </PageLoadWrapper>
   );
 };
 
-export default PassengerElevators;
+export default HomeElevators;

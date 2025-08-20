@@ -152,7 +152,7 @@ const elevatorData = {
   },
 };
 
-const ExploreDetail = () => {
+const ElevatorDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
 
@@ -163,7 +163,9 @@ const ExploreDetail = () => {
       <div className="min-h-screen flex items-center justify-center text-center">
         <div>
           <h1 className="text-3xl font-bold mb-4">Elevator Not Found</h1>
-          <Button onClick={() => navigate("/projects")}>Back to Projects</Button>
+          <Button onClick={() => navigate("/projects")}>
+            Back to Projects
+          </Button>
         </div>
       </div>
     );
@@ -209,19 +211,18 @@ const ExploreDetail = () => {
               </div>
 
               <motion.div
-  initial={{ opacity: 0, scale: 0.95 }}
-  animate={{ opacity: 1, scale: 1 }}
-  transition={{ duration: 0.6, delay: 0.2 }}
-  className="w-full max-w-3xl mx-auto rounded-xl overflow-hidden shadow-lg"
->
-  <img
-    src={elevator.image}
-    alt={elevator.title}
-    className="w-full max-h-[400px] object-cover rounded-xl"
-    loading="lazy"
-  />
-</motion.div>
-
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="w-full max-w-3xl mx-auto rounded-xl overflow-hidden shadow-lg"
+              >
+                <img
+                  src={elevator.image}
+                  alt={elevator.title}
+                  className="w-full max-h-[400px] object-cover rounded-xl"
+                  loading="lazy"
+                />
+              </motion.div>
             </motion.div>
           </div>
         </section>
@@ -265,9 +266,12 @@ const ExploreDetail = () => {
               transition={{ duration: 0.6 }}
             >
               <Card className="p-6 md:p-8 shadow-md space-y-6 sticky top-24">
-                <h2 className="text-2xl font-bold">Interested in this Elevator?</h2>
+                <h2 className="text-2xl font-bold">
+                  Interested in this Elevator?
+                </h2>
                 <p className="text-muted-foreground">
-                  Contact us today to discuss pricing, customization, and availability.
+                  Contact us today to discuss pricing, customization, and
+                  availability.
                 </p>
                 <Button
                   onClick={() => navigate("/quotationform")}
@@ -297,4 +301,4 @@ const ExploreDetail = () => {
   );
 };
 
-export default ExploreDetail;
+export default ElevatorDetails;

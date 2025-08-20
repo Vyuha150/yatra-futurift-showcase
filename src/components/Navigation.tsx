@@ -50,8 +50,8 @@ const Navigation = () => {
   const navItems = [
     { label: "About", href: "/about" },
     { label: "Career", href: "/career" },
-    { label: "Products and Solutions", href: "/projects" },
-    { label: "Innovations and Tech", href: "/innovations" },
+    { label: "Products & Solutions", href: "/projects" },
+    { label: "Innovations & Tech", href: "/innovations" },
     { label: "Support & Services", href: "/support" },
     { label: "Contact", href: "/contact" },
   ];
@@ -68,7 +68,7 @@ const Navigation = () => {
           transition={{ duration: 0.6, delay: 0.2 }}
         >
           <motion.div
-            className="relative w-16 h-16 flex items-center justify-center overflow-hidden transition-all duration-300"
+            className="relative w-20 h-20 flex items-center justify-center overflow-hidden transition-all duration-300"
             whileHover={{
               scale: 1.1,
               rotate: 5,
