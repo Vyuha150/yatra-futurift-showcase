@@ -14,7 +14,7 @@ const cabins = [
   {
     title: "Passenger Elevator",
     img: "src/assets/Passenger Elevators.png",
-    link: "/passenger-elevator",
+    link: "/passenger-elevators",
   },
   {
     title: "Moving Walkway Escalators",
@@ -24,17 +24,17 @@ const cabins = [
   {
     title: "Hospital Elevator",
     img: "/hospital elevators.png",
-    link: "/hospital-elevator",
+    link: "/hospital-elevators",
   },
   {
     title: "Capsule Elevator",
     img: "/cabin4.jpeg",
-    link: "/glass-elevator",
+    link: "/glass-elevators",
   },
   {
     title: "Home Elevator",
     img: "/cabin5.jpeg",
-    link: "/home-elevator",
+    link: "/home-elevators",
   },
   {
     title: "Public Transport Escalators",

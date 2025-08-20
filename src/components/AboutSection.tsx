@@ -115,20 +115,21 @@ const AboutSection = () => {
 
 
           {/* Right - Description */}
-          <div className="space-y-6">
-            <div className="space-y-4">
-              <h3 className="text-2xl font-bold text-gradient">
-                Products that reshape the vertical transportation industry
-              </h3>
+          <div className="space-y-6 max-w-[600px]">
+          <div className="space-y-4">
+          <h3 className="text-3xl font-bold text-gradient">
+           Products that reshape the vertical transportation industry
+           </h3>
 
-              <p className="text-muted-foreground leading-relaxed">
-                Yatra Elevators is India's most responsive and tech-integrated
-                elevator partner – built on trust, safety, and customer-first
-                service. We embrace our social responsibility and strive to make
-                a positive impact on society through the creation of
-                technologically advanced solutions that drive global progress.
-              </p>
+           <p className="text-lg text-muted-foreground leading-relaxed">
+            Yatra Elevators is India's most responsive and tech-integrated
+            elevator partner – built on trust, safety, and customer-first service. 
+            We embrace our social responsibility and strive to make a positive impact 
+            on society through the creation of technologically advanced solutions 
+            that drive global progress.
+            </p>
             </div>
+
 
             <div className="flex items-center space-x-4 pt-4">
               <div className="flex space-x-1">

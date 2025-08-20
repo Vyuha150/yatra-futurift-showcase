@@ -176,7 +176,7 @@ const Opportunities = () => {
               <Button size="lg" className="btn-primary" onClick={handleApplyNow}>
                 Apply Now
               </Button>
-              <Button size="lg" variant="outline" onClick={() => navigate('/career')}>
+              <Button size="lg" variant="outline" onClick={() => navigate('/about')}>
                 Learn More About Us
               </Button>
             </motion.div>

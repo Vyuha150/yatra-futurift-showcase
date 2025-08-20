@@ -17,11 +17,12 @@ import {
 
 const Footer = () => {
   const quickLinks = [
-    { label: "Home Elevators", href: "home-elevator" },
-    { label: "Passenger Elevators", href: "/passenger-elevator" },
-    { label: "Hospital Elevators", href: "/hospital-elevator" },
-    { label: "Freight Elevators", href: "/freight-elevator" },
-    { label: "Glass Elevators", href: "/glass-elevator" },
+    { label: "Home Elevators", href: "home-elevators" },
+    { label: "Passenger Elevators", href: "/passenger-elevators" },
+    { label: "Hospital Elevators", href: "/hospital-elevators" },
+    { label: "MovingWalkWay Escalators", href: "/moving-walkways-escalators" },
+    { label: "Capsule Elevators", href: "/glass-elevators" },
+    { label: "Public Transport Escalators", href: "/public-transport-escalators" },
     { label: "Maintenance", href: "/service-request" },
   ];
 
@@ -77,16 +78,18 @@ const Footer = () => {
       <div className="container mx-auto px-6 py-16">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
           {/* Company Info */}
-          <div className="lg:col-span-2 space-y-6">
-            <div className="flex items-center space-x-2">
-              <div className="w-20 h-20 flex items-center justify-center overflow-hidden">
-                <img
-                  src="/Yata white.png"
-                  alt="Yatra Elevators Logo"
-                  className="w-full h-full object-contain filter brightness-110"
-                />
-              </div>
-            </div>
+         <div className="lg:col-span-2 space-y-3">
+         <div className="flex items-center">
+         <div className="w-28 h-28 flex items-center justify-center overflow-hidden">
+        <img
+        src="/Yata white.png"
+        alt="Yatra Elevators Logo"
+        className="w-full h-full object-contain filter brightness-110"
+      />
+       </div>
+       </div>
+
+
 
             <p className="text-muted-foreground leading-relaxed max-w-md">
               India's most responsive and tech-integrated elevator partner.

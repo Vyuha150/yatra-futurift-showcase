@@ -69,18 +69,17 @@ const StepCard = ({ step, index }: StepCardProps) => {
 
         {/* Details */}
         <div className="mt-6 space-y-2">
-          {step.details.map((detail, detailIndex) => (
-            <div
-              key={detailIndex}
-              className="flex items-center justify-center space-x-2"
-            >
-              <div className="w-1 h-1 bg-neon-cyan rounded-full flex-shrink-0"></div>
-              <span className="text-xs text-muted-foreground text-center">
-                {detail}
-              </span>
-            </div>
-          ))}
+        {step.details.map((detail, detailIndex) => (
+        <div
+        key={detailIndex}
+        className="flex items-center justify-start space-x-2 text-left"
+    >
+        <div className="w-1 h-1 bg-neon-cyan rounded-full flex-shrink-0"></div>
+        <span className="text-xs text-muted-foreground">{detail}</span>
+       </div>
+        ))}
         </div>
+
 
         {/* Connecting Arrow */}
         {index < 4 && (
@@ -101,7 +100,7 @@ const ProcessSection = () => {
       icon: Calendar,
       title: "Book Consultation",
       description:
-        "Schedule a free consultation call with our elevator experts to discuss your needs",
+        "Schedule a free consultation call with our elevator experts to discuss your needs, we will always with you",
       duration: "Same Day",
       details: [
         "Free consultation",
@@ -115,7 +114,7 @@ const ProcessSection = () => {
       title: "Site Survey",
       description:
         "Our technical team visits your site for detailed assessment and measurements",
-      duration: "24-48 Hours",
+      duration: "1-2 Days",
       details: [
         "Detailed measurements",
         "Structural assessment",
@@ -127,7 +126,7 @@ const ProcessSection = () => {
       icon: Pencil,
       title: "Design & Planning",
       description:
-        "Custom design and engineering solutions tailored to your requirements",
+        "Custom design and engineering solutions tailored to your requirements, your vision is our blue print",
       duration: "3-5 Days",
       details: ["3D visualization", "Technical drawings", "Material selection"],
     },
@@ -136,7 +135,7 @@ const ProcessSection = () => {
       icon: Wrench,
       title: "Professional Installation",
       description:
-        "Expert installation by certified technicians with minimal disruption",
+        "Expert installation by certified technicians with minimal disruption to your operations",
       duration: "1-2 Weeks",
       details: ["Minimal disruption", "Safety protocols", "Quality checks"],
     },
@@ -183,69 +182,77 @@ const ProcessSection = () => {
         </div>
 
         {/* CTA Section */}
-        <motion.div
-          className="text-center"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-        >
-          <div className="card-glow p-8 lg:p-10 max-w-4xl mx-auto">
-            <div className="grid lg:grid-cols-2 gap-8 items-center">
-              <div className="space-y-6 text-left lg:text-left">
-                <div>
-                  <h3 className="text-2xl lg:text-3xl font-bold text-foreground mb-3">
-                    Ready to Get Started?
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    Join hundreds of satisfied customers who chose Yatra for
-                    their elevator needs. Get your project started in just 24
-                    hours with our expert team.
-                  </p>
-                </div>
+       <motion.div
+  className="text-center"
+  initial={{ opacity: 0, y: 20 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.6, delay: 0.3 }}
+>
+  <div className="card-glow p-8 lg:p-10 max-w-4xl mx-auto">
+    <div className="grid lg:grid-cols-2 gap-8 items-start">
+      
+      {/* Left Column */}
+      <div className="space-y-6 text-left">
+        {/* Heading */}
+        <h3 className="text-2xl lg:text-3xl font-bold text-foreground mb-3">
+          Ready to Get Started?
+        </h3>
+        <p className="text-muted-foreground leading-relaxed">
+          Join hundreds of satisfied customers who chose Yatra for their
+          elevator needs. Get your project started in just 24 hours with our
+          expert team.
+        </p>
 
-               <div className="flex flex-col sm:flex-row gap-3">
-              <Button
-              className="btn-primary group"
-              onClick={() => window.location.href = "/clientForm"}
-  >
-              Start Your Project
-              <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-             </Button>
+        {/* Buttons */}
+        <div className="flex flex-col sm:flex-row gap-3">
+          <Button
+            className="btn-primary group"
+            onClick={() => (window.location.href = "/clientForm")}
+          >
+            Start Your Project
+            <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+          </Button>
 
-              <Button
-              className="btn-outline"
-              onClick={() => window.location.href = "/contact"}
-  >
-              Schedule Consultation
-             </Button>
-             </div>
+          <Button
+            className="btn-outline"
+            onClick={() => (window.location.href = "/contact")}
+          >
+            Schedule Consultation
+          </Button>
+        </div>
+      </div>
+
+      {/* Right Column */}
+      <div className="space-y-6 text-left">
+        {/* Heading */}
+        <h2 className="text-3xl font-bold mb-6 whitespace-nowrap">
+         Why Choose Our Process
+         </h2>
 
 
-              </div>
-
-              <div className="space-y-4">
-                <h4 className="text-lg font-semibold text-foreground mb-4">
-                  Why Choose Our Process?
-                </h4>
-                <div className="grid grid-cols-1 gap-3">
-                  {[
-                    "Free Consultation & Quote",
-                    "No Hidden Costs or Surprises",
-                    "24/7 Support During Installation",
-                    "1-Year Warranty Included",
-                  ].map((benefit, index) => (
-                    <div key={index} className="flex items-center space-x-3">
-                      <div className="w-2 h-2 bg-neon-green rounded-full flex-shrink-0"></div>
-                      <span className="text-sm text-muted-foreground">
-                        {benefit}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </div>
+        {/* Points */}
+        <div className="grid grid-cols-1 gap-3">
+          {[
+            "Free Consultation & Quote",
+            "No Hidden Costs or Surprises",
+            "24/7 Support During Installation",
+            "1-Year Warranty Included",
+          ].map((benefit, index) => (
+            <div
+              key={index}
+              className="flex items-center space-x-4 pl-6"
+            >
+               <div className="w-2 h-2 bg-cyan-400 rounded-full flex-shrink-0"></div>
+              <span className="text-sm text-muted-foreground">{benefit}</span>
             </div>
-          </div>
-        </motion.div>
+          ))}
+        </div>
+      </div>
+
+    </div>
+  </div>
+</motion.div>
+
       </div>
     </section>
   );

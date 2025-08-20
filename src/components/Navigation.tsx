@@ -49,11 +49,11 @@ const Navigation = () => {
 
   const navItems = [
     { label: "About", href: "/about" },
-    { label: "Career", href: "/career" },
     { label: "Products & Solutions", href: "/projects" },
     { label: "Innovations & Tech", href: "/innovations" },
     { label: "Support & Services", href: "/support" },
     { label: "Contact", href: "/contact" },
+    { label: "Career", href: "/career" },
   ];
 
   return (
