@@ -13,17 +13,17 @@ import { useNavigate } from "react-router-dom";
 const cabins = [
   {
     title: "Passenger Elevator",
-    img: "src/assets/Passenger Elevators.png",
+    img: "/WhatsApp Image 2025-08-19 at 10.59.55 AM.jpeg",
     link: "/passenger-elevators",
   },
   {
     title: "Moving Walkway Escalators",
     img: "src/assets/Moving Walkways.png",
-    link: "/moving-walkway-escalators",
+    link: "/moving-walkways-escalators",
   },
   {
     title: "Hospital Elevator",
-    img: "/hospital elevators.png",
+    img: "/WhatsApp Image 2025-08-19 at 11.00.21 AM.jpeg",
     link: "/hospital-elevators",
   },
   {

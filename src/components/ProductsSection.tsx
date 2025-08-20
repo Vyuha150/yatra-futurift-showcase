@@ -127,7 +127,7 @@ const ProductsSection = () => {
       link: "/hospital-elevators",
     },
     {
-  id: "02",
+  id: "04",
   title: "Passenger Elevators",
   description:
     "Modern and comfortable passenger elevators built for residential and commercial spaces, ensuring smooth travel and enhanced safety.",
@@ -138,7 +138,7 @@ const ProductsSection = () => {
     "Stylish Cabin Designs",
   ],
   image: "/WhatsApp Image 2025-08-19 at 10.59.55 AM.jpeg",
-  link: "/passenger-elevator",
+  link: "/passenger-elevators",
 },
 
     {
@@ -167,7 +167,7 @@ const ProductsSection = () => {
     "Low Maintenance",
   ],
   image: "src/assets/Moving Walkways.png",
-  link: "/moving-walkway-escalators",   
+  link: "/moving-walkways-escalators",   
 },
 
   ];

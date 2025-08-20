@@ -372,7 +372,7 @@ const ProjectsSolutions = () => {
       id: "hospital",
       title: "Hospital/Bed Elevators",
       icon: Hospital,
-      image: "/hospital elevators.png",
+      image: "/WhatsApp Image 2025-08-19 at 11.00.21 AM.jpeg",
       route: "/hospital-elevators", 
       description:
         "Yatra's Hospital/Bed Elevators Instituted with quiet, controlled acoustic environments, structural integrity, and advanced medical equipment and accommodations that prioritizes patient convenience and safety and security. Designed  with meticulous determination to patient needs, these elevators provide whisper-quiet operation and exceptional stability rather than insecure mobility, enabling that every journey is as cozy and assuring as possible for patients and their families. Advanced features like Emergency power bank, safety practices, healthy lifestyle and physically untouched control systems, are more likely to focus on hygiene and cleanliness and essentially critical operations will be enhanced or handled with more care and concern. Most Ideal for clinics, hospitals, infrastructure can be customisable for users, where yatra's Hospitals and Bed elevators are called by everyone as exceptional.",
