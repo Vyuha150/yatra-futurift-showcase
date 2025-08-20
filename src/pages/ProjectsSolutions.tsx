@@ -338,7 +338,7 @@ const ProjectsSolutions = () => {
       id: "passenger",
       title: "Passenger Elevators",
       icon: Building2,
-      image: "src/assets/Passenger Elevators.png",
+      image: "/WhatsApp Image 2025-08-19 at 10.59.55 AM.jpeg",
       route: "/passenger-elevators", 
       description:
         "Yatra's Passenger Elevators are contemplatively designed to provide serene, calm and most significant vertical mobility in a diverse architectural environment to deliver smooth, safe, and energy efficient vertical mobility for residential and commercial buildings alike. Established with user attractive design, stylistic appeal, appearance standards and we envisioned the  long term journey carried in our minds. Our elevators integrate advanced technology, noise-optimized and cutting - edge control systems to venture every strike. From streamlined interiors to customizable and user -friendly cabin finishes, yatra aims at dynamic design  options , advanced architecture and exceptional service to people, our elevators incorporate safety protocols, innovations ,hygiene scintillating Interiors spacious to drive stellar lifestyle.",

@@ -9,6 +9,7 @@ interface Product {
   description: string;
   features: string[];
   image: string;
+  link:string
 }
 
 interface ProductCardProps {
@@ -65,14 +66,15 @@ const ProductCard = ({ product, index, currentProduct }: ProductCardProps) => {
           ))}
         </div>
 
-  <div    className         = "pt-4">
-  <Button asChild className = "btn-outline group w-full">
-  <Link   to                = {`/products/${product.id}`}>
-    Learn more
-    <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-  </Link>
-</Button>
-        </div>
+        <div className="pt-4">
+  <Button asChild className="btn-outline group w-full">
+    <Link to={product.link}>   {/* 👈 dynamic route */}
+      Learn more
+      <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+    </Link>
+  </Button>
+</div>
+
       </div>
     </div>
   );
@@ -93,7 +95,8 @@ const ProductsSection = () => {
         "Silent Operation",
         "Custom Interiors",
       ],
-      image: "src/assets/Residential Elevators.png",
+      image: "/cabin5.jpeg",
+      link: "/home-elevators",
     },
     {
       id: "02",
@@ -106,7 +109,8 @@ const ProductsSection = () => {
         "LED Lighting",
         "Premium Finish",
       ],
-      image: "src/assets/Capsule Elevators (Panoramic).png",
+      image: "/cabin4.jpeg",
+      link: "/glass-elevators",
     },
     {
       id: "03",
@@ -119,21 +123,24 @@ const ProductsSection = () => {
         "Emergency Backup",
         "Silent Operation",
       ],
-      image: "src/assets/Bed Elevators.png",
+      image: "/WhatsApp Image 2025-08-19 at 11.00.21 AM.jpeg",
+      link: "/hospital-elevators",
     },
     {
-      id: "04",
-      title: "Goods Elevators",
-      description:
-        "Heavy-duty freight elevators designed for industrial and commercial use with superior load capacity and durability.",
-      features: [
-        "High Load Capacity",
-        "Industrial Grade",
-        "Safety Systems",
-        "Multiple Entry Points",
-      ],
-      image: "src/assets/Service Elevators.png",
-    },
+  id: "02",
+  title: "Passenger Elevators",
+  description:
+    "Modern and comfortable passenger elevators built for residential and commercial spaces, ensuring smooth travel and enhanced safety.",
+  features: [
+    "Smooth Ride Experience",
+    "Energy Efficient",
+    "Advanced Safety Features",
+    "Stylish Cabin Designs",
+  ],
+  image: "/WhatsApp Image 2025-08-19 at 10.59.55 AM.jpeg",
+  link: "/passenger-elevator",
+},
+
     {
       id: "05",
       title: "Escalators",
@@ -145,21 +152,24 @@ const ProductsSection = () => {
         "Safety Sensors",
         "Weather Protection",
       ],
-      image: "/src/assets/Commercial Escalators.png",
+      image: "src/assets/Public Transport Escalators.png",
+      link: "/public-transport-escalators",
     },
-    {
-      id: "06",
-      title: "Dumbwaiters",
-      description:
-        "Small freight elevators perfect for restaurants, hotels, and homes for efficient material transport between floors.",
-      features: [
-        "Space Efficient",
-        "Quiet Operation",
-        "Food Grade Materials",
-        "Easy Maintenance",
-      ],
-      image: "src/assets/Machine-Room Less (MRL) Elevators.png",
-    },
+   {
+  id: "06",
+  title: "Moving Walkways",
+  description:
+    "Reliable moving walkways designed for airports, shopping centers, and large public spaces to ensure smooth passenger flow and convenience.",
+  features: [
+    "Heavy-Duty Design",
+    "Energy Efficient",
+    "Smooth Ride",
+    "Low Maintenance",
+  ],
+  image: "src/assets/Moving Walkways.png",
+  link: "/moving-walkway-escalators",   
+},
+
   ];
 
   const nextProduct = () => {

@@ -3,8 +3,8 @@ import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
 const images = [
-  "src/assets/Passenger Elevators.png",
-  "/hospital elevators.png",
+  "/WhatsApp Image 2025-08-19 at 10.59.55 AM.jpeg",
+  "/WhatsApp Image 2025-08-19 at 11.00.21 AM.jpeg",
   "/cabin4.jpeg",
   "/cabin5.jpeg",
   "src/assets/Public Transport Escalators.png",

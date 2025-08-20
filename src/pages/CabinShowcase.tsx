@@ -19,7 +19,7 @@ const cabins = [
   {
     title: "Moving Walkway Escalators",
     img: "src/assets/Moving Walkways.png",
-    link: "/moving-walkway-escalators"
+    link: "/moving-walkway-escalators",
   },
   {
     title: "Hospital Elevator",
