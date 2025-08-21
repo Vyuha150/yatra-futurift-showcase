@@ -88,10 +88,11 @@ export default function ImageStack() {
                 : pos === 4
                 ? 60
                 : 0,
-            boxShadow:
-              pos === 2
-                ? "0 12px 48px 0 rgba(0, 230, 255, 0.35), 0 0 0 6px hsl(var(--neon-cyan) / 0.4)"
-                : "0 2px 8px 0 rgba(0,0,0,0.10)",
+           boxShadow:
+          pos === 2
+          ? "0 12px 48px 0 rgba(0, 230, 255, 0.35)"
+          : "0 2px 8px 0 rgba(0,0,0,0.10)",
+
           }}
           transition={{ type: "spring", stiffness: 300, damping: 30 }}
         >

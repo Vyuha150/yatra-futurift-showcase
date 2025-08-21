@@ -1,15 +1,18 @@
 import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X, LogIn, UserPlus, User, Settings, LogOut } from "lucide-react";
+import { Menu, X, LogIn, UserPlus, User, Settings, LogOut, Search } from "lucide-react";
 import { motion } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
+import { Input } from "@/components/ui/input";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
   const [user, setUser] = useState(null);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState(""); // ✅ moved inside component
   const dropdownRef = useRef<HTMLDivElement>(null);
+
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -134,7 +137,24 @@ const Navigation = () => {
               />
             </motion.div>
           ))}
-        </motion.div>
+          
+         <motion.div
+          className="relative"
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: 0.6 + navItems.length * 0.1 }}
+  >
+           <Input
+           type="text"
+           placeholder="Search..."
+           value={searchQuery}
+           onChange={(e) => setSearchQuery(e.target.value)}
+           className="pl-10 pr-4 py-2 w-48 bg-surface-glass/50 border border-surface-glass/30 rounded-xl focus:ring-2 focus:ring-neon-cyan focus:border-neon-cyan transition-all text-sm"
+            />
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+           </motion.div>
+            </motion.div>
+        
 
         {/* Auth Buttons */}
         <motion.div

@@ -55,10 +55,21 @@ const HeroSection = () => {
           {/* Left Content */}
           <div className="space-y-6 lg:space-y-8">
             <div className="space-y-4 lg:space-y-6">
-              <SplitTextAnimation
-                text="YATRA ELEVATORS"
-                className="whitespace-nowrap text-4xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight text-gradient"
-              />
+           
+             <div className="flex flex-col items-start gap-3">
+            <img
+            src="/Yata white .svg"  
+            alt="Yatra Logo"
+           className="w-28 sm:w-32 lg:w-36 h-auto"  
+            />
+
+
+            <h2 className="text-1xl sm:text-2xl lg:text-3xl font-bold tracking-wide text-gradient">
+            Elevators & Escalators
+            </h2>
+            </div>
+
+
 
               <SlideInAnimation direction="right" delay={1.5}>
                 <p className="text-lg sm:text-xl text-muted-foreground max-w-xl leading-relaxed">
