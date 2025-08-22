@@ -39,9 +39,9 @@ const Footer = () => {
   const company = [
     { label: "About Us", href: "/about" },
     { label: "Careers", href: "/career" },
-    { label: "Case Studies", href: "#" },
-    { label: "Blog", href: "#" },
-    { label: "Press", href: "#" },
+    { label: "Case Studies", href: "/casestudies" },
+    { label: "Blog", href: "/casestudies" },
+    { label: "Press", href: "/casestudies" },
     { label: "Contact", href: "/contact" },
     { label: "FeedBack", href: "/FeedBack" },
   ];
