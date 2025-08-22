@@ -614,6 +614,32 @@ const About = () => {
           </motion.div>
         </div>
       </section>
+      {/* Projects Teaser Section */}
+<section className="py-16 px-6">
+  <div className="container mx-auto text-center max-w-3xl">
+    <h2 className="text-4xl font-bold text-foreground mb-4">
+      Projects & Case Studies
+    </h2>
+    <p className="text-muted-foreground mb-6">
+      Discover how Yatra Elevators & Escalators is transforming
+      infrastructure with innovative solutions across India.
+    </p>
+    <motion.a
+  href="/casestudies"
+  className="inline-block px-6 py-3 rounded-full 
+             bg-surface-glass/60 backdrop-blur-md 
+             border border-neon-cyan/50 
+             text-neon-cyan font-semibold 
+             hover:bg-neon-cyan hover:text-black 
+             transition-all duration-300"
+  whileHover={{ scale: 1.08 }}
+>
+  Learn More
+</motion.a>
+
+  </div>
+</section>
+
 
       <Footer />
     </PageLoadWrapper>
