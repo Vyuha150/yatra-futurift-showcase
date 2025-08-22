@@ -34,6 +34,7 @@ import MRL from "./pages/MRL";
 import Hydraulic from "./pages/Hydraulic"
 import CommercialEscalators from "./pages/CommercialEscalators"
 import ProjectsandCasestudies from "./pages/ProjectsandCasestudies";
+import AdminDashboard from "./pages/AdminDashboard";
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -75,6 +76,7 @@ const App = () => (
           <Route path="/hydraulic" element={<Hydraulic/>}/>
           <Route path="/commercial" element={<CommercialEscalators/>}/>
           <Route path="/casestudies" element={<ProjectsandCasestudies/>}/>
+          <Route path="/admin" element={<AdminDashboard/>}/>
           <Route
             path="/moving-walkways-escalators"
             element={<MovingWalkWays />}

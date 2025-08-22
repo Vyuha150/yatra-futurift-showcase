@@ -54,9 +54,10 @@ const Navigation = () => {
     { label: "Support & Services", href: "/support" },
     { label: "Contact", href: "/contact" },
     { label: "Career", href: "/career" },
-  
-
+    { label: "Admin", href: "/admin" },
   ];
+
+  const isAdmin = user?.role === 'admin' || true; // Mock admin check for UI
 
   return (
     <div className="auth-page container mx-auto px-6 py-4">
@@ -99,7 +100,7 @@ const Navigation = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
-          {navItems.map((item, index) => (
+          {navItems.filter(item => item.label !== "Admin" || isAdmin).map((item, index) => (
             <motion.div
               key={item.label}
               className="relative text-foreground hover:text-neon-cyan transition-all duration-300 font-medium group"
@@ -116,7 +117,7 @@ const Navigation = () => {
                 to={item.href}
                 className={`relative z-10 ${
                   location.pathname === item.href ? "text-neon-cyan" : ""
-                }`}
+                } ${item.label === "Admin" ? "text-orange-400 font-semibold" : ""}`}
               >
                 {item.label}
               </Link>
@@ -256,7 +257,7 @@ const Navigation = () => {
           transition={{ duration: 0.3, delay: 0.1 }}
         >
           <div className="flex flex-col space-y-4">
-            {navItems.map((item, index) => (
+            {navItems.filter(item => item.label !== "Admin" || isAdmin).map((item, index) => (
               <motion.div
                 key={item.label}
                 className="text-foreground hover:text-neon-cyan transition-colors duration-300 font-medium"
@@ -271,7 +272,12 @@ const Navigation = () => {
                   delay: isMenuOpen ? 0.2 + index * 0.1 : 0,
                 }}
               >
-                <Link to={item.href}>{item.label}</Link>
+                <Link 
+                  to={item.href}
+                  className={item.label === "Admin" ? "text-orange-400 font-semibold" : ""}
+                >
+                  {item.label}
+                </Link>
               </motion.div>
             ))}
             <motion.div
