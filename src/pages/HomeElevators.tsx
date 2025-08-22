@@ -165,10 +165,7 @@ const HomeElevators = () => {
               Modern Elevators for Modern Living
             </h2>
             <p className="mb-6 text-lg text-muted-foreground">
-              Our home elevators are designed to seamlessly integrate with your
-              interiors while ensuring both safety and performance. Whether it’s
-              a luxury residence or a commercial space, our elevators deliver
-              smooth, quiet, and efficient rides.
+              Yatra’s Elevators promote jubilant, elegant and enhancing incredible environments into your residence. These are fabricated with cutting-edge technology and modern stylish appearance versatility, these elevators smoothly get adjusted  into villas, duplexes and multi story residences. 
             </p>
             <ul className="space-y-3 text-muted-foreground">
               <li>✔ Smooth and noiseless ride</li>

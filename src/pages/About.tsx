@@ -251,10 +251,9 @@ const About = () => {
                     Our Mission
                   </h3>
                   <p className="text-muted-foreground leading-relaxed">
-                    To provide innovative, safe, and reliable vertical
-                    transportation solutions that enhance the quality of life
-                    for people across India. We are committed to excellence in
-                    engineering, customer service, and sustainable practices.
+                    To promote day to day living by designing innovative, forward thinking spaces and solutions that encourage trust, 
+                    innovation, and sustainability. With each and every project, from magnificent homes to 
+                    contemporary infrastructure, we always aim to deliver incomparable quality and dedicated design that inspires communities and enhances lives. 
                   </p>
                 </CardContent>
               </Card>
@@ -273,12 +272,10 @@ const About = () => {
                     Our Vision
                   </h3>
                   <p className="text-muted-foreground leading-relaxed">
-                    To be the leading provider of vertical transportation
-                    solutions in India, recognized for our innovation, safety,
-                    and commitment to sustainability. We envision a future where
-                    every building is equipped with smart, eco-friendly, and
-                    accessible vertical mobility solutions that improve the
-                    lives of everyone.
+                    to become a life changing force in each and every vertical we enter,
+                     preparing  a well planned future where architecture, motive, and liability 
+                     synchronize consensually. We see a planet where every structure, every business, 
+                     and every transformation by ICONIC Group helps to human well-being and sustainable progress. Through Yatra and our comprehensive initiatives, we imagine becoming a universal benchmark for vertical brilliance and holistic living.
                   </p>
                 </CardContent>
               </Card>

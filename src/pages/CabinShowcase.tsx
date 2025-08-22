@@ -17,30 +17,47 @@ const cabins = [
     link: "/passenger-elevators",
   },
   {
-    title: "Moving Walkway Escalators",
-    img: "src/assets/Moving Walkways.png",
-    link: "/moving-walkways-escalators",
-  },
-  {
-    title: "Hospital Elevator",
-    img: "/WhatsApp Image 2025-08-19 at 11.00.21 AM.jpeg",
-    link: "/hospital-elevators",
-  },
-  {
-    title: "Capsule Elevator",
-    img: "/cabin4.jpeg",
-    link: "/glass-elevators",
-  },
-  {
     title: "Home Elevator",
     img: "/cabin5.jpeg",
     link: "/home-elevators",
   },
+    {
+    title: "Hospital Elevator",
+    img: "/WhatsApp Image 2025-08-19 at 11.00.21 AM.jpeg",
+    link: "/hospital-elevators",
+  },
+    {
+    title: "Capsule Elevator",
+    img: "/cabin4.jpeg",
+    link: "/glass-elevators",
+  },
+    {
+    title: "MRL Elevator",
+    img: "/cabin5.jpeg",
+    link: "/mrl",
+  },
+    {
+    title: "Hydraulic Elevators",
+    img: "/cabin4.jpeg",
+    link: "/hydraulic",
+  },
   {
+    title: "Commercial Escalators",
+    img: "/WhatsApp Image 2025-08-19 at 11.00.21 AM.jpeg",
+    link: "/commercial",
+  },
+    {
     title: "Public Transport Escalators",
     img: "src/assets/Public Transport Escalators.png",
     link: "/public-transport-escalators",
   },
+  {
+    
+    title: "Moving Walkway Escalators",
+    img: "src/assets/Moving Walkways.png",
+    link: "/moving-walkways-escalators",
+  },
+ 
 ];
 
 // Card Component

@@ -54,6 +54,8 @@ const Navigation = () => {
     { label: "Support & Services", href: "/support" },
     { label: "Contact", href: "/contact" },
     { label: "Career", href: "/career" },
+  
+
   ];
 
   return (

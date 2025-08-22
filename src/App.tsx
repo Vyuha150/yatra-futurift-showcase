@@ -30,7 +30,9 @@ import HomeElevators from "./pages/HomeElevators";
 import CabinShowcase from "./pages/CabinShowcase";
 import MovingWalkWays from "./pages/MovingWalkWays";
 import PublicEscalators from "./pages/PublicEscalators";
-
+import MRL from "./pages/MRL";
+import Hydraulic from "./pages/Hydraulic"
+import CommercialEscalators from "./pages/CommercialEscalators"
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -68,6 +70,9 @@ const App = () => (
           <Route path="/glass-elevators" element={<GlassElevators />} />
           <Route path="/home-elevators" element={<HomeElevators />} />
           <Route path="/cabins" element={<CabinShowcase />} />
+          <Route path="/mrl" element={<MRL/>}/>
+          <Route path="/hydraulic" element={<Hydraulic/>}/>
+          <Route path="/commercial" element={<CommercialEscalators/>}/>
           <Route
             path="/moving-walkways-escalators"
             element={<MovingWalkWays />}

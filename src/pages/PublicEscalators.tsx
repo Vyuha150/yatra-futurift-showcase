@@ -165,9 +165,7 @@ const PublicEscalators = () => {
               Effortless Mobility Solutions
             </h2>
             <p className="mb-6 text-lg text-muted-foreground">
-              Our escalators and moving walkways are engineered for safety,
-              comfort, and efficiency. Whether it’s a busy airport or a modern
-              shopping mall, they are designed to keep people moving smoothly.
+              yatra’s public transport Escalators are reliable, moreover, It has high energy efficient resources to strive for innovation, with customizable speed ranges (up to 2.5 m/s), intelligent door operation, and superior leveling accuracy developed  for malls, office complexes, convention centres, and public spaces
             </p>
             <ul className="space-y-3 text-muted-foreground">
               <li>✔ Smooth and continuous movement</li>

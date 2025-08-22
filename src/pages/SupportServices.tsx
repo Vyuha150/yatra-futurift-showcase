@@ -148,7 +148,7 @@ const SupportServices = () => {
       title: "Spare Parts & Repairs",
       image: "/service2.png",
       description:
-        "We offer a wide range of genuine spare parts suitable with all major elevator and escalator models, ensuring quick replacements and less downtime. Our skilled technicians are trained to identify and solve issues efficiently, whether it's a minor failure or a major mechanical repair.",
+        "At Yatra Escalators and Elevators, we understand the importance of finding quality spare parts and professional repair services is very much crucial in keeping your systems running smoothly. We offer a wide range of genuine spare parts suitable with all major elevator and escalator models, conforming quick replacements and less downtime. Our skilled technicians are trained to identify and solve issues efficiently, whether it’s a minor  failure or a major mechanical repair. With a strong network of skilled people and  commitment to deliver quick service, we help you  to maintain operational continuity and increase the life of your equipment.",
     },
   ];
 
@@ -164,17 +164,17 @@ const SupportServices = () => {
         "Yes, we provide complete installation services including site assessment, design, and commissioning.",
     },
     {
-      question: "Can I customize your products?",
+      question: "Can I have the option of customization for your products?",
       answer:
         "Absolutely. We design customized solutions depending on your building type, space constraints, usage, and design specifications.",
     },
     {
-      question: "What safety features are included?",
+      question: "What kind safety features are included?",
       answer:
         "Our units include advanced safety features like emergency alarms, auto-rescue devices, overload protection, speed governors, and fire-rated components.",
     },
     {
-      question: "Do you offer AMC services?",
+      question: "Do you offer AMC(Annual maintainenece contracts) services?",
       answer:
         "Yes, we offer workable AMC packages to ensure continuous maintenance, smooth functioning, and increased lifespan of your systems.",
     },

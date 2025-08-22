@@ -9,16 +9,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
-import {
-  Users,
-  Heart,
-  Target,
-  Lightbulb,
-  Building,
-  Hotel,
-  Home,
-  ShoppingCart,
-} from "lucide-react";
+import { Users, Heart, Target, Lightbulb, Building, Hotel, Home, Hospital } from "lucide-react";
 
 // ----------------------
 // Types
@@ -32,13 +23,7 @@ interface Feature {
 // ----------------------
 // Feature Card Component
 // ----------------------
-const FeatureCard = ({
-  feature,
-  index,
-}: {
-  feature: Feature;
-  index: number;
-}) => {
+const FeatureCard = ({ feature, index }: { feature: Feature; index: number }) => {
   const [cardRef] = useInView({ triggerOnce: true, threshold: 0.1 });
 
   return (
@@ -52,9 +37,7 @@ const FeatureCard = ({
       <Card className="h-full p-6 bg-gradient-to-br from-surface/50 to-surface-elevated/50 border-border hover:border-neon-cyan/50 transition-all duration-300 hover:shadow-glow">
         <CardContent className="space-y-4">
           <feature.icon className="w-12 h-12 text-neon-cyan" />
-          <h3 className="text-xl font-semibold text-foreground">
-            {feature.title}
-          </h3>
+          <h3 className="text-xl font-semibold text-foreground">{feature.title}</h3>
           <p className="text-muted-foreground">{feature.description}</p>
         </CardContent>
       </Card>
@@ -65,37 +48,34 @@ const FeatureCard = ({
 // ----------------------
 // Page Component
 // ----------------------
-const MovingWalkWays = () => {
-  const [heroRef, heroInView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
+const PassengerElevators = () => {
+  const [heroRef, heroInView] = useInView({ triggerOnce: true, threshold: 0.1 });
 
-  // Features
+  // Elevator Features
   const features: Feature[] = [
     {
       icon: Heart,
-      title: "Safe & Reliable",
+      title: "Safety First",
       description:
-        "Equipped with advanced braking systems, sensors, and emergency features for maximum passenger safety.",
+        "Built with world-class safety systems that comply with international standards, ensuring complete peace of mind.",
     },
     {
       icon: Target,
       title: "Energy Efficient",
       description:
-        "Designed with smart power management to reduce energy usage during low traffic hours.",
+        "Smart power-saving technology reduces energy consumption without compromising on performance.",
     },
     {
       icon: Lightbulb,
-      title: "Modern Aesthetics",
+      title: "Innovative Designs",
       description:
-        "Sleek designs with customizable finishes that complement malls, airports, and commercial spaces.",
+        "Stylish interiors and customizable cabins that blend seamlessly into your space.",
     },
     {
       icon: Users,
-      title: "High Capacity",
+      title: "Capacity Options",
       description:
-        "Engineered to handle heavy foot traffic with smooth and continuous movement.",
+        "Available in multiple capacities – from compact home elevators to large-scale commercial solutions.",
     },
   ];
 
@@ -115,7 +95,7 @@ const MovingWalkWays = () => {
             animate={heroInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 1 }}
           >
-            Moving Walkways & Escalators
+            Hydraulic Elevators
           </motion.h1>
 
           <motion.p
@@ -124,8 +104,7 @@ const MovingWalkWays = () => {
             animate={heroInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Ensuring seamless movement of people in airports, malls, and
-            commercial hubs with world-class escalators and walkways.
+            Bringing comfort, safety, and elegance to your home and workplace with our premium passenger elevators.
           </motion.p>
 
           <motion.div
@@ -150,27 +129,25 @@ const MovingWalkWays = () => {
       <section className="px-6 py-16 bg-surface-glass">
         <div className="container mx-auto grid items-center gap-10 md:grid-cols-2">
           <motion.img
-            src="src/assets/Moving Walkways.png"
-            alt="Escalators & Walkways"
-            className="mx-auto rounded-2xl shadow-lg border border-gray-700 
-               w-full max-w-[680px] sm:max-w-[720px] md:max-w-[750px] 
-               h-[420px] object-cover"
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8 }}
-          />
+          src="/WhatsApp Image 2025-08-19 at 10.59.55 AM.jpeg"
+          alt="Home Elevator"
+          className="mx-auto rounded-2xl shadow-lg border border-gray-700 
+             w-full max-w-[680px] sm:max-w-[720px] md:max-w-[750px] 
+             h-[420px] object-cover"
+        initial={{ opacity: 0, scale: 0.9 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.8 }}
+/>
+
 
           <div>
-            <h2 className="mb-4 text-4xl font-bold">
-              Effortless Mobility Solutions
-            </h2>
+            <h2 className="mb-4 text-4xl font-bold">Modern Elevators for Modern Living</h2>
             <p className="mb-6 text-lg text-muted-foreground">
-              Yatra’s Travelators, which are also known as moving walkways, are created to provide perfect horizontal transportation across large spaces such as airports, malls, transit hubs, and exhibition centers. 
-            </p>
+            Yatra’s Hydraulic Elevators are developed for positioning them as the perfect choice of residence with uncluttered and expansive optimisation. These are engineered with perfect energy optimisation and compact home space area</p>
             <ul className="space-y-3 text-muted-foreground">
-              <li>✔ Smooth and continuous movement</li>
-              <li>✔ Durable with low maintenance needs</li>
-              <li>✔ Customizable designs to match interiors</li>
+              <li>✔ Expansive optimisation</li>
+              <li>✔ Energy optimisation </li>
+              <li>✔ Uncompromisable protection </li>
             </ul>
           </div>
         </div>
@@ -182,22 +159,15 @@ const MovingWalkWays = () => {
       <section className="bg-white/5 px-6 py-16">
         <div className="container mx-auto">
           <motion.div className="mb-12 text-center">
-            <h2 className="mb-4 text-4xl font-bold text-foreground">
-              Why Choose Our Solutions
-            </h2>
+            <h2 className="mb-4 text-4xl font-bold text-foreground">Why Choose Our Elevators</h2>
             <p className="mx-auto max-w-3xl text-muted-foreground">
-              From heavy-duty reliability to modern designs, our escalators and
-              walkways are built for today’s urban spaces.
+              Combining cutting-edge technology with world-class safety standards to give you the best elevator experience.
             </p>
           </motion.div>
 
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {features.map((feature, index) => (
-              <FeatureCard
-                key={feature.title}
-                feature={feature}
-                index={index}
-              />
+              <FeatureCard key={feature.title} feature={feature} index={index} />
             ))}
           </div>
         </div>
@@ -209,38 +179,35 @@ const MovingWalkWays = () => {
       <section className="px-6 py-16 bg-surface-glass">
         <div className="container mx-auto">
           <div className="mb-12 text-center">
-            <h2 className="mb-4 text-4xl font-bold text-foreground">
-              Where Are They Used?
-            </h2>
+            <h2 className="mb-4 text-4xl font-bold text-foreground">Where Can They Be Used?</h2>
             <p className="mx-auto max-w-2xl text-muted-foreground">
-              Trusted by leading businesses and public spaces for efficient
-              crowd movement.
+              Our elevators are designed to serve diverse needs across different industries and spaces.
             </p>
           </div>
 
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             <Card>
               <CardContent className="p-6 text-center space-y-3">
-                <ShoppingCart className="mx-auto h-10 w-10 text-neon-cyan" />
-                <h3 className="font-semibold">Shopping Malls</h3>
+                <Home className="mx-auto h-10 w-10 text-neon-cyan" />
+                <h3 className="font-semibold">Residential Homes</h3>
               </CardContent>
             </Card>
             <Card>
               <CardContent className="p-6 text-center space-y-3">
                 <Building className="mx-auto h-10 w-10 text-neon-cyan" />
-                <h3 className="font-semibold">Airports & Stations</h3>
+                <h3 className="font-semibold">Commercial Buildings</h3>
               </CardContent>
             </Card>
             <Card>
               <CardContent className="p-6 text-center space-y-3">
                 <Hotel className="mx-auto h-10 w-10 text-neon-cyan" />
-                <h3 className="font-semibold">Hotels & Convention Centers</h3>
+                <h3 className="font-semibold">Hotels & Apartments</h3>
               </CardContent>
             </Card>
             <Card>
               <CardContent className="p-6 text-center space-y-3">
-                <Home className="mx-auto h-10 w-10 text-neon-cyan" />
-                <h3 className="font-semibold">Public & Corporate Buildings</h3>
+                <Hospital className="mx-auto h-10 w-10 text-neon-cyan" />
+                <h3 className="font-semibold">Hospitals</h3>
               </CardContent>
             </Card>
           </div>
@@ -250,22 +217,23 @@ const MovingWalkWays = () => {
       {/* ----------------------
           Final Call To Action
       ---------------------- */}
-      <section className="py-20 text-center bg-surface">
-        <h2 className="mb-6 text-4xl font-bold text-white">
-          Ready to Move with Ease?
-        </h2>
-        <Button
-          size="lg"
-          className="bg-neon-cyan text-black hover:bg-neon-blue transition-all duration-300"
-          onClick={() => (window.location.href = "/contact")}
-        >
-          Contact Us Today
-        </Button>
-      </section>
+     <section className="py-20 text-center bg-surface">
+  <h2 className="mb-6 text-4xl font-bold text-white">
+    Ready to Elevate Your Space?
+  </h2>
+  <Button
+    size="lg"
+    className="bg-neon-cyan text-black hover:bg-neon-blue transition-all duration-300"
+    onClick={() => (window.location.href = "/contact")}
+  >
+    Contact Us Today
+  </Button>
+</section>
+
 
       <Footer />
     </PageLoadWrapper>
   );
 };
 
-export default MovingWalkWays;
+export default PassengerElevators;
