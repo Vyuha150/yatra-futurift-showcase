@@ -15,83 +15,42 @@ import {
 } from "@/components/AnimatedComponents";
 
 // Import images statically
-import homeElevator from "@/assets/Residential Elevators.png";
-import capsuleElevator from "@/assets/Capsule Elevators (Panoramic).png";
-import hospitalElevator from "@/assets/Bed Elevators.png";
-import goodsElevator from "@/assets/Service Elevators.png";
-import escalator from "@/assets/Commercial Escalators.png";
-import dumbwaiter from "@/assets/Machine-Room Less (MRL) Elevators.png";
 
 interface Product {
-  id: string;
+  _id: string;
   title: string;
   description: string;
   features: string[];
   image: string;
+  link?: string;
 }
-
-const productData: Product[] = [
-  {
-    id: "01",
-    title: "Home Elevators",
-    description:
-      "Premium home elevators offering smooth, quiet and efficient vertical movement in residential buildings. Designed with comfort and style in mind.",
-    features: ["Compact Design", "Energy Efficient", "Silent Operation", "Custom Interiors"],
-    image: homeElevator,
-  },
-  {
-    id: "02",
-    title: "Capsule Elevators",
-    description:
-      "Glass elevators for commercial and luxury spaces offering panoramic views and elegant engineering.",
-    features: ["360° Views", "Weather Resistant", "LED Lighting", "Premium Finish"],
-    image: capsuleElevator,
-  },
-  {
-    id: "03",
-    title: "Hospital Elevators",
-    description:
-      "Reliable hospital elevators designed for stretchers, medical equipment, and smooth patient transportation.",
-    features: ["Stretcher Compatible", "Infection Control", "Emergency Backup", "Silent Operation"],
-    image: hospitalElevator,
-  },
-  {
-    id: "04",
-    title: "Goods Elevators",
-    description:
-      "Heavy-duty elevators for factories, warehouses, and malls to handle large loads safely and efficiently.",
-    features: ["High Load Capacity", "Industrial Grade", "Safety Systems", "Multiple Entry Points"],
-    image: goodsElevator,
-  },
-  {
-    id: "05",
-    title: "Escalators",
-    description:
-      "Modern escalator systems for airports, malls, and metros, with energy-saving and safety innovations.",
-    features: ["Smart Controls", "Energy Saving", "Safety Sensors", "Weather Protection"],
-    image: escalator,
-  },
-  {
-    id: "06",
-    title: "Dumbwaiters",
-    description:
-      "Space-efficient lifts for moving small loads like food or files in hotels, restaurants, and homes.",
-    features: ["Space Efficient", "Quiet Operation", "Food Grade Materials", "Easy Maintenance"],
-    image: dumbwaiter,
-  },
-];
 
 const ProductDetail = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const [product, setProduct] = useState<Product | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   // Intersection Observer hook for animation trigger
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
 
   useEffect(() => {
-    const found = productData.find((p) => p.id === id);
-    setProduct(found || null);
+    setLoading(true);
+    setError(null);
+    fetch(`/api/products/${id}`)
+      .then((res) => {
+        if (!res.ok) throw new Error("Product not found");
+        return res.json();
+      })
+      .then((data) => {
+        setProduct(data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        setError(err.message);
+        setLoading(false);
+      });
   }, [id]);
 
   if (!product) {
@@ -103,12 +62,18 @@ const ProductDetail = () => {
           <AnimatedNav>
             <Navigation />
           </AnimatedNav>
-
           <main className="flex-grow container mx-auto px-6 py-20 flex flex-col items-center justify-center text-center">
-            <p className="text-lg text-muted-foreground mb-6">Product not found.</p>
-            <Button onClick={() => navigate("/projects")}>Back to Products</Button>
+            {loading ? (
+              <p className="text-lg text-muted-foreground mb-6">Loading...</p>
+            ) : (
+              <p className="text-lg text-muted-foreground mb-6">
+                {error || "Product not found."}
+              </p>
+            )}
+            <Button onClick={() => navigate("/projects")}>
+              Back to Products
+            </Button>
           </main>
-
           <Footer />
         </div>
       </PageLoadWrapper>
@@ -152,11 +117,17 @@ const ProductDetail = () => {
 
             {/* Content */}
             <div className="space-y-8">
-              <h1 className="text-4xl font-extrabold text-gradient">{product.title}</h1>
-              <p className="text-muted-foreground leading-relaxed text-lg">{product.description}</p>
+              <h1 className="text-4xl font-extrabold text-gradient">
+                {product.title}
+              </h1>
+              <p className="text-muted-foreground leading-relaxed text-lg">
+                {product.description}
+              </p>
 
               <div>
-                <h2 className="text-2xl font-semibold mb-4 text-foreground">Key Features</h2>
+                <h2 className="text-2xl font-semibold mb-4 text-foreground">
+                  Key Features
+                </h2>
                 <ul className="space-y-3 list-disc list-inside text-muted-foreground text-base">
                   {product.features.map((feature, idx) => (
                     <li key={idx}>{feature}</li>

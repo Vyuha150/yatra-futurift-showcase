@@ -98,9 +98,9 @@ export default function ImageStack() {
           <img
             src={images[idx]}
             alt={`Stacked ${idx}`}
-            className={`w-28 h-44 sm:w-32 sm:h-48 md:w-36 md:h-56 lg:w-40 lg:h-64 object-cover rounded-xl border-2 border-white shadow-lg select-none ${
+            className={`w-28 h-44 sm:w-32 sm:h-48 md:w-36 md:h-56 lg:w-40 lg:h-64 object-cover rounded-xl border-2 border-white shadow-lg select-none transition-transform duration-300 ${
               pos === 0 || pos === 4 ? "blur-sm brightness-20" : ""
-            }`}
+            } ${pos === 2 ? "hover:scale-110" : ""}`}
             draggable={false}
           />
           {/* Elevator Name Overlay */}
