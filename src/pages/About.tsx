@@ -133,18 +133,24 @@ const About = () => {
                 elevator and escalator solutions.
               </p>
             </motion.div>
+            
 
             <motion.div
-              className="relative"
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
-              <div className="aspect-square bg-gradient-to-br from-primary/20 to-secondary/20 rounded-2xl backdrop-blur-sm border border-border flex items-center justify-center">
-                <Building className="w-32 h-32 text-neon-cyan/50" />
-              </div>
-            </motion.div>
+  className="relative"
+  initial={{ opacity: 0, x: 50 }}
+  whileInView={{ opacity: 1, x: 0 }}
+  transition={{ duration: 0.8 }}
+  viewport={{ once: true }}
+>
+  <div className="aspect-square rounded-2xl overflow-hidden shadow-lg">
+    <img 
+      src="src/assets/support.png"   
+      alt="Our Story"
+      className="w-full h-full object-cover"
+    />
+  </div>
+</motion.div>
+
           </div>
         </div>
       </section>
@@ -383,13 +389,20 @@ const About = () => {
                 </p>
               </div>
 
-              <motion.div
-                className="relative"
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.3 }}
-              >
-                <div className="aspect-square bg-gradient-to-br from-primary/20 to-secondary/20 rounded-2xl backdrop-blur-sm border border-border"></div>
-              </motion.div>
+             <motion.div
+  className="relative"
+  whileHover={{ scale: 1.02 }}
+  transition={{ duration: 0.3 }}
+>
+  <div className="aspect-square rounded-2xl overflow-hidden shadow-lg">
+    <img
+      src="src/assets/support.png"
+      alt="Why Elevators & Escalators"
+      className="w-full h-full object-cover"
+    />
+  </div>
+</motion.div>
+
             </div>
           </motion.div>
         </div>
@@ -458,17 +471,22 @@ const About = () => {
             </motion.div>
 
             <motion.div
-              className="relative"
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
-              whileHover={{ scale: 1.02 }}
-            >
-              <div className="aspect-square bg-gradient-to-br from-green-500/20 to-blue-500/20 rounded-2xl backdrop-blur-sm border border-border flex items-center justify-center">
-                <Leaf className="w-24 h-24 text-green-500/50" />
-              </div>
-            </motion.div>
+  className="relative"
+  initial={{ opacity: 0, x: 30 }}
+  whileInView={{ opacity: 1, x: 0 }}
+  transition={{ duration: 0.6, delay: 0.2 }}
+  viewport={{ once: true }}
+  whileHover={{ scale: 1.02 }}
+>
+  <div className="aspect-square rounded-2xl overflow-hidden shadow-lg">
+    <img
+      src="src/assets/support.png"  
+      alt="Sustainability Practices"
+      className="w-full h-full object-cover"
+    />
+  </div>
+</motion.div>
+
           </div>
 
           <motion.div

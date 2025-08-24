@@ -104,24 +104,28 @@ const ElevatorCard = ({
             {/* CTA Button */}
 
             {/* Hover Image */}
-            <motion.div
-              initial={{ opacity: 0, y: 20, scale: 0.95 }}
-              animate={cardInView ? { opacity: 1, y: 0, scale: 1 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.1 + 0.8 }}
-              className="hidden lg:block mt-12 relative overflow-hidden rounded-xl aspect-[4/3] opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0"
-            >
-              <img
-                src={elevator.image}
-                alt={elevator.title}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
-              <div className="absolute bottom-0 left-0 right-0 p-4">
-                <p className="text-xs text-muted-foreground font-medium">
-                  {elevator.title} - Professional Installation
-                </p>
-              </div>
-            </motion.div>
+           <motion.div
+  initial={{ opacity: 0, y: 20, scale: 0.95 }}
+  animate={cardInView ? { opacity: 1, y: 0, scale: 1 } : {}}
+  transition={{ duration: 0.6, delay: index * 0.1 + 0.8 }}
+  className="hidden lg:block mt-12 relative overflow-hidden rounded-xl 
+             w-[400px] h-[400px] mx-auto opacity-0 group-hover:opacity-100 
+             transition-all duration-500 transform translate-y-4 
+             group-hover:translate-y-0 bg-black"
+>
+  <img
+    src={elevator.image}
+    alt={elevator.title}
+    className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
+  />
+  <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
+  <div className="absolute bottom-0 left-0 right-0 p-2">
+    <p className="text-xs text-muted-foreground font-medium text-center">
+      {elevator.title} - Professional Installation
+    </p>
+  </div>
+</motion.div>
+
             {/* CTA Button BELOW Image */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}

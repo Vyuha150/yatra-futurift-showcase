@@ -150,15 +150,15 @@ const HomeElevators = () => {
       <section className="px-6 py-16 bg-surface-glass">
         <div className="container mx-auto grid items-center gap-10 md:grid-cols-2">
           <motion.img
-            src="/cabin5.jpeg"
-            alt="Home Elevator"
-            className="mx-auto rounded-2xl shadow-lg border border-gray-700 
-             w-full max-w-[680px] sm:max-w-[720px] md:max-w-[750px] 
-             h-[420px] object-cover"
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8 }}
-          />
+  src="/cabin5.jpeg"
+  alt="Home Elevator"
+  className="mx-auto rounded-2xl shadow-lg border border-gray-700 
+             w-full max-w-[500px] aspect-square 
+             object-contain bg-black"
+  initial={{ opacity: 0, scale: 0.9 }}
+  whileInView={{ opacity: 1, scale: 1 }}
+  transition={{ duration: 0.8 }}
+/>
 
           <div>
             <h2 className="mb-4 text-4xl font-bold">

@@ -287,9 +287,14 @@ const Career = () => {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <div className="aspect-square bg-gradient-to-br from-primary/20 to-secondary/20 rounded-2xl backdrop-blur-sm border border-border flex items-center justify-center">
-                <Users className="w-32 h-32 text-neon-cyan/50" />
-              </div>
+              <div className="aspect-square rounded-2xl overflow-hidden shadow-lg">
+  <img
+    src="src/assets/support.png"   // <-- replace with your image path
+    alt="Life at Yatra Elevators"
+    className="w-full h-full object-cover"
+  />
+</div>
+
             </motion.div>
           </div>
 
@@ -424,9 +429,14 @@ const Career = () => {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <div className="aspect-square bg-gradient-to-br from-secondary/20 to-primary/20 rounded-2xl backdrop-blur-sm border border-border flex items-center justify-center">
-                <GraduationCap className="w-32 h-32 text-neon-blue/50" />
-              </div>
+              <div className="aspect-square rounded-2xl overflow-hidden shadow-lg">
+  <img
+    src="src/assets/support.png"   // <-- replace with your image path
+    alt="Internships and Training"
+    className="w-full h-full object-cover"
+  />
+</div>
+
             </motion.div>
           </div>
 

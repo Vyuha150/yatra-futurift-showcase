@@ -146,22 +146,22 @@ const ProjectsAndCasestudies = () => {
           >
             <div className="overflow-hidden rounded-xl border border-border">
               <img
-                src="/images/before.jpg"
+                src="/Before.png"
                 alt="Before Modernization"
                 className="w-full h-96 object-cover"
               />
               <p className="text-center text-sm mt-2 text-muted-foreground">
-                Before
+                Before Modernization
               </p>
             </div>
             <div className="overflow-hidden rounded-xl border border-border">
               <img
-                src="/images/after.jpg"
+                src="/After.png"
                 alt="After Modernization"
                 className="w-full h-96 object-cover"
               />
               <p className="text-center text-sm mt-2 text-muted-foreground">
-                After
+                After Modernization
               </p>
             </div>
           </motion.div>
