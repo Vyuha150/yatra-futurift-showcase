@@ -17,14 +17,24 @@ interface AdminProductsProps {
   products: Product[];
   loading: boolean;
   error: string;
+  onRefresh: () => void; // Add refresh function
 }
 
 import React from "react";
 
-const AdminProducts = ({ products, loading, error }: AdminProductsProps) => {
+const AdminProducts = ({
+  products,
+  loading,
+  error,
+  onRefresh,
+}: AdminProductsProps) => {
   const [modalOpen, setModalOpen] = React.useState(false);
-  const [editProduct, setEditProduct] =
-    React.useState<ProductFormValues | null>(null);
+  const [editProduct, setEditProduct] = React.useState<
+    (ProductFormValues & { _id?: string }) | null
+  >(null);
+  const [isSubmitting, setIsSubmitting] = React.useState(false);
+
+  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
 
   const handleAdd = () => {
     setEditProduct(null);
@@ -33,6 +43,7 @@ const AdminProducts = ({ products, loading, error }: AdminProductsProps) => {
 
   const handleEdit = (product: Product) => {
     setEditProduct({
+      _id: product._id,
       title: product.title,
       description: product.description,
       features: product.features || [],
@@ -47,9 +58,63 @@ const AdminProducts = ({ products, loading, error }: AdminProductsProps) => {
     setEditProduct(null);
   };
 
-  const handleSave = (product: ProductFormValues) => {
-    // TODO: Implement save logic (API call)
-    handleClose();
+  const handleSave = async (product: ProductFormValues) => {
+    setIsSubmitting(true);
+    try {
+      const url = editProduct
+        ? `${API_URL}/api/products/${editProduct._id}`
+        : `${API_URL}/api/products`;
+
+      const method = editProduct ? "PUT" : "POST";
+
+      const response = await fetch(url, {
+        method,
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(product),
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const result = await response.json();
+      console.log("Product saved:", result);
+
+      // Refresh the products list
+      onRefresh();
+      handleClose();
+    } catch (err) {
+      console.error("Error saving product:", err);
+      alert("Failed to save product. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const handleDelete = async (productId: string) => {
+    if (!window.confirm("Are you sure you want to delete this product?")) {
+      return;
+    }
+
+    try {
+      const response = await fetch(`${API_URL}/api/products/${productId}`, {
+        method: "DELETE",
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      console.log("Product deleted");
+
+      // Refresh the products list
+      onRefresh();
+    } catch (err) {
+      console.error("Error deleting product:", err);
+      alert("Failed to delete product. Please try again.");
+    }
   };
 
   return (
@@ -133,6 +198,8 @@ const AdminProducts = ({ products, loading, error }: AdminProductsProps) => {
                         variant="outline"
                         size="sm"
                         className="text-red-500"
+                        onClick={() => handleDelete(product._id!)}
+                        disabled={!product._id}
                       >
                         <Trash2 className="w-4 h-4" />
                       </Button>
@@ -149,6 +216,7 @@ const AdminProducts = ({ products, loading, error }: AdminProductsProps) => {
         onClose={handleClose}
         onSave={handleSave}
         initialValues={editProduct || undefined}
+        isSubmitting={isSubmitting}
       />
     </div>
   );

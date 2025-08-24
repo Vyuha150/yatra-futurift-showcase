@@ -89,12 +89,7 @@ export default function CustomerRequirementForm() {
 
   const LIGHTING = ["Warm", "Cool", "Ambient"];
 
-  const FLOOR_MATERIALS = [
-    "Vinyl",
-    "Granite/Marble",
-    "Wooden Finish",
-    "Other",
-  ];
+  const FLOOR_MATERIALS = ["Vinyl", "Granite/Marble", "Wooden Finish", "Other"];
 
   const POWER_SUPPLY = ["Single Phase", "Three Phase", "Not Confirmed Yet"];
 
@@ -130,7 +125,7 @@ export default function CustomerRequirementForm() {
 
   function handleChange<K extends keyof typeof form>(
     key: K,
-    value: typeof form[K]
+    value: (typeof form)[K]
   ) {
     setForm((prev) => ({ ...prev, [key]: value }));
   }
@@ -149,10 +144,7 @@ export default function CustomerRequirementForm() {
     if (!form.fullName.trim()) return "Full Name is required.";
     if (!form.mobile.trim()) return "Mobile number is required.";
     if (!form.liftType) return "Please select Lift Type.";
-    if (
-      form.liftType === "Others" &&
-      !form.otherLiftType.trim()
-    )
+    if (form.liftType === "Others" && !form.otherLiftType.trim())
       return "Please specify Other Lift Type.";
     return null;
   }
@@ -189,7 +181,8 @@ export default function CustomerRequirementForm() {
               Customer Requirement Form
             </h1>
             <p className="text-gray-400 max-w-2xl mx-auto">
-              Please fill out your requirements. We will use this to suggest the best possible solution for your project.
+              Please fill out your requirements. We will use this to suggest the
+              best possible solution for your project.
             </p>
           </motion.div>
 
@@ -202,61 +195,211 @@ export default function CustomerRequirementForm() {
           >
             {/* Basic Info */}
             <SectionHeading title="Basic Information" />
-            <InputField label="Full Name" value={form.fullName} onChange={(e) => handleChange("fullName", e.target.value)} />
-            <InputField label="Occupation" value={form.occupation} onChange={(e) => handleChange("occupation", e.target.value)} />
-            <InputField label="Location (Project Address)" value={form.location} onChange={(e) => handleChange("location", e.target.value)} />
-            <InputField label="Email ID" type="email" value={form.email} onChange={(e) => handleChange("email", e.target.value)} />
-            <InputField label="Mobile Number" value={form.mobile} onChange={(e) => handleChange("mobile", e.target.value)} />
+            <InputField
+              label="Full Name"
+              value={form.fullName}
+              onChange={(e) => handleChange("fullName", e.target.value)}
+            />
+            <InputField
+              label="Occupation"
+              value={form.occupation}
+              onChange={(e) => handleChange("occupation", e.target.value)}
+            />
+            <InputField
+              label="Location (Project Address)"
+              value={form.location}
+              onChange={(e) => handleChange("location", e.target.value)}
+            />
+            <InputField
+              label="Email ID"
+              type="email"
+              value={form.email}
+              onChange={(e) => handleChange("email", e.target.value)}
+            />
+            <InputField
+              label="Mobile Number"
+              value={form.mobile}
+              onChange={(e) => handleChange("mobile", e.target.value)}
+            />
 
             {/* Section 1 */}
-            <SectionHeading title="Your Need (Y - Your Ideas)" subtitle="Help us understand your important needs." />
-            <RadioGroup label="What type of vertical transportation are you interested in?" options={LIFT_TYPES} value={form.liftType} onChange={(val) => handleChange("liftType", val)} />
+            <SectionHeading
+              title="Your Need (Y - Your Ideas)"
+              subtitle="Help us understand your important needs."
+            />
+            <RadioGroup
+              label="What type of vertical transportation are you interested in?"
+              options={LIFT_TYPES}
+              value={form.liftType}
+              onChange={(val) => handleChange("liftType", val)}
+            />
             {form.liftType === "Others" && (
-              <Input placeholder="Please specify other lift type" value={form.otherLiftType} onChange={(e) => handleChange("otherLiftType", e.target.value)} />
+              <Input
+                placeholder="Please specify other lift type"
+                value={form.otherLiftType}
+                onChange={(e) => handleChange("otherLiftType", e.target.value)}
+              />
             )}
-            <RadioGroup label="Purpose" options={PURPOSES} value={form.purpose} onChange={(val) => handleChange("purpose", val)} />
+            <RadioGroup
+              label="Purpose"
+              options={PURPOSES}
+              value={form.purpose}
+              onChange={(val) => handleChange("purpose", val)}
+            />
             {form.purpose === "Other" && (
-              <Input placeholder="Please specify other purpose" value={form.otherPurpose} onChange={(e) => handleChange("otherPurpose", e.target.value)} />
+              <Input
+                placeholder="Please specify other purpose"
+                value={form.otherPurpose}
+                onChange={(e) => handleChange("otherPurpose", e.target.value)}
+              />
             )}
 
             {/* Section 2 */}
-            <SectionHeading title="Appearance Preferences (A - Appearance)" subtitle="Let’s bring your idea into reality." />
-            <RadioGroup label="Preferred Style" options={STYLES} value={form.style} onChange={(val) => handleChange("style", val)} />
-            <RadioGroup label="Door Type Preference" options={DOOR_TYPES} value={form.doorType} onChange={(val) => handleChange("doorType", val)} />
-            <InputField label="Capacity (Kg / Persons)" value={form.capacity} onChange={(e) => handleChange("capacity", e.target.value)} />
-            <InputField label="Cabin Size (L x W)" value={form.cabinSize} onChange={(e) => handleChange("cabinSize", e.target.value)} />
-            <InputField label="Preferred Color Scheme" value={form.preferredColor} onChange={(e) => handleChange("preferredColor", e.target.value)} />
-            <InputField label="Preferred Theme / Style (e.g., modern, luxury, minimal)" value={form.preferredTheme} onChange={(e) => handleChange("preferredTheme", e.target.value)} />
-            <RadioGroup label="Cabin Lighting" options={LIGHTING} value={form.cabinLighting} onChange={(val) => handleChange("cabinLighting", val)} />
-            <RadioGroup label="Floor Material" options={FLOOR_MATERIALS} value={form.floorMaterial} onChange={(val) => handleChange("floorMaterial", val)} />
+            <SectionHeading
+              title="Appearance Preferences (A - Appearance)"
+              subtitle="Let’s bring your idea into reality."
+            />
+            <RadioGroup
+              label="Preferred Style"
+              options={STYLES}
+              value={form.style}
+              onChange={(val) => handleChange("style", val)}
+            />
+            <RadioGroup
+              label="Door Type Preference"
+              options={DOOR_TYPES}
+              value={form.doorType}
+              onChange={(val) => handleChange("doorType", val)}
+            />
+            <InputField
+              label="Capacity (Kg / Persons)"
+              value={form.capacity}
+              onChange={(e) => handleChange("capacity", e.target.value)}
+            />
+            <InputField
+              label="Cabin Size (L x W)"
+              value={form.cabinSize}
+              onChange={(e) => handleChange("cabinSize", e.target.value)}
+            />
+            <InputField
+              label="Preferred Color Scheme"
+              value={form.preferredColor}
+              onChange={(e) => handleChange("preferredColor", e.target.value)}
+            />
+            <InputField
+              label="Preferred Theme / Style (e.g., modern, luxury, minimal)"
+              value={form.preferredTheme}
+              onChange={(e) => handleChange("preferredTheme", e.target.value)}
+            />
+            <RadioGroup
+              label="Cabin Lighting"
+              options={LIGHTING}
+              value={form.cabinLighting}
+              onChange={(val) => handleChange("cabinLighting", val)}
+            />
+            <RadioGroup
+              label="Floor Material"
+              options={FLOOR_MATERIALS}
+              value={form.floorMaterial}
+              onChange={(val) => handleChange("floorMaterial", val)}
+            />
             {form.floorMaterial === "Other" && (
-              <Input placeholder="Specify other floor material" value={form.otherFloorMaterial} onChange={(e) => handleChange("otherFloorMaterial", e.target.value)} />
+              <Input
+                placeholder="Specify other floor material"
+                value={form.otherFloorMaterial}
+                onChange={(e) =>
+                  handleChange("otherFloorMaterial", e.target.value)
+                }
+              />
             )}
 
             {/* Section 3 */}
-            <SectionHeading title="Technical Details (T - Technical)" subtitle="Key inputs that affect design & installation." />
-            <InputField label="Total Number of Floors" value={form.floors} onChange={(e) => handleChange("floors", e.target.value)} />
-            <InputField label="Travel Height (approximate, in meters)" value={form.travelHeight} onChange={(e) => handleChange("travelHeight", e.target.value)} />
-            <InputField label="Pit Depth Available (mm)" value={form.pitDepth} onChange={(e) => handleChange("pitDepth", e.target.value)} />
-            <InputField label="Overhead Space Available (mm)" value={form.overheadSpace} onChange={(e) => handleChange("overheadSpace", e.target.value)} />
-            <RadioGroup label="Power Supply" options={POWER_SUPPLY} value={form.powerSupply} onChange={(val) => handleChange("powerSupply", val)} />
-            <RadioGroup label="Preferred Speed" options={SPEEDS} value={form.preferredSpeed} onChange={(val) => handleChange("preferredSpeed", val)} />
+            <SectionHeading
+              title="Technical Details (T - Technical)"
+              subtitle="Key inputs that affect design & installation."
+            />
+            <InputField
+              label="Total Number of Floors"
+              value={form.floors}
+              onChange={(e) => handleChange("floors", e.target.value)}
+            />
+            <InputField
+              label="Travel Height (approximate, in meters)"
+              value={form.travelHeight}
+              onChange={(e) => handleChange("travelHeight", e.target.value)}
+            />
+            <InputField
+              label="Pit Depth Available (mm)"
+              value={form.pitDepth}
+              onChange={(e) => handleChange("pitDepth", e.target.value)}
+            />
+            <InputField
+              label="Overhead Space Available (mm)"
+              value={form.overheadSpace}
+              onChange={(e) => handleChange("overheadSpace", e.target.value)}
+            />
+            <RadioGroup
+              label="Power Supply"
+              options={POWER_SUPPLY}
+              value={form.powerSupply}
+              onChange={(val) => handleChange("powerSupply", val)}
+            />
+            <RadioGroup
+              label="Preferred Speed"
+              options={SPEEDS}
+              value={form.preferredSpeed}
+              onChange={(val) => handleChange("preferredSpeed", val)}
+            />
 
             {/* Section 4 */}
-            <SectionHeading title="Reliability & Safety (R - Reliability)" subtitle="Promising peace of mind with reliable systems." />
-            <CheckboxGroup label="Features" options={FEATURES} values={form.features} toggle={toggleFeature} />
+            <SectionHeading
+              title="Reliability & Safety (R - Reliability)"
+              subtitle="Promising peace of mind with reliable systems."
+            />
+            <CheckboxGroup
+              label="Features"
+              options={FEATURES}
+              values={form.features}
+              toggle={toggleFeature}
+            />
             {form.features.includes("Others") && (
-              <Input placeholder="Specify other feature" value={form.otherFeature} onChange={(e) => handleChange("otherFeature", e.target.value)} />
+              <Input
+                placeholder="Specify other feature"
+                value={form.otherFeature}
+                onChange={(e) => handleChange("otherFeature", e.target.value)}
+              />
             )}
-            <RadioGroup label="AMC Required (Annual Maintenance Contract)" options={["Yes", "No", "Not Sure"]} value={form.amcRequired} onChange={(val) => handleChange("amcRequired", val)} />
+            <RadioGroup
+              label="AMC Required (Annual Maintenance Contract)"
+              options={["Yes", "No", "Not Sure"]}
+              value={form.amcRequired}
+              onChange={(val) => handleChange("amcRequired", val)}
+            />
 
             {/* Section 5 */}
             <SectionHeading title="Additional Notes (A - Additional Inputs)" />
-            <RadioGroup label="Tentative Budget Range" options={BUDGETS} value={form.budget} onChange={(val) => handleChange("budget", val)} />
-            <RadioGroup label="Expected Timeline" options={TIMELINES} value={form.timeline} onChange={(val) => handleChange("timeline", val)} />
-            <Textarea placeholder="Any other specific requirement or comment" value={form.comments} onChange={(e) => handleChange("comments", e.target.value)} />
+            <RadioGroup
+              label="Tentative Budget Range"
+              options={BUDGETS}
+              value={form.budget}
+              onChange={(val) => handleChange("budget", val)}
+            />
+            <RadioGroup
+              label="Expected Timeline"
+              options={TIMELINES}
+              value={form.timeline}
+              onChange={(val) => handleChange("timeline", val)}
+            />
+            <Textarea
+              placeholder="Any other specific requirement or comment"
+              value={form.comments}
+              onChange={(e) => handleChange("comments", e.target.value)}
+            />
 
-            <Button type="submit" className="bg-[#00bcd4] hover:bg-[#00acc1] text-black font-semibold">
+            <Button
+              type="submit"
+              className="bg-[#00bcd4] hover:bg-[#00acc1] text-black font-semibold"
+            >
               Submit Requirement
             </Button>
           </motion.form>
@@ -269,7 +412,13 @@ export default function CustomerRequirementForm() {
 }
 
 // Reusable section heading
-function SectionHeading({ title, subtitle }: { title: string; subtitle?: string }) {
+function SectionHeading({
+  title,
+  subtitle,
+}: {
+  title: string;
+  subtitle?: string;
+}) {
   return (
     <div className="mt-8">
       <h2 className="text-2xl font-bold text-[#00bcd4] mb-2">{title}</h2>
@@ -278,8 +427,35 @@ function SectionHeading({ title, subtitle }: { title: string; subtitle?: string 
   );
 }
 
+// TypeScript interfaces for helper components
+interface InputFieldProps {
+  label: string;
+  type?: string;
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+}
+
+interface RadioGroupProps {
+  label: string;
+  options: string[];
+  value: string;
+  onChange: (value: string) => void;
+}
+
+interface CheckboxGroupProps {
+  label: string;
+  options: string[];
+  values: string[];
+  toggle: (option: string) => void;
+}
+
 // Helper Components
-function InputField({ label, type = "text", value, onChange }: any) {
+function InputField({
+  label,
+  type = "text",
+  value,
+  onChange,
+}: InputFieldProps) {
   return (
     <div>
       <label className="block mb-1 font-semibold text-gray-100">{label}</label>
@@ -288,14 +464,18 @@ function InputField({ label, type = "text", value, onChange }: any) {
   );
 }
 
-function RadioGroup({ label, options, value, onChange }: any) {
+function RadioGroup({ label, options, value, onChange }: RadioGroupProps) {
   return (
     <div>
       <label className="block mb-1 font-semibold text-gray-100">{label}</label>
       <div className="flex flex-wrap gap-4 text-gray-200">
         {options.map((opt: string) => (
           <label key={opt} className="flex items-center space-x-2">
-            <input type="radio" checked={value === opt} onChange={() => onChange(opt)} />
+            <input
+              type="radio"
+              checked={value === opt}
+              onChange={() => onChange(opt)}
+            />
             <span>{opt}</span>
           </label>
         ))}
@@ -304,14 +484,18 @@ function RadioGroup({ label, options, value, onChange }: any) {
   );
 }
 
-function CheckboxGroup({ label, options, values, toggle }: any) {
+function CheckboxGroup({ label, options, values, toggle }: CheckboxGroupProps) {
   return (
     <div>
       <label className="block mb-1 font-semibold text-gray-100">{label}</label>
       <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 text-gray-200">
         {options.map((opt: string) => (
           <label key={opt} className="flex items-center space-x-2">
-            <input type="checkbox" checked={values.includes(opt)} onChange={() => toggle(opt)} />
+            <input
+              type="checkbox"
+              checked={values.includes(opt)}
+              onChange={() => toggle(opt)}
+            />
             <span>{opt}</span>
           </label>
         ))}

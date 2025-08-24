@@ -13,6 +13,7 @@ interface ProductModalProps {
   onClose: () => void;
   onSave: (product: ProductFormValues) => void;
   initialValues?: ProductFormValues;
+  isSubmitting?: boolean;
 }
 
 export type ProductFormValues = {
@@ -28,6 +29,7 @@ const ProductModal: React.FC<ProductModalProps> = ({
   onClose,
   onSave,
   initialValues,
+  isSubmitting = false,
 }) => {
   const [form, setForm] = React.useState<ProductFormValues>(
     initialValues || {
@@ -55,8 +57,36 @@ const ProductModal: React.FC<ProductModalProps> = ({
   };
 
   React.useEffect(() => {
-    if (initialValues) setForm(initialValues);
+    if (initialValues) {
+      setForm(initialValues);
+    } else {
+      // Reset form when no initial values (add mode)
+      setForm({
+        title: "",
+        description: "",
+        features: [],
+        image: "",
+        link: "",
+      });
+    }
   }, [initialValues]);
+
+  // Reset form when modal opens
+  React.useEffect(() => {
+    if (open) {
+      if (initialValues) {
+        setForm(initialValues);
+      } else {
+        setForm({
+          title: "",
+          description: "",
+          features: [],
+          image: "",
+          link: "",
+        });
+      }
+    }
+  }, [open, initialValues]);
 
   return (
     <Dialog open={open} onOpenChange={onClose}>
@@ -110,10 +140,19 @@ const ProductModal: React.FC<ProductModalProps> = ({
             style={{ caretColor: "white" }}
           />
           <DialogFooter>
-            <Button type="submit">
-              {initialValues ? "Save Changes" : "Add Product"}
+            <Button type="submit" disabled={isSubmitting}>
+              {isSubmitting
+                ? "Saving..."
+                : initialValues
+                ? "Save Changes"
+                : "Add Product"}
             </Button>
-            <Button type="button" variant="outline" onClick={onClose}>
+            <Button
+              type="button"
+              variant="outline"
+              onClick={onClose}
+              disabled={isSubmitting}
+            >
               Cancel
             </Button>
           </DialogFooter>
