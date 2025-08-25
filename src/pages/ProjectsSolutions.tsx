@@ -104,28 +104,24 @@ const ElevatorCard = ({
             {/* CTA Button */}
 
             {/* Hover Image */}
-           <motion.div
-  initial={{ opacity: 0, y: 20, scale: 0.95 }}
-  animate={cardInView ? { opacity: 1, y: 0, scale: 1 } : {}}
-  transition={{ duration: 0.6, delay: index * 0.1 + 0.8 }}
-  className="hidden lg:block mt-12 relative overflow-hidden rounded-xl 
-             w-[400px] h-[400px] mx-auto opacity-0 group-hover:opacity-100 
-             transition-all duration-500 transform translate-y-4 
-             group-hover:translate-y-0 bg-black"
->
-  <img
-    src={elevator.image}
-    alt={elevator.title}
-    className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
-  />
-  <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
-  <div className="absolute bottom-0 left-0 right-0 p-2">
-    <p className="text-xs text-muted-foreground font-medium text-center">
-      {elevator.title} - Professional Installation
-    </p>
-  </div>
-</motion.div>
-
+            <motion.div
+              initial={{ opacity: 0, y: 20, scale: 0.95 }}
+              animate={cardInView ? { opacity: 1, y: 0, scale: 1 } : {}}
+              transition={{ duration: 0.6, delay: index * 0.1 + 0.8 }}
+              className="hidden lg:block mt-12 relative overflow-hidden rounded-xl aspect-[4/3] opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0"
+            >
+              <img
+                src={elevator.image}
+                alt={elevator.title}
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-4">
+                <p className="text-xs text-muted-foreground font-medium">
+                  {elevator.title} - Professional Installation
+                </p>
+              </div>
+            </motion.div>
             {/* CTA Button BELOW Image */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -348,7 +344,7 @@ const ProjectsSolutions = () => {
       id: "passenger",
       title: "Passenger Elevators",
       icon: Building2,
-      image: "/WhatsApp Image 2025-08-19 at 10.59.55 AM.jpeg",
+      image: "src/assets/Passenger Elevators.png",
       route: "/passenger-elevators",
       description:
         "Yatra's Passenger Elevators are contemplatively designed to provide serene, calm and most significant vertical mobility in a diverse architectural environment to deliver smooth, safe, and energy efficient vertical mobility for residential and commercial buildings alike. Established with user attractive design, stylistic appeal, appearance standards and we envisioned the  long term journey carried in our minds. Our elevators integrate advanced technology, noise-optimized and cutting - edge control systems to venture every strike. From streamlined interiors to customizable and user -friendly cabin finishes, yatra aims at dynamic design  options , advanced architecture and exceptional service to people, our elevators incorporate safety protocols, innovations ,hygiene scintillating Interiors spacious to drive stellar lifestyle.",
@@ -365,7 +361,7 @@ const ProjectsSolutions = () => {
       id: "residential",
       title: "Home/Residential Elevators",
       icon: Home,
-      image: "/cabin5.jpeg",
+      image: "src/assets/Residential Elevators.png",
       route: "/home-elevators",
       description:
         "Yatra's Elevators promote jubilant, elegant and enhancing incredible environments into your residence. These are fabricated with cutting-edge technology and modern stylish appearance versatility, these elevators smoothly get adjusted  into villas, duplexes and multi story residences. Yatra's offerings are capacity monitoring, high tech mobility solutions, backup system, and pathogen resistance. With customizable finishes, compact and dynamic shafts, and dazzling smooth ride quality, our residential elevators ensure the mobility and momentum for all age groups and optimisation to your residence. For the compact and flexibility that simplifies your day, the luxury that intuitively accelerates your lifestyle, or the accessibility that opens up  your entire home, Yatra's Home Elevators bring a new stylish version for your residence.",
@@ -382,7 +378,7 @@ const ProjectsSolutions = () => {
       id: "hospital",
       title: "Hospital/Bed Elevators",
       icon: Hospital,
-      image: "/WhatsApp Image 2025-08-19 at 11.00.21 AM.jpeg",
+      image: "src/assets/Bed Elevators.png",
       route: "/hospital-elevators",
       description:
         "Yatra's Hospital/Bed Elevators Instituted with quiet, controlled acoustic environments, structural integrity, and advanced medical equipment and accommodations that prioritizes patient convenience and safety and security. Designed  with meticulous determination to patient needs, these elevators provide whisper-quiet operation and exceptional stability rather than insecure mobility, enabling that every journey is as cozy and assuring as possible for patients and their families. Advanced features like Emergency power bank, safety practices, healthy lifestyle and physically untouched control systems, are more likely to focus on hygiene and cleanliness and essentially critical operations will be enhanced or handled with more care and concern. Most Ideal for clinics, hospitals, infrastructure can be customisable for users, where yatra's Hospitals and Bed elevators are called by everyone as exceptional.",
@@ -400,7 +396,7 @@ const ProjectsSolutions = () => {
       id: "freight",
       title: "Freight and services",
       icon: Eye,
-      image: "/cabin4.jpeg",
+      image: "src/assets/Service Elevators.png",
       route: "/freight-elevators",
       description:
         "Yatra’s Freight and Service Elevators are designed for maximum potential, solidity and firmness, and flawless performance in rigorous environments. Specifically engineered for heavy-duty commercial use, these elevators cope with substantial loads, bulky advanced equipment, and meticulously prolonged operation , significant for motels, warehouses, hotels, hospitals, astonishing  balcony residences, shopping centres, and professional architectures buildings where performance and reliability are essential.. Created  with fortified cabins, maximum capability motors, moreover customizable interiors, our service elevators enable magnanimous vertical transport of goods without compromising safety or versatility with  safety and secured functions, drives that are energy effective, and flawless technology, Yatra’s service elevators are not just only adaptable, reliable, they are founded to speed up operational productivity with spotted and long-term proactiveness.",
@@ -418,7 +414,7 @@ const ProjectsSolutions = () => {
       id: "capsule",
       title: "Capsule Elevators (Panoramic)",
       icon: Eye,
-      image: "/cabin4.jpeg",
+      image: "src/assets/Capsule Elevators (Panoramic).png",
       route: "/glass-elevators",
       description:
         "Yatra's Capsule Elevators are a meritorious blend of scintillating and elegance, constructed to elevate both momentum and across all architectural beauty. Significant for advanced residential high-towers, premiere hotels, malls, and commercial areas, these comprehensive elevators put forward a 360-degree angle bird-eye view, accelerating the visual experience for passengers  and people while appreciating the architectural beauty. Constructed exactly with using advanced safety operations and mechanisms and capability which is energy effective.",
@@ -435,7 +431,7 @@ const ProjectsSolutions = () => {
       id: "mrl",
       title: "MRL Elevators",
       icon: Eye,
-      image: "/cabin4.jpeg",
+      image: "src/assets/Machine-Room Less (MRL) Elevators.png",
       route: "/mrl",
       description:
         "Yatra’s Machine-Room Less (MRL) Elevators are developed with advanced, sophisticated infrastructure where the space consumption is minimized. Designed in such a way that without the necessity of a traditional mechanical room, these elevators provide strong installation, reduced consumption, and enhanced architectural flexibility, facilitating them significantly as advanced elevators especially authorised in rendering solutions for problems with unpredictable scenarios. MRL elevators are exceptionally advanced, their durability ,versatility , superior striking interiors, facilitating control systems, safety guidelines, providing an advanced technology, mobility lift and good environment. Yatra’s Elevators are profoundly designed perfectly for the sophisticated environment.",
@@ -452,7 +448,7 @@ const ProjectsSolutions = () => {
       id: "hydraulic",
       title: "Hydraulic Elevators",
       icon: Eye,
-      image: "/cabin4.jpeg",
+      image: "src/assets/Hydraulic Elevators.png",
       route: "/hydraulic",
       description:
         "Yatra’s Hydraulic Elevators are developed for positioning them as the perfect choice of residence with uncluttered and expansive optimisation. These are engineered with perfect energy optimisation and compact home space area. Safety and Impenetrable security , tamper-proof protection, uncompromisable protection which is absolutely Suitable for residential complexes, building, and business properties. Yatra’s hydraulic solutions have high versatility with convenient vertical mobility that stands as a testament  to the absolute legacy of ICONIC.",
@@ -469,7 +465,7 @@ const ProjectsSolutions = () => {
       id: "commercial",
       title: "Commercial Escalators",
       icon: Eye,
-      image: "/cabin4.jpeg",
+      image: "src/assets/Commercial Escalators.png",
       route: "/commercial",
       description:
         "Yatra’s Commercial Escalators designed for people and users where those deal with high Standards visuals and uncompromisable Security Systems. Developed  for  malls, office complexes, convention centres, and public spaces, our elevators and escalators. With facilities like durability and lift mobility, Advanced Sensors ,and Safety Features, Optional Customizations. Customizable  finishes, firm monitor Systems and MRL Escalators Elevates the sophisticated lifestyle . Backend Iconic’s Legacy, these escalators promise long-term value and elevated vertical movement for every commercial space.",
@@ -703,4 +699,4 @@ const ProjectsSolutions = () => {
   );
 };
 
-export default ProjectsSolutions;
+export default ProjectsSolutions; 

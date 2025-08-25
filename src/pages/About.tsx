@@ -278,7 +278,7 @@ const About = () => {
                     Our Vision
                   </h3>
                   <p className="text-muted-foreground leading-relaxed">
-                    to become a life changing force in each and every vertical we enter,
+                    To become a life changing force in each and every vertical we enter,
                      preparing  a well planned future where architecture, motive, and liability 
                      synchronize consensually. We see a planet where every structure, every business, 
                      and every transformation by ICONIC Group helps to human well-being and sustainable progress. Through Yatra and our comprehensive initiatives, we imagine becoming a universal benchmark for vertical brilliance and holistic living.
