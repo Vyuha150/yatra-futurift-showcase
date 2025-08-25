@@ -96,9 +96,9 @@ const AboutSection = () => {
 </div>
 
 {/* Bottom Content */}
-<div className="grid lg:grid-cols-2 gap-12 items-center">
+{/* <div className="grid lg:grid-cols-2 gap-12 items-center"> */}
   {/* Left - Robotic Hand Visual */}
-  <div className="relative flex justify-center">
+  {/* <div className="relative flex justify-center">
     <div className="relative overflow-hidden rounded-2xl max-w-[500px]">
       <img
         src={"/Products that reshape the vertical transportation industry (2).png"}
@@ -106,16 +106,16 @@ const AboutSection = () => {
         className="w-full h-auto"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent"></div>
-    </div>
+    </div> */}
 
     {/* Floating Tech Elements */}
-    <div className="absolute top-4 right-4 w-12 h-12 bg-neon-cyan/20 rounded-full animate-pulse"></div>
+    {/* <div className="absolute top-4 right-4 w-12 h-12 bg-neon-cyan/20 rounded-full animate-pulse"></div>
     <div className="absolute bottom-8 left-8 w-8 h-8 border-2 border-neon-blue rounded-full animate-float"></div>
-  </div>
+  </div> */}
 
 
           {/* Right - Description */}
-          <div className="space-y-6 max-w-[600px]">
+          {/* <div className="space-y-6 max-w-[600px]">
           <div className="space-y-4">
           <h3 className="text-3xl font-bold text-gradient">
            Products that reshape the vertical transportation industry
@@ -153,9 +153,9 @@ const AboutSection = () => {
              <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </a>
 
-          </div>
+          </div> */}
         </div>
-      </div>
+      {/* </div> */}
     </section>
   );
 };
