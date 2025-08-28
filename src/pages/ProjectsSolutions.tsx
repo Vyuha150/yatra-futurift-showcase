@@ -505,12 +505,12 @@ const ProjectsSolutions = () => {
       description:
         "Yatra’s Travelators, which are also known as moving walkways, are created to provide perfect horizontal transportation across large spaces such as airports, malls, transit hubs, and exhibition centers. Designed with user friendly and safety in mind, these systems offer smooth and energy-efficient movement for pedestrians, luggage carts, and trolleys, reducing walking stress and improving traffic flow. With advanced safety features, surfaces that are anti-slip and tailored speed controls. Yatra’s moving walkways conglomerate strength, sleek aesthetics, and cutting-edge technology to deliver a superior travel experience. As part of our promise to innovation and accessibility, our travelators ensure that every step forward is efficient, comfortable and futuristic.",
       features: [
-        "Heavy passenger load handling",
-        "Energy-efficient drives",
-        "Anti-slip steps and safety features",
-        "Low-noise operation",
-        "Durable construction",
-        "Continuous duty design",
+        "Transportation across large spaces ",
+        "Designed with user friendly ",
+        "Conglomerate strength",
+        "Cutting-edge technology ",
+        "Sleek aesthetics",
+        "Comfortable and futuristic",
       ],
     },
   ];

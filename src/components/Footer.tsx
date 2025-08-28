@@ -24,7 +24,6 @@ const Footer = () => {
     { label: "Capsule Elevators", href: "/glass-elevators" },
     { label: "Public Transport Escalators", href: "/public-transport-escalators" },
     { label: "Maintenance", href: "/service-request" },
-    
   ];
 
   const services = [

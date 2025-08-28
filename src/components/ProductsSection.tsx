@@ -40,10 +40,11 @@ const ProductCard = ({ product, index, currentProduct }: ProductCardProps) => {
       {/* Product Image */}
       <div className="mb-6 relative overflow-hidden rounded-lg">
         <img
-          src={product.image}
-          alt={product.title}
-          className="w-full h-auto object-cover transition-transform duration-300 hover:scale-105"
-        />
+  src={product.image}
+  alt={product.title}
+  className="w-full aspect-[3/2] object-cover rounded-xl hover:scale-105 transition-transform"
+/>
+
         <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
       </div>
 
@@ -69,8 +70,6 @@ const ProductCard = ({ product, index, currentProduct }: ProductCardProps) => {
         <div className="pt-4">
           <Button asChild className="btn-outline group w-full">
             <Link to={product.link}>
-              {" "}
-              {/* 👈 dynamic route */}
               Learn more
               <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
             </Link>
@@ -114,6 +113,69 @@ const ProductsSection = () => {
     setCurrentProduct((prev) => (prev - 1 + products.length) % products.length);
   };
 
+  // 👉 Featured showcase (6 items)
+  const featured = [
+    {
+      image: "/src/assets/Passenger Elevators.png",
+      title: "Passenger Elevator",
+      description: "Yatra’s Elevators promote jubilant, elegant and enhancing incredible environments into your residence. ",
+      features: ["Advanced technology integration",
+        "Noise-optimized systems",
+        "Customizable cabin finishes",
+        "Safety protocols"],
+    },
+    {
+      image: "/src/assets/Residential Elevators.png",
+      title: "Home Elevators",
+      description: "Yatra’s Elevators promote jubilant, elegant and enhancing incredible environments into your residence.",
+      features: [ "Capacity monitoring",
+        "High tech mobility solutions",
+        "Backup system",
+        "Pathogen resistance",
+        "Compact design"],
+    },
+    {
+      image: "/src/assets/Hydraulic Elevators.png",
+      title: "Hydraulic Elevators",
+      description: "Yatra’s Hydraulic Elevators are developed for positioning them as the perfect choice of residence with uncluttered and expansive optimisation. ",
+      features: [ "Developed for positioning",
+        "Uncluttered and expansive optimisation",
+        "Safety and Impenetrable security ",
+        "Tamper-proof protection",
+        "Uncompromisable protection "],
+    },
+    {
+      image: "/src/assets/Commercial Escalators.png",
+      title: "Commercial Escalators",
+      description: "Yatra’s Commercial Escalators designed for people and users where those deal with high Standards visuals and uncompromisable Security Systems.",
+      features: ["High Standards visuals ",
+        "Uncompromisable Security Systems",
+        "Safety and Impenetrable security ",
+        "Durability and lift mobility",
+        "Advanced Sensors "],
+    },
+    {
+      image: "/src/assets/Moving Walkways.png",
+      title: "Moving WalkWay Escalators",
+      description: "Yatra’s Travelators, which are also known as moving walkways, are created to provide perfect horizontal transportation across large spaces.",
+      features: ["Transportation across large spaces ",
+        "Designed with user friendly ",
+        "Conglomerate strength",
+        "Cutting-edge technology ",
+        "Sleek aesthetics"],
+    },
+    {
+      image: "/src/assets/Public Transport Escalators.png",
+      title: "PublicTransport Escalators",
+      description: "yatra’s public transport Escalators are reliable, moreover, It has high energy efficient resources to strive for innovation, with customizable.",
+      features: ["Heavy passenger load handling",
+        "Energy-efficient drives",
+        "Anti-slip steps and safety features",
+        "Low-noise operation",
+        "Durable construction"],
+    },
+  ];
+
   return (
     <section id="products" className="py-20 relative">
       <div className="container mx-auto px-6">
@@ -136,6 +198,39 @@ const ProductsSection = () => {
               <ChevronRight className="w-5 h-5 text-muted-foreground group-hover:text-neon-cyan transition-colors" />
             </button>
           </div>
+        </div>
+
+        {/* ⭐ Showcase Grid (6 Images with description & features) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+          {featured.map((item, i) => (
+            <div
+              key={i}
+              className="card-glow bg-surface p-6 rounded-2xl shadow-lg hover:shadow-neon-cyan/40 transition"
+            >
+              <div className="mb-4 overflow-hidden rounded-xl">
+               <img
+  src={item.image}
+  alt={item.title}
+  className="w-full aspect-[3/2] object-cover rounded-xl hover:scale-105 transition-transform"
+/>
+
+              </div>
+              <h3 className="text-xl font-bold text-foreground mb-2">
+                {item.title}
+              </h3>
+              <p className="text-sm text-muted-foreground mb-4">
+                {item.description}
+              </p>
+              <ul className="space-y-1">
+                {item.features.map((f, idx) => (
+                  <li key={idx} className="flex items-center text-sm text-muted-foreground">
+                    <span className="w-1.5 h-1.5 bg-neon-cyan rounded-full mr-2"></span>
+                    {f}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
 
         {/* Product Cards Carousel */}

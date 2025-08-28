@@ -168,9 +168,9 @@ const MovingWalkWays = () => {
               Yatra’s Travelators, which are also known as moving walkways, are created to provide perfect horizontal transportation across large spaces such as airports, malls, transit hubs, and exhibition centers. 
             </p>
             <ul className="space-y-3 text-muted-foreground">
-              <li>✔ Smooth and continuous movement</li>
-              <li>✔ Durable with low maintenance needs</li>
-              <li>✔ Customizable designs to match interiors</li>
+              <li>✔ Transportation across large spaces </li>
+              <li>✔ Designed with user friendly</li>
+              <li>✔ Comfortable and futuristic</li>
             </ul>
           </div>
         </div>

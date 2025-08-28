@@ -147,7 +147,7 @@ const HeroSection = () => {
                   className="w-28 sm:w-32 lg:w-36 h-auto"
                 />
 
-                <h2 className="text-4xl sm:text-3xl lg:text-4xl font-bold tracking-wide text-gradient leading-snug max-w-lg">
+                <h2 className="text-3xl sm:text-3xl lg:text-3xl font-bold tracking-wide text-gradient leading-snug max-w-lg">
                   ELEVATORS & ESCALATORS
                 </h2>
               </div>

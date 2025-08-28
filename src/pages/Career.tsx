@@ -289,7 +289,7 @@ const Career = () => {
             >
               <div className="aspect-square rounded-2xl overflow-hidden shadow-lg">
   <img
-    src="src/assets/support.png"   // <-- replace with your image path
+    src="/src/assets/Yatra website_Career .png"   
     alt="Life at Yatra Elevators"
     className="w-full h-full object-cover"
   />
@@ -431,7 +431,7 @@ const Career = () => {
             >
               <div className="aspect-square rounded-2xl overflow-hidden shadow-lg">
   <img
-    src="src/assets/support.png"   // <-- replace with your image path
+    src="/src/assets/Yatra website_Internships and training.png"
     alt="Internships and Training"
     className="w-full h-full object-cover"
   />

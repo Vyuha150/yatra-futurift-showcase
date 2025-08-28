@@ -144,7 +144,7 @@ const About = () => {
 >
   <div className="aspect-square rounded-2xl overflow-hidden shadow-lg">
     <img 
-      src="src/assets/support.png"   
+      src="/src/assets/Yatra website_Our story.png"   
       alt="Our Story"
       className="w-full h-full object-cover"
     />
@@ -396,7 +396,7 @@ const About = () => {
 >
   <div className="aspect-square rounded-2xl overflow-hidden shadow-lg">
     <img
-      src="src/assets/support.png"
+      src="/src/assets/Yatra website_Why elevators.png"
       alt="Why Elevators & Escalators"
       className="w-full h-full object-cover"
     />
@@ -480,7 +480,7 @@ const About = () => {
 >
   <div className="aspect-square rounded-2xl overflow-hidden shadow-lg">
     <img
-      src="src/assets/support.png"  
+      src="/src/assets/Yatra website_Internships and training.png"  
       alt="Sustainability Practices"
       className="w-full h-full object-cover"
     />
