@@ -6,16 +6,20 @@ import { useInView } from "react-intersection-observer";
 import { PageLoadWrapper } from "@/components/AnimatedComponents";
 
 // Showcase only 5 cabins
+// 1) Cabins with title
 const cabins = [
-  { img: "public/cabin3.jpeg" },
-  { img: "/cabin5.jpeg" },
-  { img: "/WhatsApp Image 2025-08-19 at 11.00.21 AM.jpeg" },
-  { img: "/cabin4.jpeg" },
-  { img: "/WhatsApp Image 2025-08-19 at 10.59.55 AM.jpeg" },
-  { img: "src/assets/Residential Elevators.png"}
+  { img: "/cabin3.jpeg", title: "Passsenger Elevator" },
+  { img: "/cabin5.jpeg", title: "Home Elevators" },
+  { img: "/WhatsApp Image 2025-08-19 at 11.00.21 AM.jpeg", title: "Hydraulic Elevators" },
+  { img: "/cabin4.jpeg", title: "Capsule Elevators" },
+  { img: "/src/images/Yatra website_Hospital elevators(size - 400-300).png", title: "Hospital Elevators" },
+  { img: "/src/images/Yatra website_MRL elevators(size - 400-300).png", title: "MRl Elevators" }
 ];
+// NOTE: public folder lo unna files ki path "/file.jpeg" laga undali (not "public/file.jpeg")
+
 
 // Card Component (image only, pro look)
+// 2) Hover-reveal title
 const CabinCard = ({ cabin, index }: { cabin: (typeof cabins)[0]; index: number }) => {
   const [cardRef, cardInView] = useInView({ triggerOnce: true, threshold: 0.1 });
 
@@ -25,17 +29,40 @@ const CabinCard = ({ cabin, index }: { cabin: (typeof cabins)[0]; index: number 
       initial={{ opacity: 0, y: 30 }}
       animate={cardInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6, delay: index * 0.15 }}
-      whileHover={{ scale: 1.05 }}
-      className="overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500"
+      className="group relative overflow-hidden rounded-2xl shadow-lg transition-all duration-500"
+      tabIndex={0} // keyboard focus support
     >
+      {/* Image */}
       <motion.img
         src={cabin.img}
-        alt="Cabin Design"
-        className="w-full h-[350px] object-cover rounded-2xl hover:scale-110 transition-transform duration-700"
+        alt={cabin.title}
+        className="w-full h-[350px] object-cover rounded-2xl transition-transform duration-700 group-hover:scale-110"
       />
+
+      {/* Hover / Focus overlay */}
+      <div className="
+        pointer-events-none absolute inset-0 
+        bg-gradient-to-t from-black/70 via-black/20 to-transparent 
+        opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 
+        transition-opacity duration-300
+      " />
+
+      {/* Title at bottom (reveals on hover) */}
+      <div className="
+        absolute bottom-0 left-0 right-0 
+        translate-y-6 opacity-0 
+        group-hover:translate-y-0 group-hover:opacity-100 
+        group-focus-within:translate-y-0 group-focus-within:opacity-100
+        transition-all duration-300 px-4 pb-4
+      ">
+        <h3 className="text-white text-lg font-semibold drop-shadow">
+          {cabin.title}
+        </h3>
+      </div>
     </motion.div>
   );
 };
+
 
 const CabinShowcase = () => {
   const [heroRef, heroInView] = useInView({ triggerOnce: true, threshold: 0.1 });

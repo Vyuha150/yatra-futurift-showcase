@@ -3,11 +3,11 @@ import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
 const images = [
-  "/WhatsApp Image 2025-08-19 at 10.59.55 AM.jpeg",
-  "/WhatsApp Image 2025-08-19 at 11.00.21 AM.jpeg",
-  "/cabin4.jpeg",
-  "/cabin5.jpeg",
-  "src/assets/Public Transport Escalators.png",
+  "/src/images/Yatra website_Passenger.png",
+  "/src/images/Yatra website_Hospital  .png",
+  "/src/images/Yatra website_capsule.png",
+  "/src/images/Yatra website_Home.png",
+  "/src/images/Yatra website_Commercial Escalators.png",
 ];
 const elevatorNames = [
   "Passenger Elevator",

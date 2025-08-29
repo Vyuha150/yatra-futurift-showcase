@@ -150,7 +150,7 @@ const PublicEscalators = () => {
       <section className="px-6 py-16 bg-surface-glass">
         <div className="container mx-auto grid items-center gap-10 md:grid-cols-2">
            <motion.img
-            src="src/assets/Public Transport Escalators.png"
+            src="/src/images/Yatra website400x600_Public transport escalators.png"
             alt="Home Elevator"
             className="mx-auto rounded-2xl shadow-lg border border-gray-700 
              w-full max-w-[680px] sm:max-w-[720px] md:max-w-[750px] 

@@ -67,14 +67,15 @@ const ProductCard = ({ product, index, currentProduct }: ProductCardProps) => {
           ))}
         </div>
 
-        <div className="pt-4">
-          <Button asChild className="btn-outline group w-full">
-            <Link to={product.link}>
-              Learn more
-              <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-            </Link>
-          </Button>
-        </div>
+       <div className="pt-4">
+  <Button asChild className="btn-outline group w-full mt-4">
+    <Link to={product.link}>
+      Learn more
+      <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+    </Link>
+  </Button>
+</div>
+
       </div>
     </div>
   );
@@ -113,68 +114,81 @@ const ProductsSection = () => {
     setCurrentProduct((prev) => (prev - 1 + products.length) % products.length);
   };
 
-  // 👉 Featured showcase (6 items)
+  
   const featured = [
-    {
-      image: "/src/assets/Passenger Elevators.png",
-      title: "Passenger Elevator",
-      description: "Yatra’s Elevators promote jubilant, elegant and enhancing incredible environments into your residence. ",
-      features: ["Advanced technology integration",
-        "Noise-optimized systems",
-        "Customizable cabin finishes",
-        "Safety protocols"],
-    },
-    {
-      image: "/src/assets/Residential Elevators.png",
-      title: "Home Elevators",
-      description: "Yatra’s Elevators promote jubilant, elegant and enhancing incredible environments into your residence.",
-      features: [ "Capacity monitoring",
-        "High tech mobility solutions",
-        "Backup system",
-        "Pathogen resistance",
-        "Compact design"],
-    },
-    {
-      image: "/src/assets/Hydraulic Elevators.png",
-      title: "Hydraulic Elevators",
-      description: "Yatra’s Hydraulic Elevators are developed for positioning them as the perfect choice of residence with uncluttered and expansive optimisation. ",
-      features: [ "Developed for positioning",
-        "Uncluttered and expansive optimisation",
-        "Safety and Impenetrable security ",
-        "Tamper-proof protection",
-        "Uncompromisable protection "],
-    },
-    {
-      image: "/src/assets/Commercial Escalators.png",
-      title: "Commercial Escalators",
-      description: "Yatra’s Commercial Escalators designed for people and users where those deal with high Standards visuals and uncompromisable Security Systems.",
-      features: ["High Standards visuals ",
-        "Uncompromisable Security Systems",
-        "Safety and Impenetrable security ",
-        "Durability and lift mobility",
-        "Advanced Sensors "],
-    },
-    {
-      image: "/src/assets/Moving Walkways.png",
-      title: "Moving WalkWay Escalators",
-      description: "Yatra’s Travelators, which are also known as moving walkways, are created to provide perfect horizontal transportation across large spaces.",
-      features: ["Transportation across large spaces ",
-        "Designed with user friendly ",
-        "Conglomerate strength",
-        "Cutting-edge technology ",
-        "Sleek aesthetics"],
-    },
-    {
-      image: "/src/assets/Public Transport Escalators.png",
-      title: "PublicTransport Escalators",
-      description: "yatra’s public transport Escalators are reliable, moreover, It has high energy efficient resources to strive for innovation, with customizable.",
-      features: ["Heavy passenger load handling",
-        "Energy-efficient drives",
-        "Anti-slip steps and safety features",
-        "Low-noise operation",
-        "Durable construction"],
-    },
-  ];
+  {
+    image: "/src/images/Yatra website400x600_Passenger Elevators.png",
+    title: "Passenger Elevator",
+    description: "Yatra's Passenger Elevators are contemplatively designed to provide serene, calm and most significant vertical mobility ",
+    features: [
+      "Advanced technology integration",
+      "Noise-optimized systems",
+      "Customizable cabin finishes",
+      "Safety protocols",
+    ],
+    link: "/passenger-elevators", 
+  },
+  {
+    image: "/src/images/Yatra website400x600_Home Elevators.png",
+    title: "Home Elevators",
+    description: "Yatra’s Elevators promote jubilant, elegant and enhancing incredible environments into your residence.",
+    features: [
+      "Capacity monitoring",
+      "High tech mobility solutions",
+      "Backup system",
+      "Pathogen resistance",
+    ],
+    link: "/home-elevators",
+  },
+  {
+    image: "/src/images/Yatra website_Hydraulic elevators(size - 400-300).png",
+    title: "Hydraulic Elevators",
+    description: "Yatra’s Hydraulic Elevators are developed for positioning them as the perfect choice of residence with uncluttered and expansive optimisation.",
+    features: [
+      "Developed for positioning",
+      "Uncluttered and expansive optimisation",
+      "Safety and Impenetrable security",
+      "Tamper-proof protection",
+    ],
+    link: "/hydraulic",
+  },
+  {
+    image: "/src/images/Yatra website400x600_Commercial escalators.png",
+    title: "Commercial Escalators",
+    description: "Yatra’s Commercial Escalators designed for people and users...",
+    features: [
+      "High Standards visuals",
+      "Uncompromisable Security Systems",
+      "Safety and Impenetrable security",
+      "Durability and lift mobility",
+    ],
+    link: "/commercial", 
+  },
+  {
+    image: "/src/images/Yatra website400x600_Moving walk ways escalators.png",
+    title: "Moving WalkWay Escalators",
+    description: "Yatra’s Travelators provide perfect horizontal transportation across large spaces.",
+    features: [
+      "Transportation across large spaces",
+      "Designed with user friendly",
+      "Conglomerate strength",
+      "Cutting-edge technology",
+    ],
+    link: "/moving-walkways-escalators", 
+  },
+  {
+    image: "/src/images/Yatra website400x600_Public transport escalators.png",
+    title: "Public Transport Escalators",
+    description: "Yatra’s public transport Escalators are reliable and energy-efficient...",
+    features: [
+      "Heavy passenger load handling",
+      "Energy-efficient drives",
+      "Anti-slip steps and safety features",
+      "Low-noise operation",
+    ],
+    link: "/public-transport-escalators", 
+  },
+];
 
   return (
     <section id="products" className="py-20 relative">
@@ -202,35 +216,42 @@ const ProductsSection = () => {
 
         {/* ⭐ Showcase Grid (6 Images with description & features) */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
-          {featured.map((item, i) => (
-            <div
-              key={i}
-              className="card-glow bg-surface p-6 rounded-2xl shadow-lg hover:shadow-neon-cyan/40 transition"
-            >
-              <div className="mb-4 overflow-hidden rounded-xl">
-               <img
-  src={item.image}
-  alt={item.title}
-  className="w-full aspect-[3/2] object-cover rounded-xl hover:scale-105 transition-transform"
-/>
+         {featured.map((item, i) => (
+  <div
+    key={i}
+    className="card-glow bg-surface p-6 rounded-2xl shadow-lg hover:shadow-neon-cyan/40 transition"
+  >
+    <div className="mb-4 overflow-hidden rounded-xl">
+      <img
+        src={item.image}
+        alt={item.title}
+        className="w-full aspect-[3/2] object-cover rounded-xl hover:scale-105 transition-transform"
+      />
+    </div>
+    <h3 className="text-xl font-bold text-foreground mb-2">{item.title}</h3>
+    <p className="text-sm text-muted-foreground mb-4">{item.description}</p>
+    <ul className="space-y-1">
+      {item.features.map((f, idx) => (
+        <li
+          key={idx}
+          className="flex items-center text-sm text-muted-foreground"
+        >
+          <span className="w-1.5 h-1.5 bg-neon-cyan rounded-full mr-2"></span>
+          {f}
+        </li>
+      ))}
+    </ul>
 
-              </div>
-              <h3 className="text-xl font-bold text-foreground mb-2">
-                {item.title}
-              </h3>
-              <p className="text-sm text-muted-foreground mb-4">
-                {item.description}
-              </p>
-              <ul className="space-y-1">
-                {item.features.map((f, idx) => (
-                  <li key={idx} className="flex items-center text-sm text-muted-foreground">
-                    <span className="w-1.5 h-1.5 bg-neon-cyan rounded-full mr-2"></span>
-                    {f}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+    {/* ✅ Learn More Button */}
+    <Button asChild className="btn-outline group w-full mt-4">
+      <Link to={item.link}>
+        Learn more
+        <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+      </Link>
+    </Button>
+  </div>
+))}
+
         </div>
 
         {/* Product Cards Carousel */}
