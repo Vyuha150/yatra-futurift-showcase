@@ -55,27 +55,27 @@ const PassengerElevators = () => {
   const features: Feature[] = [
     {
       icon: Heart,
-      title: "Safety First",
+      title: "Enhanced Customer Experience",
       description:
-        "Built with world-class safety systems that comply with international standards, ensuring complete peace of mind.",
+        "Encourage foot traffic to upper or lower floors in retail or entertainment spaces.",
     },
     {
       icon: Target,
-      title: "Energy Efficient",
+      title: "Aesthetic Appeal",
       description:
-        "Smart power-saving technology reduces energy consumption without compromising on performance.",
+        "Sleek designs, LED lighting, and customizable balustrades complement interiors.",
     },
     {
       icon: Lightbulb,
-      title: "Innovative Designs",
+      title: "Safety & Reliability",
       description:
-        "Stylish interiors and customizable cabins that blend seamlessly into your space.",
+        "Advanced sensors, anti-slip treads, skirt brushes, and emergency stop buttons ensure safe operation.",
     },
     {
       icon: Users,
-      title: "Capacity Options",
+      title: "Accessibility",
       description:
-        "Available in multiple capacities – from compact home elevators to large-scale commercial solutions.",
+        "Offer a convenient option for shoppers, employees, or guests carrying bags, strollers, or light luggage.",
     },
   ];
 
@@ -90,7 +90,7 @@ const PassengerElevators = () => {
       <section ref={heroRef} className="relative z-10 px-6 pt-24 pb-16">
         <div className="container mx-auto max-w-4xl text-center">
           <motion.h1
-            className="mb-6 text-5xl font-bold text-transparent md:text-7xl bg-gradient-to-r from-neon-cyan via-neon-blue to-neon-green bg-clip-text"
+            className="mb-6 text-4xl font-bold text-transparent md:text-5xl bg-gradient-to-r from-neon-cyan via-neon-blue to-neon-green bg-clip-text"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={heroInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 1 }}
@@ -104,7 +104,7 @@ const PassengerElevators = () => {
             animate={heroInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Bringing comfort, safety, and elegance to your home and workplace with our premium passenger elevators.
+            Developed  for  malls, office complexes, convention centres, and public spaces, our elevators and escalators
           </motion.p>
 
           <motion.div
@@ -162,7 +162,7 @@ const PassengerElevators = () => {
           <motion.div className="mb-12 text-center">
             <h2 className="mb-4 text-4xl font-bold text-foreground">Why Choose Our Elevators</h2>
             <p className="mx-auto max-w-3xl text-muted-foreground">
-              Combining cutting-edge technology with world-class safety standards to give you the best elevator experience.
+              With facilities like durability and lift mobility, Advanced Sensors ,and Safety Features, Optional Customizations.
             </p>
           </motion.div>
 
@@ -182,7 +182,7 @@ const PassengerElevators = () => {
           <div className="mb-12 text-center">
             <h2 className="mb-4 text-4xl font-bold text-foreground">Where Can They Be Used?</h2>
             <p className="mx-auto max-w-2xl text-muted-foreground">
-              Our elevators are designed to serve diverse needs across different industries and spaces.
+              Customizable  finishes, firm monitor Systems and MRL Escalators Elevates the sophisticated lifestyle . 
             </p>
           </div>
 
@@ -190,25 +190,25 @@ const PassengerElevators = () => {
             <Card>
               <CardContent className="p-6 text-center space-y-3">
                 <Home className="mx-auto h-10 w-10 text-neon-cyan" />
-                <h3 className="font-semibold">Residential Homes</h3>
+                <h3 className="font-semibold">Shopping Malls & Retail Stores</h3>
               </CardContent>
             </Card>
             <Card>
               <CardContent className="p-6 text-center space-y-3">
                 <Building className="mx-auto h-10 w-10 text-neon-cyan" />
-                <h3 className="font-semibold">Commercial Buildings</h3>
+                <h3 className="font-semibold">Corporate Offices & Business Centers</h3>
               </CardContent>
             </Card>
             <Card>
               <CardContent className="p-6 text-center space-y-3">
                 <Hotel className="mx-auto h-10 w-10 text-neon-cyan" />
-                <h3 className="font-semibold">Hotels & Apartments</h3>
+                <h3 className="font-semibold">Cinemas & Convention Halls</h3>
               </CardContent>
             </Card>
             <Card>
               <CardContent className="p-6 text-center space-y-3">
                 <Hospital className="mx-auto h-10 w-10 text-neon-cyan" />
-                <h3 className="font-semibold">Hospitals</h3>
+                <h3 className="font-semibold">Restaurants & Clubs</h3>
               </CardContent>
             </Card>
           </div>

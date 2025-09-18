@@ -5,21 +5,19 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { PageLoadWrapper } from "@/components/AnimatedComponents";
 
-// Showcase only 5 cabins
-// 1) Cabins with title
+
 const cabins = [
   { img: "/cabin3.jpeg", title: "Passsenger Elevator" },
   { img: "/cabin5.jpeg", title: "Home Elevators" },
   { img: "/WhatsApp Image 2025-08-19 at 11.00.21 AM.jpeg", title: "Hydraulic Elevators" },
   { img: "/cabin4.jpeg", title: "Capsule Elevators" },
   { img: "/src/images/Yatra website_Hospital elevators(size - 400-300).png", title: "Hospital Elevators" },
-  { img: "/src/images/Yatra website_MRL elevators(size - 400-300).png", title: "MRl Elevators" }
+  { img: "/src/images/Yatra website_MRL elevators(size - 400-300).png", title: "MRL Elevators" }
 ];
-// NOTE: public folder lo unna files ki path "/file.jpeg" laga undali (not "public/file.jpeg")
 
 
-// Card Component (image only, pro look)
-// 2) Hover-reveal title
+
+
 const CabinCard = ({ cabin, index }: { cabin: (typeof cabins)[0]; index: number }) => {
   const [cardRef, cardInView] = useInView({ triggerOnce: true, threshold: 0.1 });
 
@@ -30,7 +28,7 @@ const CabinCard = ({ cabin, index }: { cabin: (typeof cabins)[0]; index: number 
       animate={cardInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6, delay: index * 0.15 }}
       className="group relative overflow-hidden rounded-2xl shadow-lg transition-all duration-500"
-      tabIndex={0} // keyboard focus support
+      tabIndex={0}
     >
       {/* Image */}
       <motion.img

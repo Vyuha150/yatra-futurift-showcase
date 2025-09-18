@@ -75,15 +75,15 @@ const HospitalElevators = () => {
   const features: Feature[] = [
     {
       icon: Heart,
-      title: "Safety First",
+      title: "Patient Safety & Comfort",
       description:
-        "Built with world-class safety systems that comply with international standards, ensuring complete peace of mind.",
+        "Smooth, jerk-free ride ensures patients (especially critical ones) aren’t disturbed during transfer.",
     },
     {
       icon: Target,
-      title: "Energy Efficient",
+      title: "Efficient Emergency Response",
       description:
-        "Smart power-saving technology reduces energy consumption without compromising on performance.",
+        "High-speed options enable rapid access to operation theaters, ICUs, or emergency wards.",
     },
     {
       icon: Lightbulb,
@@ -93,9 +93,9 @@ const HospitalElevators = () => {
     },
     {
       icon: Users,
-      title: "Capacity Options",
+      title: "Reliability",
       description:
-        "Available in multiple capacities – from compact home elevators to large-scale commercial solutions.",
+        "Backup power and advanced safety systems ensure continuous operation in hospitals, even during outages.",
     },
   ];
 
@@ -124,8 +124,7 @@ const HospitalElevators = () => {
             animate={heroInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Bringing comfort, safety, and elegance to your home and workplace
-            with our premium passenger elevators.
+           Designed  with meticulous determination to patient needs, these elevators provide whisper-quiet operation and exceptional stability 
           </motion.p>
 
           <motion.div
@@ -189,8 +188,7 @@ const HospitalElevators = () => {
               Why Choose Our Elevators
             </h2>
             <p className="mx-auto max-w-3xl text-muted-foreground">
-              Combining cutting-edge technology with world-class safety
-              standards to give you the best elevator experience.
+              Advanced features like Emergency power bank, safety practices, healthy lifestyle and physically untouched control systems.
             </p>
           </motion.div>
 
@@ -216,8 +214,7 @@ const HospitalElevators = () => {
               Where Can They Be Used?
             </h2>
             <p className="mx-auto max-w-2xl text-muted-foreground">
-              Our elevators are designed to serve diverse needs across different
-              industries and spaces.
+             Most Ideal for clinics, hospitals, infrastructure can be customisable for users, where yatra’s Hospitals and Bed elevators are called by everyone as exceptional.
             </p>
           </div>
 
@@ -231,13 +228,13 @@ const HospitalElevators = () => {
             <Card>
               <CardContent className="p-6 text-center space-y-3">
                 <Building className="mx-auto h-10 w-10 text-neon-cyan" />
-                <h3 className="font-semibold">Commercial Buildings</h3>
+                <h3 className="font-semibold">Diagnostic Centers & Labs</h3>
               </CardContent>
             </Card>
             <Card>
               <CardContent className="p-6 text-center space-y-3">
                 <Hotel className="mx-auto h-10 w-10 text-neon-cyan" />
-                <h3 className="font-semibold">Hotels & Apartments</h3>
+                <h3 className="font-semibold">Medical Colleges</h3>
               </CardContent>
             </Card>
             <Card>

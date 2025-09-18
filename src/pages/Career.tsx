@@ -75,7 +75,6 @@ const BenefitCard = ({
   );
 };
 
-// Separate component for program cards to fix React Hooks rule
 const ProgramCard = ({
   program,
   index,

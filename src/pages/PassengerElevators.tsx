@@ -55,27 +55,27 @@ const PassengerElevators = () => {
   const features: Feature[] = [
     {
       icon: Heart,
-      title: "Safety First",
+      title: "Convenience",
       description:
-        "Built with world-class safety systems that comply with international standards, ensuring complete peace of mind.",
+        "Provide smooth, quick access between levels without the effort of stairs advanced architecture.",
     },
     {
       icon: Target,
       title: "Energy Efficient",
       description:
-        "Smart power-saving technology reduces energy consumption without compromising on performance.",
+        "Smart power-saving technology reduces energy consumption without compromising.",
     },
     {
       icon: Lightbulb,
-      title: "Innovative Designs",
+      title: "Comfort & Style",
       description:
-        "Stylish interiors and customizable cabins that blend seamlessly into your space.",
+        "Quiet ride, controlled acceleration, and interiors that can be customized with stainless steel, glass.",
     },
     {
       icon: Users,
-      title: "Capacity Options",
+      title: "Accessibility",
       description:
-        "Available in multiple capacities – from compact home elevators to large-scale commercial solutions.",
+        "Essential for people with mobility challenges, elderly passengers, or anyone carrying heavy loads.",
     },
   ];
 
@@ -104,7 +104,7 @@ const PassengerElevators = () => {
             animate={heroInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Bringing comfort, safety, and elegance to your home and workplace with our premium passenger elevators.
+           Our elevators integrate advanced technology, noise-optimized and cutting - edge control systems to venture every strike.
           </motion.p>
 
           <motion.div
@@ -164,7 +164,7 @@ const PassengerElevators = () => {
           <motion.div className="mb-12 text-center">
             <h2 className="mb-4 text-4xl font-bold text-foreground">Why Choose Our Elevators</h2>
             <p className="mx-auto max-w-3xl text-muted-foreground">
-              Combining cutting-edge technology with world-class safety standards to give you the best elevator experience.
+             Established with user attractive design, stylistic appeal, appearance standards and we envisioned the  long term journey carried in our minds. 
             </p>
           </motion.div>
 
@@ -184,7 +184,7 @@ const PassengerElevators = () => {
           <div className="mb-12 text-center">
             <h2 className="mb-4 text-4xl font-bold text-foreground">Where Can They Be Used?</h2>
             <p className="mx-auto max-w-2xl text-muted-foreground">
-              Our elevators are designed to serve diverse needs across different industries and spaces.
+              From streamlined interiors to customizable and user -friendly cabin finishes, yatra aims at dynamic design  options , advanced architecture .
             </p>
           </div>
 
@@ -192,13 +192,13 @@ const PassengerElevators = () => {
             <Card>
               <CardContent className="p-6 text-center space-y-3">
                 <Home className="mx-auto h-10 w-10 text-neon-cyan" />
-                <h3 className="font-semibold">Residential Homes</h3>
+                <h3 className="font-semibold">Residential Buildings</h3>
               </CardContent>
             </Card>
             <Card>
               <CardContent className="p-6 text-center space-y-3">
                 <Building className="mx-auto h-10 w-10 text-neon-cyan" />
-                <h3 className="font-semibold">Commercial Buildings</h3>
+                <h3 className="font-semibold">Commercial Offices</h3>
               </CardContent>
             </Card>
             <Card>
@@ -210,7 +210,7 @@ const PassengerElevators = () => {
             <Card>
               <CardContent className="p-6 text-center space-y-3">
                 <Hospital className="mx-auto h-10 w-10 text-neon-cyan" />
-                <h3 className="font-semibold">Hospitals</h3>
+                <h3 className="font-semibold">Educational Institutions</h3>
               </CardContent>
             </Card>
           </div>

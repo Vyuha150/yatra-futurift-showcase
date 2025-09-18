@@ -43,7 +43,7 @@ const ProjectsAndCasestudies = () => {
       <section className="pt-24 pb-16 px-6 relative z-10" ref={heroRef}>
         <div className="container mx-auto text-center max-w-4xl">
           <motion.h1
-            className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-neon-cyan via-neon-blue to-neon-green bg-clip-text text-transparent mb-6"
+            className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-neon-cyan via-neon-blue to-neon-green bg-clip-text text-transparent mb-6"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={heroInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 1 }}

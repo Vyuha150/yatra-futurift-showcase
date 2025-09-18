@@ -81,9 +81,9 @@ const PublicEscalators = () => {
     },
     {
       icon: Target,
-      title: "Energy Efficient",
+      title: "Passenger Flow Management",
       description:
-        "Designed with smart power management to reduce energy usage during low traffic hours.",
+        "Keep crowds moving quickly during rush hours, reducing congestion at entry/exit points.",
     },
     {
       icon: Lightbulb,
@@ -93,9 +93,9 @@ const PublicEscalators = () => {
     },
     {
       icon: Users,
-      title: "High Capacity",
+      title: "Durability & Reliability",
       description:
-        "Engineered to handle heavy foot traffic with smooth and continuous movement.",
+        "Designed for 20+ hours of operation per day with minimal downtime.",
     },
   ];
 
@@ -110,7 +110,7 @@ const PublicEscalators = () => {
       <section ref={heroRef} className="relative z-10 px-6 pt-24 pb-16">
         <div className="container mx-auto max-w-4xl text-center">
           <motion.h1
-            className="mb-6 text-5xl font-bold text-transparent md:text-7xl bg-gradient-to-r from-neon-cyan via-neon-blue to-neon-green bg-clip-text"
+            className="mb-6 text-4xl font-bold text-transparent md:text-6xl bg-gradient-to-r from-neon-cyan via-neon-blue to-neon-green bg-clip-text"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={heroInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 1 }}
@@ -186,8 +186,7 @@ const PublicEscalators = () => {
               Why Choose Our Solutions
             </h2>
             <p className="mx-auto max-w-3xl text-muted-foreground">
-              From heavy-duty reliability to modern designs, our escalators and
-              walkways are built for today’s urban spaces.
+               Our escalators are equipped with facilities like durability,  lift mobility, Advanced Sensors, Safety Features and Optional Customizations. 
             </p>
           </motion.div>
 

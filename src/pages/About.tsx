@@ -466,7 +466,7 @@ const About = () => {
                 IGBC. We collaborate with architects, developers, and government
                 bodies to assure that our vertical mobility solutions contribute
                 purposefully & meaningfully to infrastructure goals that are
-                sustainable. .
+                sustainable.
               </p>
             </motion.div>
 

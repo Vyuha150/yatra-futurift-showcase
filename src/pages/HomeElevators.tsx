@@ -222,13 +222,13 @@ const HomeElevators = () => {
             <Card>
               <CardContent className="p-6 text-center space-y-3">
                 <Home className="mx-auto h-10 w-10 text-neon-cyan" />
-                <h3 className="font-semibold">Residential Homes</h3>
+                <h3 className="font-semibold">Private Residences</h3>
               </CardContent>
             </Card>
             <Card>
               <CardContent className="p-6 text-center space-y-3">
                 <Building className="mx-auto h-10 w-10 text-neon-cyan" />
-                <h3 className="font-semibold">Commercial Buildings</h3>
+                <h3 className="font-semibold">Renovation Projects</h3>
               </CardContent>
             </Card>
             <Card>
@@ -240,7 +240,7 @@ const HomeElevators = () => {
             <Card>
               <CardContent className="p-6 text-center space-y-3">
                 <Hospital className="mx-auto h-10 w-10 text-neon-cyan" />
-                <h3 className="font-semibold">Hospitals</h3>
+                <h3 className="font-semibold">Commercial-Residential Spaces</h3>
               </CardContent>
             </Card>
           </div>

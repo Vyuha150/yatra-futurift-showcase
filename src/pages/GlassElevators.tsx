@@ -75,27 +75,27 @@ const GlassElevators = () => {
   const features: Feature[] = [
     {
       icon: Heart,
-      title: "Safety First",
+      title: "Aesthetic Appeal",
       description:
-        "Built with world-class safety systems that comply with international standards, ensuring complete peace of mind.",
+        "Their sleek, transparent design enhances the look of lobbies, atriums, shopping centers, and luxury residences.",
     },
     {
       icon: Target,
-      title: "Energy Efficient",
+      title: "Prestige & Luxury",
       description:
-        "Smart power-saving technology reduces energy consumption without compromising on performance.",
+        "Adds sophistication and value to commercial spaces, hotels, and premium homes.",
     },
     {
       icon: Lightbulb,
-      title: "Innovative Designs",
+      title: "Custom Design Options",
       description:
-        "Stylish interiors and customizable cabins that blend seamlessly into your space.",
+        "Available in round, oval, or square cabins with glass, stainless steel, or designer finishes.",
     },
     {
       icon: Users,
-      title: "Capacity Options",
+      title: "Space Optimization",
       description:
-        "Available in multiple capacities – from compact home elevators to large-scale commercial solutions.",
+        "Can be installed inside or on the exterior façade of a building, depending on design needs.",
     },
   ];
 
@@ -124,8 +124,7 @@ const GlassElevators = () => {
             animate={heroInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Bringing comfort, safety, and elegance to your home and workplace
-            with our premium passenger elevators.
+            Our elevators are not only for elegance and for a static visual appearance but also for powerful and exceptional safety mechanisms and security.
           </motion.p>
 
           <motion.div
@@ -190,8 +189,7 @@ const GlassElevators = () => {
               Why Choose Our Elevators
             </h2>
             <p className="mx-auto max-w-3xl text-muted-foreground">
-              Combining cutting-edge technology with world-class safety
-              standards to give you the best elevator experience.
+              Improvising gardens and lobby or it is more focused on futuristic advancements, creating a futuristic feel 
             </p>
           </motion.div>
 
@@ -217,8 +215,7 @@ const GlassElevators = () => {
               Where Can They Be Used?
             </h2>
             <p className="mx-auto max-w-2xl text-muted-foreground">
-              Our elevators are designed to serve diverse needs across different
-              industries and spaces.
+             In commercial settings, Yatra’s exceptional lifts and its mobility always takes a bench mark.
             </p>
           </div>
 
@@ -226,25 +223,25 @@ const GlassElevators = () => {
             <Card>
               <CardContent className="p-6 text-center space-y-3">
                 <Home className="mx-auto h-10 w-10 text-neon-cyan" />
-                <h3 className="font-semibold">Residential Homes</h3>
+                <h3 className="font-semibold">Hotels & Resorts</h3>
               </CardContent>
             </Card>
             <Card>
               <CardContent className="p-6 text-center space-y-3">
                 <Building className="mx-auto h-10 w-10 text-neon-cyan" />
-                <h3 className="font-semibold">Commercial Buildings</h3>
+                <h3 className="font-semibold">Shopping Malls & Showrooms</h3>
               </CardContent>
             </Card>
             <Card>
               <CardContent className="p-6 text-center space-y-3">
                 <Hotel className="mx-auto h-10 w-10 text-neon-cyan" />
-                <h3 className="font-semibold">Hotels & Apartments</h3>
+                <h3 className="font-semibold">Airports & Convention Centers</h3>
               </CardContent>
             </Card>
             <Card>
               <CardContent className="p-6 text-center space-y-3">
                 <Hospital className="mx-auto h-10 w-10 text-neon-cyan" />
-                <h3 className="font-semibold">Hospitals</h3>
+                <h3 className="font-semibold">Luxury Residences & Penthouses</h3>
               </CardContent>
             </Card>
           </div>
